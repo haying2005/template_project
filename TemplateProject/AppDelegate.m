@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTabBarViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //初始化TabBarController
+    MainTabBarViewController *tabBarCtrl = [[MainTabBarViewController alloc]init];
+    [self.window setRootViewController:tabBarCtrl];
+    
     return YES;
 }
 

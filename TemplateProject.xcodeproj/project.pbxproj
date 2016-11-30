@@ -17,6 +17,7 @@
 		CC8CD6081DEEC87700A682B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8CD5FB1DEEC87700A682B6 /* Assets.xcassets */; };
 		CC8CD6091DEEC87700A682B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8CD5FD1DEEC87700A682B6 /* LaunchScreen.storyboard */; };
 		CC8CD60A1DEEC87700A682B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8CD5FF1DEEC87700A682B6 /* Main.storyboard */; };
+		CC8CD60D1DEED23F00A682B6 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD60C1DEED23F00A682B6 /* MainTabBarViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		CC8CD5FB1DEEC87700A682B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = TemplateProject/Assets.xcassets; sourceTree = "<group>"; };
 		CC8CD5FE1DEEC87700A682B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8CD6001DEEC87700A682B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		CC8CD60B1DEED23F00A682B6 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		CC8CD60C1DEED23F00A682B6 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 		CC8CD6031DEEC87700A682B6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CC8CD60B1DEED23F00A682B6 /* MainTabBarViewController.h */,
+				CC8CD60C1DEED23F00A682B6 /* MainTabBarViewController.m */,
 			);
 			name = Controller;
 			path = TemplateProject/Controller;
@@ -309,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
+				CC8CD60D1DEED23F00A682B6 /* MainTabBarViewController.m in Sources */,
 				CC8CD5E91DEEC02600A682B6 /* AppDelegate.m in Sources */,
 				CC8CD5E61DEEC02600A682B6 /* main.m in Sources */,
 			);
