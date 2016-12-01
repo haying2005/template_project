@@ -29,6 +29,6 @@
 
 - (NSString *)getStringForKey:(NSString *)key;
 
-- (void)setNewLanguage:(NSString*)language;
+- (void)setNewLanguage:(NSString *)language;
 
 @end
