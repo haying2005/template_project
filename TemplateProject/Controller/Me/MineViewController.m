@@ -24,7 +24,7 @@
     _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.backgroundColor = [UIColor lightGrayColor];
+    [_tableView setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]];
     _tableView.tableFooterView = [UIView new];
     [self.view addSubview:_tableView];
     WEAKSELF;
@@ -39,6 +39,9 @@
               @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
               @{@"icon" : @"tab_me_sel", @"title" : @"登出"}
               ];
+    
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(toSetting:)];
 }
 
 #pragma mark - UITableViewDataSource
@@ -79,10 +82,13 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
             if (!cell) {
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell2"];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                
             }
             NSDictionary *dic = [itemArr objectAtIndex:indexPath.row];
             cell.imageView.image = [UIImage imageNamed:[dic valueForKey:@"icon"]];
             cell.textLabel.text = [dic valueForKey:@"title"];
+            cell.textLabel.font = [UIFont systemFontOfSize:12];
             return cell;
             break;
         }
@@ -114,6 +120,10 @@
         PersonalInfoViewController *ctrl = [[PersonalInfoViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
+}
+
+- (void)toSetting:(id)sender {
+    
 }
 
 

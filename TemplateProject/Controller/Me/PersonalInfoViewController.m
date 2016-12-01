@@ -27,6 +27,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
+    [_tableView setBackgroundColor:[UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1]];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(weakSelf.view);
     }];
@@ -51,6 +52,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
         cell.textLabel.font = [UIFont systemFontOfSize:12];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     cell.textLabel.text = [items[indexPath.row] valueForKey:@"title"];
     return cell;
