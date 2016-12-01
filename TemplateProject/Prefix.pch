@@ -1,9 +1,14 @@
 
-#import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
-#import "User.h"
-#import "Utility.h"
-#import "AppDelegate.h"
-#import "YYModel.h"
-#import <AFNetworking.h>
-#import "UIView+FrameLayout.h"
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "Utility.h"
+    #import "LanguageTool.h"
+    #import "User.h"
+    #import "AppDelegate.h"
+    #import "YYModel.h"
+    #import <AFNetworking.h>
+    #import "UIView+FrameLayout.h"
+
+
+#endif

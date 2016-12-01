@@ -13,62 +13,44 @@
 #define ZN_DEBUG DEBUG
 
 #define STRING_GET_LASTPATHCOMPONENT(str) (\
-        {   char *str_ret=NULL;\
-            int i=0;\
+        {   char *str_ret = NULL;\
+            int i = 0;\
             while (((char *)str)[i] != '\0') i++;\
             while (((char *)str)[i] != '/') i--;\
-            str_ret=(char *)str+i+1;\
+            str_ret = (char *)str + i + 1;\
             str_ret;\
         })
 
 #if ZN_DEBUG
-#define ZNLog(format,...) NSLog(@"(%s-%d)%s:" format,(char *)STRING_GET_LASTPATHCOMPONENT((char *)__FILE__),__LINE__,(char *)__FUNCTION__,##__VA_ARGS__)
+#define ZNLog(format, ...) NSLog(@"(%s-%d)%s:" format, (char *)STRING_GET_LASTPATHCOMPONENT((char *)__FILE__), __LINE__, (char *)__FUNCTION__, ##__VA_ARGS__)
 #else
-#define ZNLog(format,...)
+#define ZNLog(format, ...)
 #endif
 
 // Safe Release An Object
 #if __has_feature(objc_arc)
-#define SAFE_RELEASE(x) do{if(x){x=nil;}}while(0)
+#define SAFE_RELEASE(x) do{if(x){x = nil;}}while(0)
 #else
-#define SAFE_RELEASE(x) do{if(x){[x release];x=nil;}}while(0)
+#define SAFE_RELEASE(x) do{if(x){[x release];x = nil;}}while(0)
 #endif
 
 // Weak Self
-#define WEAKSELF __weak typeof(self) weakSelf = self;
+#define WEAKSELF        typeof(self) __weak weakSelf = self;
 
-// Adjust Label's Frame With Text Align Right
-#define ADJUST_LABEL_ALIGN_RIGHT(label,content) do{\
-    CGSize size=[content sizeWithFont:label.font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping];\
-    label.text=content;\
-    label.frame=CGRectMake(label.frame.origin.x+label.frame.size.width-size.width, label.frame.origin.y, size.width, size.height);\
-}while(0)
-
-// Adjust Label's Frame With Text Align Left
-#define ADJUST_LABEL_ALIGN_LEFT(label,content) do{\
-    CGSize size=[content sizeWithFont:label.font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping];\
-    label.text=content;\
-    label.frame=CGRectMake(label.frame.origin.x, label.frame.origin.y, size.width, size.height);\
-}while(0)
-
-// Adjust Label's Frame With Text Align Center
-#define ADJUST_LABEL_ALIGN_CENTER(label,content) do{\
-    CGSize size=[content sizeWithFont:label.font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping];\
-    label.text=content;\
-    label.frame=CGRectMake(label.frame.origin.x+(label.frame.size.width-size.width)/2., label.frame.origin.y, size.width, size.height);\
-}while(0)
+// Strong Self
+#define STRONGSELF      typeof(self) __strong strongSelf = self;
 
 // Degree and radian convert
-#define DEGREE_TO_RADIAN(x)             (M_PI*(x)/180.)
-#define RADIAN_TO_DEGREE(x)             ((x)*180./M_PI)
+#define DEGREE_TO_RADIAN(x)             (M_PI * (x) / 180.)
+#define RADIAN_TO_DEGREE(x)             ((x) * 180. / M_PI)
 
 // RGB Color
-#define RGBA(r,g,b,a)                   [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
-#define RGB(r,g,b)                      RGBA(r,g,b,1.0f)
+#define RGBA(r,g,b,a)                   [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:a]
+#define RGB(r,g,b)                      RGBA(r, g, b, 1.0f)
 
 // Judge the OS's version
-#define IOS_VERSION_EQUAL(x)            ([[[UIDevice currentDevice] systemVersion] floatValue]==x)
-#define IOS_VERSION_EQUAL_OR_GREATER(x) ([[[UIDevice currentDevice] systemVersion] floatValue]>=x)
+#define IOS_VERSION_EQUAL(x)            ([[[UIDevice currentDevice] systemVersion] floatValue] == x)
+#define IOS_VERSION_EQUAL_OR_GREATER(x) ([[[UIDevice currentDevice] systemVersion] floatValue] >= x)
 
 // Alert
 #define alert(title, body) do{\
@@ -135,4 +117,3 @@
 #define APP_DELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
 
 #endif
-
