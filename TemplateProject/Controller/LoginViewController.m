@@ -84,7 +84,7 @@
         return [self showError:@"密码不能大于20位"];
     }
 
-    if (![Validate validateMobile:txtPassword.text]) {
+    if (![Validate validatePassword:txtPassword.text]) {
         return [self showError:@"密码只能由数字跟字母组成"];
     }
     [self showError:@""];
