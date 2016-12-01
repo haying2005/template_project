@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "TestViewController.h"
 #import "User.h"
+#import "MineViewController.h"
 
 @interface MainTabBarViewController () <UITabBarControllerDelegate>
 
@@ -50,7 +51,7 @@
     ctrl3.navigationItem.title = @"发现";
     [self addChildCtrl:nav3 title:@"发现" icon:[UIImage imageNamed:@"tab_me_sel"]];
     
-    UIViewController *ctrl4 = [[UIViewController alloc]init];
+    MineViewController *ctrl4 = [[MineViewController alloc]init];
     UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:ctrl4];
     ctrl4.navigationItem.title = @"我的";
     [self addChildCtrl:nav4 title:@"我的" icon:[UIImage imageNamed:@"tab_me_sel"]];
@@ -70,7 +71,8 @@
 
 - (void)showLoginView {
     LoginViewController *loginViewController = [[LoginViewController alloc]init];
-    [self presentViewController:loginViewController animated:YES completion:^{
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    [self presentViewController:nav animated:YES completion:^{
         //
     }];
 }

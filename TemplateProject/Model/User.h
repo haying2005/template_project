@@ -11,11 +11,14 @@
 @interface User : NSObject
 
 @property (nonatomic, copy)NSString *userId;
+@property (nonatomic, copy)NSString *password;
 @property (nonatomic, copy)NSString *userName;
 @property (nonatomic, copy)NSString *userNick;
 @property (nonatomic, copy)NSString *headUrl;
 @property (nonatomic, assign)BOOL isLogin;
 
 + (instancetype)shareInstance;
++ (NSDictionary *)registerUser:(User *)user;
++ (NSDictionary *)login:(NSString *)userName pass:(NSString *)pass;
 
 @end

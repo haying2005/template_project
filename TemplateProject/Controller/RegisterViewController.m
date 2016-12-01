@@ -1,20 +1,15 @@
 //
-//  LoginViewController.m
+//  RegisterViewController.m
 //  TemplateProject
 //
-//  Created by fangwenyu on 2016/11/30.
+//  Created by fangwenyu on 2016/12/1.
 //
 //
 
-#import "LoginViewController.h"
-#import "Masonry.h"
-#import "MainTabBarViewController.h"
-#import "User.h"
-#import "Validate.h"
-#import "FMDatabase.h"
 #import "RegisterViewController.h"
+#import "Validate.h"
 
-@interface LoginViewController ()
+@interface RegisterViewController ()
 {
     UITextField *txtUsername;
     UITextField *txtPassword;
@@ -22,14 +17,13 @@
     UILabel *lblTip;
 }
 
-
 @end
 
-@implementation LoginViewController
+@implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"登录";
+    self.navigationItem.title = @"注册";
     
     self.view.backgroundColor = [UIColor whiteColor];
     UIView *superV = self.view;
@@ -56,9 +50,9 @@
     
     btnLogin = [UIButton new];
     [superV addSubview:btnLogin];
-    [btnLogin setTitle:@"登录" forState:UIControlStateNormal];
+    [btnLogin setTitle:@"提交" forState:UIControlStateNormal];
     [btnLogin setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btnLogin addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+    [btnLogin addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
     [btnLogin mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(txtPassword.mas_bottom).with.offset(30);
         make.right.equalTo(txtPassword.mas_right).with.offset(-30);
@@ -73,19 +67,10 @@
         make.left.equalTo(txtPassword);
         make.right.equalTo(btnLogin.mas_left).with.offset(30);
     }];
-    
-    UIButton *btnRight = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btnRight setTitle:@"注册" forState:UIControlStateNormal];
-    [btnRight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btnRight sizeToFit];
-    [btnRight addTarget:self action:@selector(toRegister:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
-    
+
 }
 
-
-- (void)login {
+- (void)submit {
     if (![Validate validateMobile:txtUsername.text]) {
         return [self showError:@"请正确填写手机号"];
     }
@@ -95,32 +80,46 @@
     if (txtPassword.text.length > 20) {
         return [self showError:@"密码不能大于20位"];
     }
-
+    
     if (![Validate validatePassword:txtPassword.text]) {
         return [self showError:@"密码只能由数字跟字母组成"];
     }
     [self showError:@""];
-
-    NSDictionary *result = [User login:txtUsername.text pass:txtPassword.text];
+    [MBProgressHUD HUDForView:self.view];
+    
+    User *user = [[User alloc] init];
+    user.userName = txtUsername.text;
+    user.password = txtPassword.text;
+    user.userNick = @"default nick";
+    user.headUrl = @"http://";
+    NSDictionary *result = [User registerUser:user];
     if (!([[result valueForKey:@"code"] integerValue] == 0)) {
         [self showError:result[@"errMsg"]];
     }
     else {
-        [self showError:@"登录成功"];
-        [self.navigationController dismissViewControllerAnimated:YES completion:^{
-            //
-        }];
+        [self showError:@"注册成功"];
     }
-    
+    //NSLog(@"%@", result);
     
 }
 
 - (void)showError:(NSString *)text {
     [lblTip setText:text];
 }
-- (void)toRegister:(id)sender {
-    RegisterViewController *ctrl = [[RegisterViewController alloc]init];
-    [self.navigationController pushViewController:ctrl animated:YES];
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

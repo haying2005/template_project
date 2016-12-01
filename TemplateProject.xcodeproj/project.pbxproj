@@ -39,6 +39,9 @@
 		CCFC08B31DEFF14900DF895E /* UIView+WYView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08A11DEFF14900DF895E /* UIView+WYView.m */; };
 		CCFC08B41DEFF14900DF895E /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08A31DEFF14900DF895E /* UIViewAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CCFC08B71DEFF16800DF895E /* Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08B61DEFF16800DF895E /* Validate.m */; };
+		CCFC08BD1DEFFB8300DF895E /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08BC1DEFFB8300DF895E /* MineViewController.m */; };
+		CCFC08C01DF00C1100DF895E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08BF1DF00C1100DF895E /* RegisterViewController.m */; };
+		CCFC08C31DF02D1500DF895E /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08C21DF02D1500DF895E /* PersonalInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +106,12 @@
 		CCFC08B61DEFF16800DF895E /* Validate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validate.m; sourceTree = "<group>"; };
 		CCFC08B81DEFF53B00DF895E /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		CCFC08B91DEFF69100DF895E /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = TemplateProject/Prefix.pch; sourceTree = "<group>"; };
+		CCFC08BB1DEFFB8300DF895E /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		CCFC08BC1DEFFB8300DF895E /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		CCFC08BE1DF00C1100DF895E /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		CCFC08BF1DF00C1100DF895E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		CCFC08C11DF02D1500DF895E /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
+		CCFC08C21DF02D1500DF895E /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +232,12 @@
 				CC1765071DEEDD1000F98CEA /* LoginViewController.m */,
 				CCFC087B1DEFC0FA00DF895E /* TestViewController.h */,
 				CCFC087C1DEFC0FA00DF895E /* TestViewController.m */,
+				CCFC08BB1DEFFB8300DF895E /* MineViewController.h */,
+				CCFC08BC1DEFFB8300DF895E /* MineViewController.m */,
+				CCFC08BE1DF00C1100DF895E /* RegisterViewController.h */,
+				CCFC08BF1DF00C1100DF895E /* RegisterViewController.m */,
+				CCFC08C11DF02D1500DF895E /* PersonalInfoViewController.h */,
+				CCFC08C21DF02D1500DF895E /* PersonalInfoViewController.m */,
 			);
 			name = Controller;
 			path = TemplateProject/Controller;
@@ -440,6 +455,7 @@
 				CCFC08AE1DEFF14900DF895E /* UIImageAdditions.m in Sources */,
 				CCFC08B71DEFF16800DF895E /* Validate.m in Sources */,
 				CCFC087D1DEFC0FA00DF895E /* TestViewController.m in Sources */,
+				CCFC08C01DF00C1100DF895E /* RegisterViewController.m in Sources */,
 				CCFC08B01DEFF14900DF895E /* UIView+Diamond.m in Sources */,
 				CCFC08801DEFECC200DF895E /* User.m in Sources */,
 				CCFC08A41DEFF14900DF895E /* NSDateAdditions.m in Sources */,
@@ -451,7 +467,9 @@
 				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
 				CCFC08A71DEFF14900DF895E /* NSStringAdditions.m in Sources */,
 				CCFC08B31DEFF14900DF895E /* UIView+WYView.m in Sources */,
+				CCFC08BD1DEFFB8300DF895E /* MineViewController.m in Sources */,
 				CCFC08AB1DEFF14900DF895E /* UIColorAdditions.m in Sources */,
+				CCFC08C31DF02D1500DF895E /* PersonalInfoViewController.m in Sources */,
 				CCFC08A51DEFF14900DF895E /* NSMutableAttributedString+Utility.m in Sources */,
 				CC8CD5E91DEEC02600A682B6 /* AppDelegate.m in Sources */,
 				CCFC08AF1DEFF14900DF895E /* UILabel+Gradient.m in Sources */,
