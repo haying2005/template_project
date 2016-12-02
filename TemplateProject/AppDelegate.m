@@ -62,15 +62,27 @@
 #pragma mark - Test Language
 
 - (void)testLanguage {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChangeNotificationHandle:) name:NOTIFICATION_LANGUAGE_CHANGE object:nil];
     
-    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:@selector(language)]);
-    ZNLog(@"%@ %@ %@", Localized(@"Send"), Localized(@"Cancel"), Localized(@"Sina Weibo"));
+    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:sel_getUid("language")]);
+    
+    NSString *sendString = Localized(@"Send");
+    NSString *cancelString = Localized(@"Cancel");
+    NSString *sinaWeiboString = Localized(@"Sina Weibo");
+    
+    ZNLog(@"%@ %@ %@", sendString, cancelString, sinaWeiboString);
     
     [[LanguageTool shareInstance] setNewLanguage:CN_S];
     
-    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:@selector(language)]);
-    ZNLog(@"%@ %@ %@", Localized(@"Send"), Localized(@"Cancel"), Localized(@"Sina Weibo"));
+    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:sel_getUid("language")]);
+    
+    sendString = Localized(@"Send");
+    cancelString = Localized(@"Cancel");
+    sinaWeiboString = Localized(@"Sina Weibo");
+    ZNLog(@"%@ %@ %@", sendString, cancelString, sinaWeiboString);
+#pragma clang diagnostic pop
 }
 
 - (void)languageChangeNotificationHandle:(NSNotification *)notification

@@ -125,7 +125,10 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
     [invocation invokeWithTarget:nil];
+#pragma clang diagnostic pop
 }
 
 #endif

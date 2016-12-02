@@ -331,7 +331,7 @@
 - (UIImage *)imageWithShadowColor:(UIColor *)color offset:(CGSize)offset blur:(CGFloat)blur
 {
     //get size
-    CGSize border = CGSizeMake(fabsf(offset.width) + blur, fabsf(offset.height) + blur);
+    CGSize border = CGSizeMake(offset.width + blur, offset.height + blur);
     CGSize size = CGSizeMake(self.size.width + border.width * 2.0f, self.size.height + border.height * 2.0f);
     
     //create drawing context
@@ -428,8 +428,21 @@
     [self drawAtPoint:CGPointZero];
     
     CGContextSetFillColorWithColor(context, color.CGColor);
-    CGSize size=[text sizeWithFont:font forWidth:CGFLOAT_MAX lineBreakMode:NSLineBreakByClipping];
-    [text drawAtPoint:CGPointMake(self.size.width/2-size.width/2, self.size.height/2-size.height/2) withFont:font];
+    
+    NSMutableDictionary *mutableAttributes = [NSMutableDictionary dictionary];
+    
+    [mutableAttributes setObject:font forKey:NSFontAttributeName];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    [mutableAttributes setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+
+    CGSize size = [text boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
+                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                  attributes:mutableAttributes
+                                     context:nil].size;
+    [text drawAtPoint:CGPointMake(self.size.width / 2 - size.width / 2, self.size.height / 2 - size.height / 2) withAttributes:mutableAttributes];
     
     //capture resultant image
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

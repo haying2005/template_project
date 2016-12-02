@@ -21,7 +21,7 @@
 #define NOTIFICATION_LANGUAGE_CHANGE    @"NOTIFICATION_LANGUAGE_CHANGE"
 
 // 获取当前语言的某个键的值
-#define Localized(key)                  ([[LanguageTool shareInstance] getStringForKey:key])
+#define Localized(key)                  ((NSString *)[[LanguageTool shareInstance] getStringForKey:key])
 
 @interface LanguageTool : NSObject
 

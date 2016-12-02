@@ -13,7 +13,7 @@
 // 1      2      3       4         5        6      7
 
 #define TIMESTAMP_IDENTIFIER                @"yyyy-MM-dd HH:mm:ss.SSS"
-#define COMMON_DATECOMPONENT_IDENTIFIER     (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSWeekdayCalendarUnit)
+#define COMMON_DATECOMPONENT_IDENTIFIER     (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday)
 
 @interface NSDate (NSDateAdditions)
 
