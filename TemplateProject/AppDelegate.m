@@ -18,14 +18,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [LanguageTool shareInstance];
     
     //初始化TabBarController
     MainTabBarViewController *tabBarCtrl = [[MainTabBarViewController alloc]init];
     [self.window setRootViewController:tabBarCtrl];
     
+    [self.window makeKeyAndVisible];
+    
+    [self testLanguage];
+    
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -51,6 +57,25 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Test Language
+
+- (void)testLanguage {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChangeNotificationHandle:) name:NOTIFICATION_LANGUAGE_CHANGE object:nil];
+    
+    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:@selector(language)]);
+    ZNLog(@"%@ %@ %@", Localized(@"Send"), Localized(@"Cancel"), Localized(@"Sina Weibo"));
+    
+    [[LanguageTool shareInstance] setNewLanguage:CN_S];
+    
+    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:@selector(language)]);
+    ZNLog(@"%@ %@ %@", Localized(@"Send"), Localized(@"Cancel"), Localized(@"Sina Weibo"));
+}
+
+- (void)languageChangeNotificationHandle:(NSNotification *)notification
+{
+    ZNLog(@"%@", notification);
 }
 
 
