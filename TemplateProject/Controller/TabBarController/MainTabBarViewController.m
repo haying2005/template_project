@@ -27,6 +27,8 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self initTabBar];
     self.delegate = self;
+    
+    [User loadCurrentUser];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -46,10 +48,10 @@
     ctrl2.navigationItem.title = @"附近";
     [self addChildCtrl:nav2 title:@"附近" icon:[UIImage imageNamed:@"tab_me_sel"]];
     
-    UIViewController *ctrl3 = [[UIViewController alloc]init];
+    TestViewController *ctrl3 = [[TestViewController alloc]init];
     UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:ctrl3];
-    ctrl3.navigationItem.title = @"发现";
-    [self addChildCtrl:nav3 title:@"发现" icon:[UIImage imageNamed:@"tab_me_sel"]];
+    ctrl3.navigationItem.title = @"测试";
+    [self addChildCtrl:nav3 title:@"测试" icon:[UIImage imageNamed:@"tab_me_sel"]];
     
     MineViewController *ctrl4 = [[MineViewController alloc]init];
     UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:ctrl4];

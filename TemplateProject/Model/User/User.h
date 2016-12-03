@@ -20,5 +20,8 @@
 + (instancetype)shareInstance;
 + (NSDictionary *)registerUser:(User *)user;
 + (NSDictionary *)login:(NSString *)userName pass:(NSString *)pass;
+- (NSDictionary *)logout;
++ (void)loadCurrentUser;
+- (BOOL)updateInfo:(NSDictionary *)dic;
 
 @end

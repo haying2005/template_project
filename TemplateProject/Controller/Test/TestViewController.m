@@ -64,6 +64,18 @@
         make.bottom.equalTo(lastV);
     }];
     
+    BOOL b1 = [self isKindOfClass:[self class]];
+    BOOL b2 = [self isKindOfClass:[UIViewController class]];
+    NSLog(@"%d - %d", b1, b2);
+    
+    BOOL b3 = [self isMemberOfClass:[self class]];
+    BOOL b4 = [self isMemberOfClass:[UIViewController class]];
+    BOOL b5 = [self isMemberOfClass:[NSObject class]];
+    BOOL b6 = [self isMemberOfClass:[TestViewController class]];
+    NSLog(@"%d - %d - %d - %d", b3, b4, b5, b6);
+    
+    NSLog(@"%@", [self class]);
+    NSLog(@"%@", [TestViewController class]);
 }
 
 - (void)didReceiveMemoryWarning {

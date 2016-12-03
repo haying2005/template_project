@@ -11,6 +11,8 @@
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
+		CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */; };
+		CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */; };
 		CC8CD5E61DEEC02600A682B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5E51DEEC02600A682B6 /* main.m */; };
 		CC8CD5E91DEEC02600A682B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5E81DEEC02600A682B6 /* AppDelegate.m */; };
 		CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5EB1DEEC02600A682B6 /* ViewController.m */; };
@@ -56,6 +58,10 @@
 		A9727A871DF0044A002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Language.strings"; sourceTree = "<group>"; };
 		A9727A881DF004EC002640EB /* LanguageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageTool.h; sourceTree = "<group>"; };
 		A9727A891DF004EC002640EB /* LanguageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageTool.m; sourceTree = "<group>"; };
+		CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
+		CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
+		CC4EFFCD1DF17D3000B7C5BB /* MultiImagePickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiImagePickController.h; sourceTree = "<group>"; };
+		CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiImagePickController.m; sourceTree = "<group>"; };
 		CC8CD5E11DEEC02600A682B6 /* TemplateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8CD5E51DEEC02600A682B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CC8CD5E71DEEC02600A682B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -336,6 +342,10 @@
 				CCFC08CF1DF0419700DF895E /* MineViewController.m */,
 				CCFC08D01DF0419700DF895E /* PersonalInfoViewController.h */,
 				CCFC08D11DF0419700DF895E /* PersonalInfoViewController.m */,
+				CC4EFFCD1DF17D3000B7C5BB /* MultiImagePickController.h */,
+				CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */,
+				CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */,
+				CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -391,6 +401,7 @@
 				TargetAttributes = {
 					CC8CD5E01DEEC02600A682B6 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = A3YYVQTF9B;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -483,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCFC08AC1DEFF14900DF895E /* UIFont+Default.m in Sources */,
+				CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */,
 				CCFC08D81DF0419700DF895E /* LoginViewController.m in Sources */,
 				CCFC08DD1DF0419700DF895E /* TestViewController.m in Sources */,
 				CCFC08DA1DF0419700DF895E /* MineViewController.m in Sources */,
@@ -493,6 +505,7 @@
 				CCFC08A61DEFF14900DF895E /* NSObjectAdditions.m in Sources */,
 				CCFC08D91DF0419700DF895E /* RegisterViewController.m in Sources */,
 				CCFC08C71DF0418400DF895E /* User.m in Sources */,
+				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
 				A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */,
@@ -644,6 +657,8 @@
 			baseConfigurationReference = 3431A6DFB747424FE6B26ECA /* Pods-TemplateProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = A3YYVQTF9B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
 				INFOPLIST_FILE = TemplateProject/Info.plist;
@@ -651,6 +666,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.baixi.com.TemplateProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -659,6 +676,8 @@
 			baseConfigurationReference = 58621766AF40096ED4BAE848 /* Pods-TemplateProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = A3YYVQTF9B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
 				INFOPLIST_FILE = TemplateProject/Info.plist;
@@ -666,6 +685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.baixi.com.TemplateProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

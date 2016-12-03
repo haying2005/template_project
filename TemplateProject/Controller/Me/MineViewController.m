@@ -33,11 +33,11 @@
     }];
     
     itemArr = @[
-              @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
-              @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
-              @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
-              @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
-              @{@"icon" : @"tab_me_sel", @"title" : @"登出"}
+                @{@"icon" : @"tab_me_sel", @"title" : @"设置", @"key" : @"setting"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"登出", @"key" : @"logout"}
               ];
     
 
@@ -120,6 +120,19 @@
         PersonalInfoViewController *ctrl = [[PersonalInfoViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
+    
+    //登出
+    else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"logout"]) {
+        NSDictionary *result = [[User shareInstance] logout];
+        if ([result[@"code"] integerValue] == 0) {
+            ZNLog(@"logout 成功！");
+        }
+        else {
+            ZNLog(@"%@", result[@"errMsg"]);
+        }
+    }
+    
+    
 }
 
 - (void)toSetting:(id)sender {

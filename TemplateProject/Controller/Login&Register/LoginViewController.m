@@ -107,6 +107,7 @@
     }
     else {
         [self showError:@"登录成功"];
+        [[User shareInstance] updateInfo:@{@"login" : @(YES)}];
         [self.navigationController dismissViewControllerAnimated:YES completion:^{
             //
         }];

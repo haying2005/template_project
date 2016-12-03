@@ -7,8 +7,10 @@
 //
 
 #import "PersonalInfoViewController.h"
+#import "MultiImagePickController.h"
 
-@interface PersonalInfoViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@interface PersonalInfoViewController () <UITableViewDelegate, UITableViewDataSource, MultiImagePickControllerDelegate>
 {
     UITableView *_tableView;
     NSArray *items;
@@ -20,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"个人资料";
     WEAKSELF;
     _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [_tableView setBackgroundColor:[UIColor whiteColor]];
@@ -40,6 +42,7 @@
               @{@"icon" : @"", @"title" : @"地区"},
               @{@"icon" : @"", @"title" : @"个性签名"},
               ];
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -53,6 +56,19 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
         cell.textLabel.font = [UIFont systemFontOfSize:12];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        if (indexPath.row == 0) {
+            UIImageView *img = [UIImageView new];
+            img.backgroundColor = [UIColor greenColor];
+            img.layer.cornerRadius = 5;
+            img.layer.masksToBounds = YES;
+            [cell addSubview:img];
+            [img mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(cell).with.offset(-30);
+                make.centerY.equalTo(cell);
+                make.width.and.height.equalTo(cell.mas_height).with.offset(- 20);
+            }];
+        }
     }
     cell.textLabel.text = [items[indexPath.row] valueForKey:@"title"];
     return cell;
@@ -65,6 +81,28 @@
     }
     return 40;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        MultiImagePickController *ctrl = [[MultiImagePickController alloc] init];
+        ctrl.delegate = self;
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:ctrl];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
+}
+
+
+#pragma mark - MultiImagePickControllerDelegate
+- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImage:(UIImage *)image {
+    ZNLog(@"didFinishPickingImage...");
+}
+- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImages:(NSArray<UIImage *> *)images {
+    ZNLog(@"didFinishPickingImages...");
+}
+- (void)multiImagePickControllerrDidCancel:(MultiImagePickController *)picker {
+    ZNLog(@"multiImagePickControllerrDidCancel...");
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
