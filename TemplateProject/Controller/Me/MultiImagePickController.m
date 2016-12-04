@@ -10,7 +10,7 @@
 #import "ShowPhotoViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface MultiImagePickController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface MultiImagePickController () <UICollectionViewDelegate, UICollectionViewDataSource, ShowPhotoViewControllerDelegate>
 {
     NSMutableArray *photoArr;
     UICollectionView *_collectionView;
@@ -119,6 +119,7 @@
     //ZNLog(@"%@", rep);
     
     ShowPhotoViewController *ctrl = [[ShowPhotoViewController alloc] init];
+    ctrl.delegate = self;
     
     //全屏图
     //ctrl.image = [UIImage imageWithCGImage:rep.fullScreenImage];
@@ -138,7 +139,7 @@
 }
 
 - (void)dismissSelf {
-    if (self.delegate) {
+    if ([self.delegate respondsToSelector:@selector(multiImagePickControllerrDidCancel:)]) {
         [self.delegate multiImagePickControllerrDidCancel:self];
     }
 
@@ -151,16 +152,29 @@
 }
 
 - (void)submit {
-    if (self.delegate && ![_collectionView indexPathsForSelectedItems].count) {
+    if ([self.delegate respondsToSelector:@selector(multiImagePickControllerrDidCancel:)] && ![_collectionView indexPathsForSelectedItems].count) {
         [self.delegate multiImagePickControllerrDidCancel:self];
     }
-    else if (self.delegate && [_collectionView indexPathsForSelectedItems].count == 1) {
+    else if ([self.delegate respondsToSelector:@selector(multiImagePickController:didFinishPickingImage:)] && [_collectionView indexPathsForSelectedItems].count == 1) {
         [self.delegate multiImagePickController:self didFinishPickingImage:nil];
     }
-    else if (self.delegate && [_collectionView indexPathsForSelectedItems].count > 1) {
+    else if ([self.delegate respondsToSelector:@selector(multiImagePickController:didFinishPickingImages:)] && [_collectionView indexPathsForSelectedItems].count > 1) {
         [self.delegate multiImagePickController:self didFinishPickingImages:nil];
     }
     
+    if (self.navigationController) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+#pragma mark - ShowPhotoViewControllerDelegate
+- (void)ShowPhotoViewController:(ShowPhotoViewController *)controller didFinishPickingImage:(UIImage *)image {
+    if ([self.delegate respondsToSelector:@selector(multiImagePickController:didFinishPickingImage:)]) {
+        [self.delegate multiImagePickController:self didFinishPickingImage:image];
+    }
     if (self.navigationController) {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }

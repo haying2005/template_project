@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class ShowPhotoViewController;
+
+@protocol ShowPhotoViewControllerDelegate <NSObject>
+
+- (void)ShowPhotoViewController:(ShowPhotoViewController *)controller didFinishPickingImage:(UIImage *)image;
+@end
+
 @interface ShowPhotoViewController : UIViewController
 
 @property (nonatomic, strong)UIImage *image;
+@property (nonatomic, weak) id <ShowPhotoViewControllerDelegate> delegate;
 @end

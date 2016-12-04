@@ -14,6 +14,8 @@
 {
     UITableView *_tableView;
     NSArray *items;
+    
+    UIImage *testHeadImage;
 }
 
 @end
@@ -62,15 +64,26 @@
             img.backgroundColor = [UIColor greenColor];
             img.layer.cornerRadius = 5;
             img.layer.masksToBounds = YES;
+            img.tag = 49;
             [cell addSubview:img];
+            
             [img mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.right.equalTo(cell).with.offset(-30);
                 make.centerY.equalTo(cell);
                 make.width.and.height.equalTo(cell.mas_height).with.offset(- 20);
             }];
+
         }
     }
     cell.textLabel.text = [items[indexPath.row] valueForKey:@"title"];
+    
+    if (indexPath.row == 0) {
+        UIImageView *img = [cell viewWithTag:49];
+        if (img && testHeadImage) {
+            img.image = testHeadImage;
+        }
+    }
+    
     return cell;
 }
 
@@ -95,6 +108,9 @@
 #pragma mark - MultiImagePickControllerDelegate
 - (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImage:(UIImage *)image {
     ZNLog(@"didFinishPickingImage...");
+    testHeadImage = image;
+    [_tableView reloadData];
+    
 }
 - (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImages:(NSArray<UIImage *> *)images {
     ZNLog(@"didFinishPickingImages...");
