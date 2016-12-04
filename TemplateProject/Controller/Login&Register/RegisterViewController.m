@@ -90,7 +90,7 @@
     User *user = [[User alloc] init];
     user.userName = txtUsername.text;
     user.password = txtPassword.text;
-    user.userNick = @"大狸子";
+    user.userNick = [NSString stringWithFormat:@"用户:%@", txtUsername.text];
     user.headUrl = @"http://";
     NSDictionary *result = [User registerUser:user];
     if (!([[result valueForKey:@"code"] integerValue] == 0)) {

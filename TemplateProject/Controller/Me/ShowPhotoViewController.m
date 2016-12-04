@@ -31,7 +31,6 @@
     scrollV.backgroundColor = [UIColor blackColor];
     scrollV.alwaysBounceVertical = YES;
     scrollV.alwaysBounceHorizontal = YES;
-    scrollV.clipsToBounds = NO;
     [self.view addSubview:scrollV];
     WEAKSELF;
     [scrollV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -82,7 +81,10 @@
     CGFloat insetH = h < height ? (height - h) /2 : 0;
     scrollView.contentInset = UIEdgeInsetsMake(insetH, insetW, insetH, insetW);
     
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    _scrollView.clipsToBounds = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
