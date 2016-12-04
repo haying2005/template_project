@@ -38,8 +38,11 @@
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     _collectionView.allowsMultipleSelection = YES;  //允许多选
     _collectionView.backgroundColor = [UIColor whiteColor];
-
     [self.view addSubview:_collectionView];
+    WEAKSELF;
+    [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakSelf.view);
+    }];
     
     [self loadPhotos];
 }
@@ -57,7 +60,9 @@
             }
             
             if (stop) {
-                [_collectionView reloadData];   //此方法为异步 一定要在此reload..
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_collectionView reloadData];
+                });
             }
         }];
         
@@ -93,14 +98,13 @@
         v.backgroundColor = [UIColor redColor];
         [cell addSubview:v];
         [v mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(10);
-            make.right.mas_equalTo(-10);
+            make.top.mas_equalTo(5);
+            make.right.mas_equalTo(-5);
             make.size.mas_equalTo(CGSizeMake(20, 20));
         }];
     }
     v.hidden = !cell.selected;
     ALAsset *photo = [photoArr objectAtIndex:indexPath.row];
-    //ZNLog(@"%@", photo);
     [img setImage:[UIImage imageWithCGImage:[photo aspectRatioThumbnail]]];
     
     return cell;
@@ -112,10 +116,20 @@
     [[collectionView cellForItemAtIndexPath:indexPath] viewWithTag:949].hidden = NO;
     ALAsset *photo = [photoArr objectAtIndex:indexPath.row];
     ALAssetRepresentation *rep = [photo defaultRepresentation];
-    ZNLog(@"%@", rep);
+    //ZNLog(@"%@", rep);
     
     ShowPhotoViewController *ctrl = [[ShowPhotoViewController alloc] init];
-    ctrl.image = [UIImage imageWithCGImage:rep.fullScreenImage];
+    
+    //全屏图
+    //ctrl.image = [UIImage imageWithCGImage:rep.fullScreenImage];
+    //原图
+    void *buffer = malloc(rep.size);
+    [rep getBytes:buffer fromOffset:0.0 length:rep.size error:nil];
+    if (rep.size > 0) {
+        NSData *data = [[NSData alloc] initWithBytes:buffer length:rep.size];
+        ctrl.image = [UIImage imageWithData:data];
+    }
+    
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {

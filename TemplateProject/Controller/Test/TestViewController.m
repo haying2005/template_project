@@ -25,7 +25,7 @@
     UIScrollView *scrollV = [UIScrollView new];
     [superV addSubview:scrollV];
     [scrollV setBackgroundColor:[UIColor blackColor]];
-    
+    //scrollV.clipsToBounds = NO;
     [scrollV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(superV);
         make.size.mas_equalTo(CGSizeMake(300, 300));
