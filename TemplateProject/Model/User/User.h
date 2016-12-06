@@ -16,6 +16,7 @@
 @property (nonatomic, copy)NSString *userNick;
 @property (nonatomic, copy)NSString *headUrl;
 @property (nonatomic, assign)BOOL isLogin;
+@property (nonatomic, strong)NSString *accessToken;
 
 + (instancetype)shareInstance;
 + (NSDictionary *)registerUser:(User *)user;

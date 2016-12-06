@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A769AC0AAE74BD0BE0943FF1 /* libPods-TemplateProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6900B7F4098D8950D1861765 /* libPods-TemplateProject.a */; };
+		A910E6E61DF56A50002073CF /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A910E6E21DF56A50002073CF /* HttpClient.m */; };
+		A910E6E71DF56A50002073CF /* HttpParametersUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A910E6E41DF56A50002073CF /* HttpParametersUtility.m */; };
+		A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = A910E6EF1DF56FCA002073CF /* NSData+YYAdd.m */; };
+		A910E6F31DF56FF6002073CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A910E6F21DF56FF6002073CF /* libz.tbd */; };
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
@@ -50,6 +54,15 @@
 		3431A6DFB747424FE6B26ECA /* Pods-TemplateProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateProject/Pods-TemplateProject.debug.xcconfig"; sourceTree = "<group>"; };
 		58621766AF40096ED4BAE848 /* Pods-TemplateProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TemplateProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-TemplateProject/Pods-TemplateProject.release.xcconfig"; sourceTree = "<group>"; };
 		6900B7F4098D8950D1861765 /* libPods-TemplateProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TemplateProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A910E6E11DF56A50002073CF /* HttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		A910E6E21DF56A50002073CF /* HttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		A910E6E31DF56A50002073CF /* HttpParametersUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpParametersUtility.h; sourceTree = "<group>"; };
+		A910E6E41DF56A50002073CF /* HttpParametersUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpParametersUtility.m; sourceTree = "<group>"; };
+		A910E6E51DF56A50002073CF /* HttpURLDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpURLDefine.h; sourceTree = "<group>"; };
+		A910E6EE1DF56FCA002073CF /* NSData+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+YYAdd.h"; sourceTree = "<group>"; };
+		A910E6EF1DF56FCA002073CF /* NSData+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YYAdd.m"; sourceTree = "<group>"; };
+		A910E6F01DF56FCA002073CF /* YYCategoriesMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCategoriesMacro.h; sourceTree = "<group>"; };
+		A910E6F21DF56FF6002073CF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		A9727A731DF0020C002640EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7B1DF0041C002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7D1DF00429002640EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -133,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A910E6F31DF56FF6002073CF /* libz.tbd in Frameworks */,
 				A769AC0AAE74BD0BE0943FF1 /* libPods-TemplateProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +157,7 @@
 		31C87FC3E02A2B8CC4B41F87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A910E6F21DF56FF6002073CF /* libz.tbd */,
 				6900B7F4098D8950D1861765 /* libPods-TemplateProject.a */,
 			);
 			name = Frameworks;
@@ -155,6 +170,37 @@
 				58621766AF40096ED4BAE848 /* Pods-TemplateProject.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A910E6E01DF56A50002073CF /* HttpClient */ = {
+			isa = PBXGroup;
+			children = (
+				A910E6E51DF56A50002073CF /* HttpURLDefine.h */,
+				A910E6E31DF56A50002073CF /* HttpParametersUtility.h */,
+				A910E6E41DF56A50002073CF /* HttpParametersUtility.m */,
+				A910E6E11DF56A50002073CF /* HttpClient.h */,
+				A910E6E21DF56A50002073CF /* HttpClient.m */,
+			);
+			path = HttpClient;
+			sourceTree = "<group>";
+		};
+		A910E6EC1DF56FCA002073CF /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				A910E6ED1DF56FCA002073CF /* YYCategories */,
+			);
+			name = Vender;
+			path = TemplateProject/Vender;
+			sourceTree = "<group>";
+		};
+		A910E6ED1DF56FCA002073CF /* YYCategories */ = {
+			isa = PBXGroup;
+			children = (
+				A910E6F01DF56FCA002073CF /* YYCategoriesMacro.h */,
+				A910E6EE1DF56FCA002073CF /* NSData+YYAdd.h */,
+				A910E6EF1DF56FCA002073CF /* NSData+YYAdd.m */,
+			);
+			path = YYCategories;
 			sourceTree = "<group>";
 		};
 		A9727A781DF003FA002640EB /* Resource */ = {
@@ -180,8 +226,9 @@
 			children = (
 				CC0515611DF533250071C1D3 /* Vender */,
 				A9727A781DF003FA002640EB /* Resource */,
-				CC8CD6011DEEC87700A682B6 /* Biz */,
+				A910E6EC1DF56FCA002073CF /* Vender */,
 				CC8CD6021DEEC87700A682B6 /* Common */,
+				CC8CD6011DEEC87700A682B6 /* Biz */,
 				CC8CD6031DEEC87700A682B6 /* Controller */,
 				CC8CD6041DEEC87700A682B6 /* Model */,
 				CC8CD6071DEEC87700A682B6 /* View */,
@@ -235,6 +282,7 @@
 		CC8CD6021DEEC87700A682B6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A910E6E01DF56A50002073CF /* HttpClient */,
 				CCFC08821DEFF14900DF895E /* Category */,
 				CCFC08811DEFF0AF00DF895E /* Util */,
 			);
@@ -504,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCFC08AC1DEFF14900DF895E /* UIFont+Default.m in Sources */,
+				A910E6E61DF56A50002073CF /* HttpClient.m in Sources */,
 				CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */,
 				CCFC08D81DF0419700DF895E /* LoginViewController.m in Sources */,
 				CCFC08DD1DF0419700DF895E /* TestViewController.m in Sources */,
@@ -516,6 +565,7 @@
 				CCFC08A61DEFF14900DF895E /* NSObjectAdditions.m in Sources */,
 				CCFC08D91DF0419700DF895E /* RegisterViewController.m in Sources */,
 				CCFC08C71DF0418400DF895E /* User.m in Sources */,
+				A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */,
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
@@ -530,6 +580,7 @@
 				CCFC08A51DEFF14900DF895E /* NSMutableAttributedString+Utility.m in Sources */,
 				CC8CD5E91DEEC02600A682B6 /* AppDelegate.m in Sources */,
 				CCFC08AF1DEFF14900DF895E /* UILabel+Gradient.m in Sources */,
+				A910E6E71DF56A50002073CF /* HttpParametersUtility.m in Sources */,
 				CCFC08A91DEFF14900DF895E /* UIButton+Layout.m in Sources */,
 				CC8CD5E61DEEC02600A682B6 /* main.m in Sources */,
 				CCFC08B41DEFF14900DF895E /* UIViewAdditions.m in Sources */,
