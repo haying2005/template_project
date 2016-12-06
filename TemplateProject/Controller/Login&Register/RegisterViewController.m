@@ -85,7 +85,6 @@
         return [self showError:@"密码只能由数字跟字母组成"];
     }
     [self showError:@""];
-    [MBProgressHUD HUDForView:self.view];
     
     User *user = [[User alloc] init];
     user.userName = txtUsername.text;

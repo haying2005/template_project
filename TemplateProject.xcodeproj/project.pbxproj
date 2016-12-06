@@ -11,6 +11,8 @@
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
+		CC05168A1DF54C4F0071C1D3 /* ModifyPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */; };
+		CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */; };
 		CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */; };
 		CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */; };
 		CC8CD5E61DEEC02600A682B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5E51DEEC02600A682B6 /* main.m */; };
@@ -58,6 +60,10 @@
 		A9727A871DF0044A002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Language.strings"; sourceTree = "<group>"; };
 		A9727A881DF004EC002640EB /* LanguageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageTool.h; sourceTree = "<group>"; };
 		A9727A891DF004EC002640EB /* LanguageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageTool.m; sourceTree = "<group>"; };
+		CC0516881DF54C4F0071C1D3 /* ModifyPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassWordViewController.h; sourceTree = "<group>"; };
+		CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassWordViewController.m; sourceTree = "<group>"; };
+		CC05168B1DF562960071C1D3 /* ForgetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassViewController.h; sourceTree = "<group>"; };
+		CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassViewController.m; sourceTree = "<group>"; };
 		CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
 		CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
 		CC4EFFCD1DF17D3000B7C5BB /* MultiImagePickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiImagePickController.h; sourceTree = "<group>"; };
@@ -161,15 +167,23 @@
 			path = TemplateProject/Resource;
 			sourceTree = "<group>";
 		};
+		CC0515611DF533250071C1D3 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vender;
+			path = TemplateProject/Vender;
+			sourceTree = "<group>";
+		};
 		CC8CD5D81DEEC02600A682B6 = {
 			isa = PBXGroup;
 			children = (
+				CC0515611DF533250071C1D3 /* Vender */,
 				A9727A781DF003FA002640EB /* Resource */,
 				CC8CD6011DEEC87700A682B6 /* Biz */,
 				CC8CD6021DEEC87700A682B6 /* Common */,
 				CC8CD6031DEEC87700A682B6 /* Controller */,
 				CC8CD6041DEEC87700A682B6 /* Model */,
-				CC8CD6061DEEC87700A682B6 /* Vender */,
 				CC8CD6071DEEC87700A682B6 /* View */,
 				CC8CD5E31DEEC02600A682B6 /* TemplateProject */,
 				CC8CD5E21DEEC02600A682B6 /* Products */,
@@ -249,14 +263,6 @@
 			path = TemplateProject/Model;
 			sourceTree = "<group>";
 		};
-		CC8CD6061DEEC87700A682B6 /* Vender */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Vender;
-			path = TemplateProject/Vender;
-			sourceTree = "<group>";
-		};
 		CC8CD6071DEEC87700A682B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +337,10 @@
 				CCFC08CA1DF0419700DF895E /* LoginViewController.m */,
 				CCFC08CB1DF0419700DF895E /* RegisterViewController.h */,
 				CCFC08CC1DF0419700DF895E /* RegisterViewController.m */,
+				CC0516881DF54C4F0071C1D3 /* ModifyPassWordViewController.h */,
+				CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */,
+				CC05168B1DF562960071C1D3 /* ForgetPassViewController.h */,
+				CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -401,7 +411,7 @@
 				TargetAttributes = {
 					CC8CD5E01DEEC02600A682B6 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = A3YYVQTF9B;
+						DevelopmentTeam = DQ3E9JXX24;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -501,6 +511,7 @@
 				CCFC08AE1DEFF14900DF895E /* UIImageAdditions.m in Sources */,
 				CCFC08B71DEFF16800DF895E /* Validate.m in Sources */,
 				CCFC08B01DEFF14900DF895E /* UIView+Diamond.m in Sources */,
+				CC05168A1DF54C4F0071C1D3 /* ModifyPassWordViewController.m in Sources */,
 				CCFC08A41DEFF14900DF895E /* NSDateAdditions.m in Sources */,
 				CCFC08A61DEFF14900DF895E /* NSObjectAdditions.m in Sources */,
 				CCFC08D91DF0419700DF895E /* RegisterViewController.m in Sources */,
@@ -510,6 +521,7 @@
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
 				A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */,
 				CCFC08B11DEFF14900DF895E /* UIView+FrameLayout.m in Sources */,
+				CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */,
 				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
 				CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */,
 				CCFC08A71DEFF14900DF895E /* NSStringAdditions.m in Sources */,
@@ -581,6 +593,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -629,6 +642,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -656,15 +670,33 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3431A6DFB747424FE6B26ECA /* Pods-TemplateProject.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = A3YYVQTF9B;
+				DEVELOPMENT_TEAM = DQ3E9JXX24;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+					"\"${PODS_ROOT}/Headers/Public/iCarousel\"",
+				);
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.baixi.com.TemplateProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -675,15 +707,33 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58621766AF40096ED4BAE848 /* Pods-TemplateProject.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = A3YYVQTF9B;
+				DEVELOPMENT_TEAM = DQ3E9JXX24;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+					"\"${PODS_ROOT}/Headers/Public/iCarousel\"",
+				);
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.baixi.com.TemplateProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

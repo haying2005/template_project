@@ -8,6 +8,8 @@
 
 #import "MineViewController.h"
 #import "PersonalInfoViewController.h"
+#import "ModifyPassWordViewController.h"
+
 
 @interface MineViewController () <UITableViewDelegate, UITableViewDataSource>
 {
@@ -36,7 +38,7 @@
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置", @"key" : @"setting"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
-                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"修改密码", @"key" : @"editpass"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"登出", @"key" : @"logout"}
               ];
     
@@ -126,10 +128,17 @@
         NSDictionary *result = [[User shareInstance] logout];
         if ([result[@"code"] integerValue] == 0) {
             ZNLog(@"logout 成功！");
+            [self.tabBarController setSelectedIndex:0];
         }
         else {
             ZNLog(@"%@", result[@"errMsg"]);
         }
+    }
+    
+    //修改密码
+    else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"editpass"]) {
+        ModifyPassWordViewController *ctrl = [[ModifyPassWordViewController alloc] init];
+        [self.navigationController pushViewController:ctrl animated:YES];
     }
     
     

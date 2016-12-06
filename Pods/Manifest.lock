@@ -44,6 +44,7 @@ PODS:
   - Masonry (1.0.1)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.8)
+  - ReactiveObjC (2.1.0)
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
@@ -62,11 +63,21 @@ DEPENDENCIES:
   - Masonry (~> 1.0.1)
   - MBProgressHUD (~> 0.9.2)
   - MJRefresh (~> 3.1.0)
+  - ReactiveObjC (from `https://github.com/ReactiveCocoa/ReactiveObjC.git`)
   - SDWebImage (~> 3.7.5)
   - TTTAttributedLabel (~> 2.0.0)
   - WebViewJavascriptBridge (~> 5.0.5)
   - YYKeyboardManager (~> 1.0.1)
   - YYModel (~> 1.0.4)
+
+EXTERNAL SOURCES:
+  ReactiveObjC:
+    :git: https://github.com/ReactiveCocoa/ReactiveObjC.git
+
+CHECKOUT OPTIONS:
+  ReactiveObjC:
+    :commit: 04f9807191711b8a61056770e5662575b2515e77
+    :git: https://github.com/ReactiveCocoa/ReactiveObjC.git
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
@@ -78,12 +89,13 @@ SPEC CHECKSUMS:
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: d226bbe0b1ec398f426ba1dc99319b4e51182e19
+  ReactiveObjC: 2edae120982d8e6d5407503a10edcfdd87eb8639
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
   WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
   YYKeyboardManager: ff53d2e80d1808567a7f004028bd200d9469a89f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 61504f30e57e96a2b124d36829b89d19daac1867
+PODFILE CHECKSUM: 59ba4cee88e75a4d6601253872cdc25bf13683a9
 
 COCOAPODS: 1.1.0.rc.3
