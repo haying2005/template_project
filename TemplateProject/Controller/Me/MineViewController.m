@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "PersonalInfoViewController.h"
+#import "LanguageSelectViewController.h"
 
 @interface MineViewController () <UITableViewDelegate, UITableViewDataSource>
 {
@@ -36,7 +37,7 @@
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置", @"key" : @"setting"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
-                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"多语言"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"登出", @"key" : @"logout"}
               ];
     
@@ -116,22 +117,38 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if (indexPath.section == 0 && indexPath.row == 0) {
         PersonalInfoViewController *ctrl = [[PersonalInfoViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
-    
-    //登出
-    else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"logout"]) {
-        NSDictionary *result = [[User shareInstance] logout];
-        if ([result[@"code"] integerValue] == 0) {
-            ZNLog(@"logout 成功！");
+    else if (indexPath.section == 1) {
+        
+        if ([[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"logout"]) {
+            //登出
+            [UIAlertView bk_showAlertViewWithTitle:@"提示" message:@"你确定退出？" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                if (buttonIndex == 0) {
+                    
+                }
+                else if (buttonIndex == 1) {
+                    NSDictionary *result = [[User shareInstance] logout];
+                    if ([result[@"code"] integerValue] == 0) {
+                        ZNLog(@"logout 成功！");
+                    }
+                    else {
+                        ZNLog(@"%@", result[@"errMsg"]);
+                    }
+                }
+            }];
+            
         }
-        else {
-            ZNLog(@"%@", result[@"errMsg"]);
+        else if (indexPath.row == 4) {
+            LanguageSelectViewController *languageSelectViewController = [LanguageSelectViewController new];
+            languageSelectViewController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:languageSelectViewController animated:YES];
         }
     }
-    
     
 }
 

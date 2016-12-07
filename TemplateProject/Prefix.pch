@@ -12,5 +12,6 @@
     #import "UIView+FrameLayout.h"
     #import "Masonry.h"
     #import "MBProgressHUD.h"
+    #import "BlocksKit+UIKit.h"
 
 #endif

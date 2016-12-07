@@ -15,6 +15,12 @@
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
+		A9D89D6F1DF6BDBC0020890F /* HotFixEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D6E1DF6BDBC0020890F /* HotFixEngine.m */; };
+		A9D89D711DF6BE960020890F /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D701DF6BE960020890F /* test.js */; };
+		A9D89D791DF6C5E60020890F /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D89D781DF6C5E60020890F /* JavaScriptCore.framework */; };
+		A9D89D7E1DF7A68B0020890F /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D7C1DF7A68B0020890F /* JPEngine.m */; };
+		A9D89D7F1DF7A68B0020890F /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D7D1DF7A68B0020890F /* JSPatch.js */; };
+		A9D89D821DF7BC900020890F /* LanguageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */; };
 		CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */; };
 		CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */; };
 		CC8CD5E61DEEC02600A682B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5E51DEEC02600A682B6 /* main.m */; };
@@ -71,6 +77,15 @@
 		A9727A871DF0044A002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Language.strings"; sourceTree = "<group>"; };
 		A9727A881DF004EC002640EB /* LanguageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageTool.h; sourceTree = "<group>"; };
 		A9727A891DF004EC002640EB /* LanguageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageTool.m; sourceTree = "<group>"; };
+		A9D89D6D1DF6BDBC0020890F /* HotFixEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotFixEngine.h; sourceTree = "<group>"; };
+		A9D89D6E1DF6BDBC0020890F /* HotFixEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotFixEngine.m; sourceTree = "<group>"; };
+		A9D89D701DF6BE960020890F /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		A9D89D781DF6C5E60020890F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		A9D89D7B1DF7A68B0020890F /* JPEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPEngine.h; sourceTree = "<group>"; };
+		A9D89D7C1DF7A68B0020890F /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
+		A9D89D7D1DF7A68B0020890F /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
+		A9D89D801DF7BC900020890F /* LanguageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageSelectViewController.h; sourceTree = "<group>"; };
+		A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageSelectViewController.m; sourceTree = "<group>"; };
 		CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
 		CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
 		CC4EFFCD1DF17D3000B7C5BB /* MultiImagePickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiImagePickController.h; sourceTree = "<group>"; };
@@ -140,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D89D791DF6C5E60020890F /* JavaScriptCore.framework in Frameworks */,
 				A910E6F31DF56FF6002073CF /* libz.tbd in Frameworks */,
 				A769AC0AAE74BD0BE0943FF1 /* libPods-TemplateProject.a in Frameworks */,
 			);
@@ -151,6 +167,7 @@
 		31C87FC3E02A2B8CC4B41F87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9D89D781DF6C5E60020890F /* JavaScriptCore.framework */,
 				A910E6F21DF56FF6002073CF /* libz.tbd */,
 				6900B7F4098D8950D1861765 /* libPods-TemplateProject.a */,
 			);
@@ -181,6 +198,7 @@
 		A910E6EC1DF56FCA002073CF /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A9D89D7A1DF7A68B0020890F /* JSPatch */,
 				A910E6ED1DF56FCA002073CF /* YYCategories */,
 			);
 			name = Vender;
@@ -205,6 +223,26 @@
 			);
 			name = Resource;
 			path = TemplateProject/Resource;
+			sourceTree = "<group>";
+		};
+		A9D89D6C1DF6BD5E0020890F /* HotFix */ = {
+			isa = PBXGroup;
+			children = (
+				A9D89D701DF6BE960020890F /* test.js */,
+				A9D89D6D1DF6BDBC0020890F /* HotFixEngine.h */,
+				A9D89D6E1DF6BDBC0020890F /* HotFixEngine.m */,
+			);
+			path = HotFix;
+			sourceTree = "<group>";
+		};
+		A9D89D7A1DF7A68B0020890F /* JSPatch */ = {
+			isa = PBXGroup;
+			children = (
+				A9D89D7B1DF7A68B0020890F /* JPEngine.h */,
+				A9D89D7C1DF7A68B0020890F /* JPEngine.m */,
+				A9D89D7D1DF7A68B0020890F /* JSPatch.js */,
+			);
+			path = JSPatch;
 			sourceTree = "<group>";
 		};
 		CC8CD5D81DEEC02600A682B6 = {
@@ -259,6 +297,7 @@
 		CC8CD6011DEEC87700A682B6 /* Biz */ = {
 			isa = PBXGroup;
 			children = (
+				A9D89D6C1DF6BD5E0020890F /* HotFix */,
 			);
 			name = Biz;
 			path = TemplateProject/Biz;
@@ -385,6 +424,8 @@
 				CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */,
 				CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */,
 				CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */,
+				A9D89D801DF7BC900020890F /* LanguageSelectViewController.h */,
+				A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -470,6 +511,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D89D7F1DF7A68B0020890F /* JSPatch.js in Resources */,
+				A9D89D711DF6BE960020890F /* test.js in Resources */,
 				A9727A831DF00447002640EB /* Language.strings in Resources */,
 				CC8CD5F41DEEC02600A682B6 /* LaunchScreen.storyboard in Resources */,
 				A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */,
@@ -549,9 +592,12 @@
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
+				A9D89D6F1DF6BDBC0020890F /* HotFixEngine.m in Sources */,
 				A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */,
 				CCFC08B11DEFF14900DF895E /* UIView+FrameLayout.m in Sources */,
+				A9D89D821DF7BC900020890F /* LanguageSelectViewController.m in Sources */,
 				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
+				A9D89D7E1DF7A68B0020890F /* JPEngine.m in Sources */,
 				CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */,
 				CCFC08A71DEFF14900DF895E /* NSStringAdditions.m in Sources */,
 				CCFC08B31DEFF14900DF895E /* UIView+WYView.m in Sources */,

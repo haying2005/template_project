@@ -38,7 +38,7 @@
 - (void)initTabBar {
     
     
-    UIViewController *ctrl1 = [[UIViewController alloc]init];
+    TestViewController *ctrl1 = [[TestViewController alloc]init];
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:ctrl1];
     ctrl1.navigationItem.title = @"消息";
     [self addChildCtrl:nav1 title:@"消息" icon:[UIImage imageNamed:@"tab_me_sel"]];

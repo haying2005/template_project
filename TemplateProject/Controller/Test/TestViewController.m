@@ -76,6 +76,23 @@
     
     NSLog(@"%@", [self class]);
     NSLog(@"%@", [TestViewController class]);
+    
+    // test jspatch
+    [self.view addSubview:[self genView]];
+}
+
+- (UIView *)genView
+{
+    return [[UIView alloc] initWithFrame:CGRectMake((self.view.width - 320) / 2., (self.view.height - 320) / 2., 320, 320)];
+}
+
+- (void)testMethodWithParam1:(NSDictionary *)param1 param2:(NSString *(^)(NSString *content, BOOL success))param2
+{
+    ZNLog(@"%@", param1);
+    
+    if (param2) {
+        ZNLog(@"%@", param2(@"test jspatch", YES));
+    }
 }
 
 - (void)didReceiveMemoryWarning {
