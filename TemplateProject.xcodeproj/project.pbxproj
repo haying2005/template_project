@@ -57,6 +57,7 @@
 		CCFDA4411DF7A1D40085DD96 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4401DF7A1D40085DD96 /* MapViewController.m */; };
 		CCFDA4451DF7AD950085DD96 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */; };
 		CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */; };
+		CCFDA44B1DF7D4E90085DD96 /* DownloaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA44A1DF7D4E90085DD96 /* DownloaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,8 @@
 		CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		CCFDA4461DF7B8CA0085DD96 /* CacheUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheUtil.h; sourceTree = "<group>"; };
 		CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheUtil.m; sourceTree = "<group>"; };
+		CCFDA4491DF7D4E90085DD96 /* DownloaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloaderViewController.h; sourceTree = "<group>"; };
+		CCFDA44A1DF7D4E90085DD96 /* DownloaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloaderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -476,6 +479,8 @@
 			children = (
 				CCFC08D61DF0419700DF895E /* TestViewController.h */,
 				CCFC08D71DF0419700DF895E /* TestViewController.m */,
+				CCFDA4491DF7D4E90085DD96 /* DownloaderViewController.h */,
+				CCFDA44A1DF7D4E90085DD96 /* DownloaderViewController.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				CCFC08C71DF0418400DF895E /* User.m in Sources */,
 				A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */,
 				CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */,
+				CCFDA44B1DF7D4E90085DD96 /* DownloaderViewController.m in Sources */,
 				A9D89D8D1DF7DA030020890F /* HotFixEngine.m in Sources */,
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
 				A91123821DF7EA100087BD92 /* BaseViewController.m in Sources */,

@@ -24,14 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-    mapView.userTrackingMode = MKUserTrackingModeFollow;
-    [self.view addSubview:mapView];
-    mapView.delegate = self;
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tapMap:)];
-    longPress.minimumPressDuration = 1.0;
-    [mapView addGestureRecognizer:longPress];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     _locationManager=[[CLLocationManager alloc] init];
     _locationManager.delegate = self;
@@ -75,12 +68,36 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    WEAKSELF;
+    
+    //add mapview
+    mapView = [MKMapView new];
+    mapView.userTrackingMode = MKUserTrackingModeFollow;
+    [self.view addSubview:mapView];
+    mapView.delegate = self;
+    [mapView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weakSelf.view);
+    }];
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tapMap:)];
+    [mapView addGestureRecognizer:longPress];
+    
+    //开始定位
     [_locationManager startUpdatingLocation];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [mapView removeFromSuperview];
+    mapView = nil;
+    
+    //停止定位
     [_locationManager stopUpdatingLocation];
+}
+
+- (void)dealloc {
+    ZNLog();
 }
 
 - (void)didReceiveMemoryWarning {
