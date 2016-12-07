@@ -15,12 +15,11 @@
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
-		A9D89D6F1DF6BDBC0020890F /* HotFixEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D6E1DF6BDBC0020890F /* HotFixEngine.m */; };
-		A9D89D711DF6BE960020890F /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D701DF6BE960020890F /* test.js */; };
-		A9D89D791DF6C5E60020890F /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D89D781DF6C5E60020890F /* JavaScriptCore.framework */; };
-		A9D89D7E1DF7A68B0020890F /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D7C1DF7A68B0020890F /* JPEngine.m */; };
-		A9D89D7F1DF7A68B0020890F /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D7D1DF7A68B0020890F /* JSPatch.js */; };
-		A9D89D821DF7BC900020890F /* LanguageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */; };
+		A9D89D871DF7D9AD0020890F /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D851DF7D9AD0020890F /* JPEngine.m */; };
+		A9D89D881DF7D9AD0020890F /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D861DF7D9AD0020890F /* JSPatch.js */; };
+		A9D89D8D1DF7DA030020890F /* HotFixEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D8B1DF7DA030020890F /* HotFixEngine.m */; };
+		A9D89D8E1DF7DA030020890F /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D8C1DF7DA030020890F /* test.js */; };
+		A9D89D911DF7DCA00020890F /* LanguageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D901DF7DCA00020890F /* LanguageSelectViewController.m */; };
 		CC05168A1DF54C4F0071C1D3 /* ModifyPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */; };
 		CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */; };
 		CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */; };
@@ -82,15 +81,14 @@
 		A9727A871DF0044A002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Language.strings"; sourceTree = "<group>"; };
 		A9727A881DF004EC002640EB /* LanguageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageTool.h; sourceTree = "<group>"; };
 		A9727A891DF004EC002640EB /* LanguageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageTool.m; sourceTree = "<group>"; };
-		A9D89D6D1DF6BDBC0020890F /* HotFixEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotFixEngine.h; sourceTree = "<group>"; };
-		A9D89D6E1DF6BDBC0020890F /* HotFixEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotFixEngine.m; sourceTree = "<group>"; };
-		A9D89D701DF6BE960020890F /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
-		A9D89D781DF6C5E60020890F /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		A9D89D7B1DF7A68B0020890F /* JPEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPEngine.h; sourceTree = "<group>"; };
-		A9D89D7C1DF7A68B0020890F /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
-		A9D89D7D1DF7A68B0020890F /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
-		A9D89D801DF7BC900020890F /* LanguageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageSelectViewController.h; sourceTree = "<group>"; };
-		A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageSelectViewController.m; sourceTree = "<group>"; };
+		A9D89D841DF7D9AD0020890F /* JPEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPEngine.h; sourceTree = "<group>"; };
+		A9D89D851DF7D9AD0020890F /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
+		A9D89D861DF7D9AD0020890F /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
+		A9D89D8A1DF7DA030020890F /* HotFixEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotFixEngine.h; sourceTree = "<group>"; };
+		A9D89D8B1DF7DA030020890F /* HotFixEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotFixEngine.m; sourceTree = "<group>"; };
+		A9D89D8C1DF7DA030020890F /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		A9D89D8F1DF7DCA00020890F /* LanguageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageSelectViewController.h; sourceTree = "<group>"; };
+		A9D89D901DF7DCA00020890F /* LanguageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageSelectViewController.m; sourceTree = "<group>"; };
 		CC0516881DF54C4F0071C1D3 /* ModifyPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassWordViewController.h; sourceTree = "<group>"; };
 		CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassWordViewController.m; sourceTree = "<group>"; };
 		CC05168B1DF562960071C1D3 /* ForgetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassViewController.h; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D89D791DF6C5E60020890F /* JavaScriptCore.framework in Frameworks */,
 				A910E6F31DF56FF6002073CF /* libz.tbd in Frameworks */,
 				A769AC0AAE74BD0BE0943FF1 /* libPods-TemplateProject.a in Frameworks */,
 			);
@@ -182,7 +179,6 @@
 		31C87FC3E02A2B8CC4B41F87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A9D89D781DF6C5E60020890F /* JavaScriptCore.framework */,
 				A910E6F21DF56FF6002073CF /* libz.tbd */,
 				6900B7F4098D8950D1861765 /* libPods-TemplateProject.a */,
 			);
@@ -213,7 +209,7 @@
 		A910E6EC1DF56FCA002073CF /* Vender */ = {
 			isa = PBXGroup;
 			children = (
-				A9D89D7A1DF7A68B0020890F /* JSPatch */,
+				A9D89D831DF7D9AD0020890F /* JSPatch */,
 				A910E6ED1DF56FCA002073CF /* YYCategories */,
 			);
 			name = Vender;
@@ -240,36 +236,29 @@
 			path = TemplateProject/Resource;
 			sourceTree = "<group>";
 		};
-		A9D89D6C1DF6BD5E0020890F /* HotFix */ = {
+		A9D89D831DF7D9AD0020890F /* JSPatch */ = {
 			isa = PBXGroup;
 			children = (
-				A9D89D701DF6BE960020890F /* test.js */,
-				A9D89D6D1DF6BDBC0020890F /* HotFixEngine.h */,
-				A9D89D6E1DF6BDBC0020890F /* HotFixEngine.m */,
-			);
-			path = HotFix;
-			sourceTree = "<group>";
-		};
-		A9D89D7A1DF7A68B0020890F /* JSPatch */ = {
-			isa = PBXGroup;
-			children = (
-				A9D89D7B1DF7A68B0020890F /* JPEngine.h */,
-				A9D89D7C1DF7A68B0020890F /* JPEngine.m */,
-				A9D89D7D1DF7A68B0020890F /* JSPatch.js */,
+				A9D89D841DF7D9AD0020890F /* JPEngine.h */,
+				A9D89D851DF7D9AD0020890F /* JPEngine.m */,
+				A9D89D861DF7D9AD0020890F /* JSPatch.js */,
 			);
 			path = JSPatch;
-		CC0515611DF533250071C1D3 /* Vender */ = {
+			sourceTree = "<group>";
+		};
+		A9D89D891DF7DA030020890F /* HotFix */ = {
 			isa = PBXGroup;
 			children = (
+				A9D89D8C1DF7DA030020890F /* test.js */,
+				A9D89D8A1DF7DA030020890F /* HotFixEngine.h */,
+				A9D89D8B1DF7DA030020890F /* HotFixEngine.m */,
 			);
-			name = Vender;
-			path = TemplateProject/Vender;
+			path = HotFix;
 			sourceTree = "<group>";
 		};
 		CC8CD5D81DEEC02600A682B6 = {
 			isa = PBXGroup;
 			children = (
-				CC0515611DF533250071C1D3 /* Vender */,
 				A9727A781DF003FA002640EB /* Resource */,
 				A910E6EC1DF56FCA002073CF /* Vender */,
 				CC8CD6021DEEC87700A682B6 /* Common */,
@@ -319,7 +308,7 @@
 		CC8CD6011DEEC87700A682B6 /* Biz */ = {
 			isa = PBXGroup;
 			children = (
-				A9D89D6C1DF6BD5E0020890F /* HotFix */,
+				A9D89D891DF7DA030020890F /* HotFix */,
 			);
 			name = Biz;
 			path = TemplateProject/Biz;
@@ -446,6 +435,8 @@
 		CCFC08CD1DF0419700DF895E /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				A9D89D8F1DF7DCA00020890F /* LanguageSelectViewController.h */,
+				A9D89D901DF7DCA00020890F /* LanguageSelectViewController.m */,
 				CCFC08CE1DF0419700DF895E /* MineViewController.h */,
 				CCFC08CF1DF0419700DF895E /* MineViewController.m */,
 				CCFC08D01DF0419700DF895E /* PersonalInfoViewController.h */,
@@ -454,8 +445,6 @@
 				CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */,
 				CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */,
 				CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */,
-				A9D89D801DF7BC900020890F /* LanguageSelectViewController.h */,
-				A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -559,9 +548,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D89D7F1DF7A68B0020890F /* JSPatch.js in Resources */,
-				A9D89D711DF6BE960020890F /* test.js in Resources */,
+				A9D89D8E1DF7DA030020890F /* test.js in Resources */,
 				A9727A831DF00447002640EB /* Language.strings in Resources */,
+				A9D89D881DF7D9AD0020890F /* JSPatch.js in Resources */,
 				CC8CD5F41DEEC02600A682B6 /* LaunchScreen.storyboard in Resources */,
 				A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */,
 				CC8CD5F11DEEC02600A682B6 /* Assets.xcassets in Resources */,
@@ -640,15 +629,13 @@
 				CCFC08C71DF0418400DF895E /* User.m in Sources */,
 				A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */,
 				CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */,
+				A9D89D8D1DF7DA030020890F /* HotFixEngine.m in Sources */,
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
-				A9D89D6F1DF6BDBC0020890F /* HotFixEngine.m in Sources */,
+				A9D89D911DF7DCA00020890F /* LanguageSelectViewController.m in Sources */,
 				A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */,
 				CCFC08B11DEFF14900DF895E /* UIView+FrameLayout.m in Sources */,
-				A9D89D821DF7BC900020890F /* LanguageSelectViewController.m in Sources */,
-				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
-				A9D89D7E1DF7A68B0020890F /* JPEngine.m in Sources */,
 				CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */,
 				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
 				CCFDA4451DF7AD950085DD96 /* MyAnnotation.m in Sources */,
@@ -657,6 +644,7 @@
 				CCFC08B31DEFF14900DF895E /* UIView+WYView.m in Sources */,
 				CCFC08AB1DEFF14900DF895E /* UIColorAdditions.m in Sources */,
 				CCFC08A51DEFF14900DF895E /* NSMutableAttributedString+Utility.m in Sources */,
+				A9D89D871DF7D9AD0020890F /* JPEngine.m in Sources */,
 				CC8CD5E91DEEC02600A682B6 /* AppDelegate.m in Sources */,
 				CCFC08AF1DEFF14900DF895E /* UILabel+Gradient.m in Sources */,
 				A910E6E71DF56A50002073CF /* HttpParametersUtility.m in Sources */,
@@ -826,7 +814,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishowxxx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -863,7 +851,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishowxxx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

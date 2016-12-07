@@ -27,7 +27,7 @@
     // 初始化语言设置
     [LanguageTool shareInstance];
     
-    //初始化TabBarController
+    // 初始化TabBarController
     MainTabBarViewController *tabBarCtrl = [[MainTabBarViewController alloc]init];
     [self.window setRootViewController:tabBarCtrl];
     

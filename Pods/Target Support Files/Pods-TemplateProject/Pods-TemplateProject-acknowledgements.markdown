@@ -328,8 +328,6 @@ SOFTWARE.
 
 iCarousel
 
-Version 1.8.2, August 10th, 2015
-
 Copyright (C) 2011 Charcoal Design
 
 This software is provided 'as-is', without any express or implied

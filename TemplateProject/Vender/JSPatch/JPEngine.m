@@ -310,6 +310,7 @@ static void (^_exceptionBlock)(NSString *log) = ^void(NSString *log) {
 #endif
     
     NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"JSPatch" ofType:@"js"];
+    if (!path) path = [[NSBundle mainBundle] pathForResource:@"JSPatch" ofType:@"js"];
     if (!path) _exceptionBlock(@"can't find JSPatch.js");
     NSString *jsCore = [[NSString alloc] initWithData:[[NSFileManager defaultManager] contentsAtPath:path] encoding:NSUTF8StringEncoding];
     
