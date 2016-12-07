@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LanguageSelectViewController : UITableViewController
+@interface LanguageSelectViewController : BaseViewController
 
 @end

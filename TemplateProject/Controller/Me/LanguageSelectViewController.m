@@ -9,8 +9,9 @@
 #import "LanguageSelectViewController.h"
 #import "LanguageTool.h"
 
-@interface LanguageSelectViewController ()
+@interface LanguageSelectViewController () <UITableViewDelegate, UITableViewDataSource>
 {
+    UITableView *_tableView;
     NSArray *_dataArray;
     
     UIButton *_saveButton;
@@ -37,11 +38,28 @@
     }
     
     [self setupRightBarButtonItem];
+
+    [self setupContentView];
     
-    [self.tableView setTableFooterView:[UIView new]];
+    [self configureDefaultLeftItem];
 }
 
 #pragma mark - Setup UI
+
+- (void)setupContentView
+{
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    tableView.backgroundColor = [UIColor colorWithHexString:@"e6e5e6"];
+    tableView.separatorColor = [UIColor colorWithHexString:@"e6e5e6"];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    [self.view addSubview:tableView];
+    _tableView = tableView;
+    
+    [tableView setTableFooterView:[UIView new]];
+}
 
 - (void)setupRightBarButtonItem
 {
@@ -53,6 +71,8 @@
     _saveButton = saveButton;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:saveButton];
+    
+    _saveButton.enabled = NO;
 }
 
 #pragma mark - Button Actions
@@ -61,7 +81,7 @@
 {
     for (NSMutableDictionary *dict in _dataArray) {
         if ([dict[@"isSelect"] boolValue]) {
-            [[LanguageTool shareInstance] setNewLanguage:[dict allKeys][0]];
+            [[LanguageTool shareInstance] setNewLanguage:[[dict allKeys][0] isEqualToString:@"isSelect"] ? [dict allKeys][1] : [dict allKeys][0]];
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
@@ -102,7 +122,7 @@
         dict[@"isSelect"] = @(i == indexPath.row);
         
         if (i == indexPath.row) {
-            NSString *newLanguage = [_dataArray[i] allKeys][0];
+            NSString *newLanguage = [[dict allKeys][0] isEqualToString:@"isSelect"] ? [dict allKeys][1] : [dict allKeys][0];
             _saveButton.enabled = ![newLanguage isEqualToString:[LanguageTool shareInstance].language];
         }
     }

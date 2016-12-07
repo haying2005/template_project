@@ -10,6 +10,7 @@
 #import "MainTabBarViewController.h"
 #import "LoginViewController.h"
 #import "HotFixEngine.h"
+#import "IQKeyboardManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,10 @@
 
 @implementation AppDelegate
 
++ (AppDelegate *)appDelegate
+{
+    return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -26,6 +31,10 @@
     
     // 初始化语言设置
     [LanguageTool shareInstance];
+    
+    // 关闭IQKeyboardManager
+    [IQKeyboardManager sharedManager].enable = NO;
+    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     
     // 初始化TabBarController
     MainTabBarViewController *tabBarCtrl = [[MainTabBarViewController alloc]init];
@@ -37,6 +46,8 @@
     
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
