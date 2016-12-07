@@ -29,6 +29,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initUI];
+    
+    @weakify(self);
+    
+    RACSignal *validUser = [txtUsername.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+         return @([Validate validateUserName:value]);
+     }];
+    
+    RACSignal *validPass = [txtPassword.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+        return @([Validate validatePassword:value]);
+    }];
+    
+    RAC(txtUsername, backgroundColor) = [validUser map:^id _Nullable(id  _Nullable value) {
+        return [value boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+    }];
+    
+    RAC(txtPassword, backgroundColor) = [validPass map:^id _Nullable(id  _Nullable value) {
+        return [value boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+    }];
+    
+    RACSignal *signUpActiveSignal = [RACSignal combineLatest:@[validUser, validPass] reduce:^id _Nullable(NSNumber *user, NSNumber *pass){
+        return @([user boolValue] && [pass boolValue]);
+    }];
+    RAC(btnLogin, enabled) = signUpActiveSignal;
+    
+    [[[btnLogin rac_signalForControlEvents:UIControlEventTouchUpInside]
+     doNext:^(__kindof UIControl * _Nullable x) {
+         btnLogin.enabled = NO;
+         [self showError:@""];
+    }]
+     subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self);
+        [self login];
+    }];
+    
+}
+    
+- (void)initUI {
     self.navigationItem.title = @"登录";
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -58,7 +97,7 @@
     [superV addSubview:btnLogin];
     [btnLogin setTitle:@"登录" forState:UIControlStateNormal];
     [btnLogin setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [btnLogin addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+    [btnLogin setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
     [btnLogin mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(txtPassword.mas_bottom).with.offset(30);
         make.right.equalTo(txtPassword.mas_right).with.offset(-30);
@@ -82,6 +121,8 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnRight];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"忘记密码" style:UIBarButtonItemStylePlain target:self action:@selector(forgetPass)];
+    
 }
 
 
@@ -99,29 +140,40 @@
     if (![Validate validatePassword:txtPassword.text]) {
         return [self showError:@"密码只能由数字跟字母组成"];
     }
-    [self showError:@""];
-
-    NSDictionary *result = [User login:txtUsername.text pass:txtPassword.text];
-    if (!([[result valueForKey:@"code"] integerValue] == 0)) {
-        [self showError:result[@"errMsg"]];
-    }
-    else {
-        [self showError:@"登录成功"];
-        [[User shareInstance] updateInfo:@{@"login" : @(YES)}];
-        [self.navigationController dismissViewControllerAnimated:YES completion:^{
-            //
-        }];
-    }
+    [self showError:@"登录中..."];
     
+    WEAKSELF;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSDictionary *result = [User login:txtUsername.text pass:txtPassword.text];
+        btnLogin.enabled = YES;
+        if (!([[result valueForKey:@"code"] integerValue] == 0)) {
+            [weakSelf showError:result[@"errMsg"]];
+        }
+        else {
+            [weakSelf showError:@"登录成功"];
+            [[User shareInstance] updateInfo:@{@"login" : @(YES)}];
+            [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
+                //
+            }];
+        }
+    });
     
 }
 
 - (void)showError:(NSString *)text {
     [lblTip setText:text];
 }
+
 - (void)toRegister:(id)sender {
     RegisterViewController *ctrl = [[RegisterViewController alloc]init];
     [self.navigationController pushViewController:ctrl animated:YES];
 }
+
+- (void)dealloc {
+    ZNLog();
+}
+    
+
 
 @end

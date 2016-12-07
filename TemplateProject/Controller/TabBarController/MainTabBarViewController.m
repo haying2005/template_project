@@ -11,6 +11,7 @@
 #import "TestViewController.h"
 #import "User.h"
 #import "MineViewController.h"
+#import "MapViewController.h"
 
 @interface MainTabBarViewController () <UITabBarControllerDelegate>
 
@@ -43,7 +44,8 @@
     ctrl1.navigationItem.title = @"消息";
     [self addChildCtrl:nav1 title:@"消息" icon:[UIImage imageNamed:@"tab_me_sel"]];
     
-    UIViewController *ctrl2 = [[UIViewController alloc]init];
+    //UIViewController *ctrl2 = [[UIViewController alloc]init];
+    MapViewController *ctrl2 = [[MapViewController alloc] init];
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:ctrl2];
     ctrl2.navigationItem.title = @"附近";
     [self addChildCtrl:nav2 title:@"附近" icon:[UIImage imageNamed:@"tab_me_sel"]];

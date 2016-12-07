@@ -22,6 +22,7 @@ target 'TemplateProject' do
 	pod 'WebViewJavascriptBridge', '~> 5.0.5'
 	pod 'CocoaAsyncSocket', '~> 7.4.3'
 	#pod 'GPUImage', '~> 0.1.7'
+    pod 'ReactiveObjC', :git => 'https://github.com/ReactiveCocoa/ReactiveObjC.git'
 
 
 

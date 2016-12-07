@@ -112,11 +112,9 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    //ZNLog(@"didSelectItemAtIndexPath");
     [[collectionView cellForItemAtIndexPath:indexPath] viewWithTag:949].hidden = NO;
     ALAsset *photo = [photoArr objectAtIndex:indexPath.row];
     ALAssetRepresentation *rep = [photo defaultRepresentation];
-    //ZNLog(@"%@", rep);
     
     ShowPhotoViewController *ctrl = [[ShowPhotoViewController alloc] init];
     ctrl.delegate = self;

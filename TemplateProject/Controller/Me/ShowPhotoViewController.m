@@ -45,8 +45,6 @@
     scrollV.alwaysBounceHorizontal = YES;
     [backView addSubview:scrollV];
     [scrollV mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.center.mas_equalTo(weakSelf.view);
-//        make.width.and.height.mas_equalTo(weakSelf.view.width);
         make.edges.equalTo(backView);
     }];
     UIView *border = [UIView new];

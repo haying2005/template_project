@@ -21,6 +21,8 @@
 		A9D89D7E1DF7A68B0020890F /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D7C1DF7A68B0020890F /* JPEngine.m */; };
 		A9D89D7F1DF7A68B0020890F /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D7D1DF7A68B0020890F /* JSPatch.js */; };
 		A9D89D821DF7BC900020890F /* LanguageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */; };
+		CC05168A1DF54C4F0071C1D3 /* ModifyPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */; };
+		CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */; };
 		CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */; };
 		CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */; };
 		CC8CD5E61DEEC02600A682B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5E51DEEC02600A682B6 /* main.m */; };
@@ -52,6 +54,9 @@
 		CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D11DF0419700DF895E /* PersonalInfoViewController.m */; };
 		CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D41DF0419700DF895E /* MainTabBarViewController.m */; };
 		CCFC08DD1DF0419700DF895E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D71DF0419700DF895E /* TestViewController.m */; };
+		CCFDA4411DF7A1D40085DD96 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4401DF7A1D40085DD96 /* MapViewController.m */; };
+		CCFDA4451DF7AD950085DD96 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */; };
+		CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +91,10 @@
 		A9D89D7D1DF7A68B0020890F /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
 		A9D89D801DF7BC900020890F /* LanguageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageSelectViewController.h; sourceTree = "<group>"; };
 		A9D89D811DF7BC900020890F /* LanguageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageSelectViewController.m; sourceTree = "<group>"; };
+		CC0516881DF54C4F0071C1D3 /* ModifyPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassWordViewController.h; sourceTree = "<group>"; };
+		CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassWordViewController.m; sourceTree = "<group>"; };
+		CC05168B1DF562960071C1D3 /* ForgetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassViewController.h; sourceTree = "<group>"; };
+		CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassViewController.m; sourceTree = "<group>"; };
 		CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
 		CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
 		CC4EFFCD1DF17D3000B7C5BB /* MultiImagePickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiImagePickController.h; sourceTree = "<group>"; };
@@ -148,6 +157,12 @@
 		CCFC08D41DF0419700DF895E /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		CCFC08D61DF0419700DF895E /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		CCFC08D71DF0419700DF895E /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		CCFDA43F1DF7A1D40085DD96 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		CCFDA4401DF7A1D40085DD96 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		CCFDA4431DF7AD950085DD96 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		CCFDA4461DF7B8CA0085DD96 /* CacheUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheUtil.h; sourceTree = "<group>"; };
+		CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,11 +258,18 @@
 				A9D89D7D1DF7A68B0020890F /* JSPatch.js */,
 			);
 			path = JSPatch;
+		CC0515611DF533250071C1D3 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Vender;
+			path = TemplateProject/Vender;
 			sourceTree = "<group>";
 		};
 		CC8CD5D81DEEC02600A682B6 = {
 			isa = PBXGroup;
 			children = (
+				CC0515611DF533250071C1D3 /* Vender */,
 				A9727A781DF003FA002640EB /* Resource */,
 				A910E6EC1DF56FCA002073CF /* Vender */,
 				CC8CD6021DEEC87700A682B6 /* Common */,
@@ -317,6 +339,7 @@
 		CC8CD6031DEEC87700A682B6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CCFDA43E1DF7A1BD0085DD96 /* NearBy */,
 				CCFC08C81DF0419700DF895E /* Login&Register */,
 				CCFC08CD1DF0419700DF895E /* Me */,
 				CCFC08D21DF0419700DF895E /* TabBarController */,
@@ -329,6 +352,7 @@
 		CC8CD6041DEEC87700A682B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CCFDA4421DF7AD7D0085DD96 /* NearBy */,
 				CCFC08C41DF0418400DF895E /* User */,
 			);
 			name = Model;
@@ -351,6 +375,8 @@
 				CCFC08B61DEFF16800DF895E /* Validate.m */,
 				A9727A881DF004EC002640EB /* LanguageTool.h */,
 				A9727A891DF004EC002640EB /* LanguageTool.m */,
+				CCFDA4461DF7B8CA0085DD96 /* CacheUtil.h */,
+				CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -409,6 +435,10 @@
 				CCFC08CA1DF0419700DF895E /* LoginViewController.m */,
 				CCFC08CB1DF0419700DF895E /* RegisterViewController.h */,
 				CCFC08CC1DF0419700DF895E /* RegisterViewController.m */,
+				CC0516881DF54C4F0071C1D3 /* ModifyPassWordViewController.h */,
+				CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */,
+				CC05168B1DF562960071C1D3 /* ForgetPassViewController.h */,
+				CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -448,6 +478,24 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		CCFDA43E1DF7A1BD0085DD96 /* NearBy */ = {
+			isa = PBXGroup;
+			children = (
+				CCFDA43F1DF7A1D40085DD96 /* MapViewController.h */,
+				CCFDA4401DF7A1D40085DD96 /* MapViewController.m */,
+			);
+			path = NearBy;
+			sourceTree = "<group>";
+		};
+		CCFDA4421DF7AD7D0085DD96 /* NearBy */ = {
+			isa = PBXGroup;
+			children = (
+				CCFDA4431DF7AD950085DD96 /* MyAnnotation.h */,
+				CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */,
+			);
+			path = NearBy;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,7 +529,7 @@
 				TargetAttributes = {
 					CC8CD5E01DEEC02600A682B6 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = A3YYVQTF9B;
+						DevelopmentTeam = DQ3E9JXX24;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -578,17 +626,20 @@
 				CCFC08AC1DEFF14900DF895E /* UIFont+Default.m in Sources */,
 				A910E6E61DF56A50002073CF /* HttpClient.m in Sources */,
 				CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */,
+				CCFDA4411DF7A1D40085DD96 /* MapViewController.m in Sources */,
 				CCFC08D81DF0419700DF895E /* LoginViewController.m in Sources */,
 				CCFC08DD1DF0419700DF895E /* TestViewController.m in Sources */,
 				CCFC08DA1DF0419700DF895E /* MineViewController.m in Sources */,
 				CCFC08AE1DEFF14900DF895E /* UIImageAdditions.m in Sources */,
 				CCFC08B71DEFF16800DF895E /* Validate.m in Sources */,
 				CCFC08B01DEFF14900DF895E /* UIView+Diamond.m in Sources */,
+				CC05168A1DF54C4F0071C1D3 /* ModifyPassWordViewController.m in Sources */,
 				CCFC08A41DEFF14900DF895E /* NSDateAdditions.m in Sources */,
 				CCFC08A61DEFF14900DF895E /* NSObjectAdditions.m in Sources */,
 				CCFC08D91DF0419700DF895E /* RegisterViewController.m in Sources */,
 				CCFC08C71DF0418400DF895E /* User.m in Sources */,
 				A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */,
+				CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */,
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
@@ -598,6 +649,9 @@
 				A9D89D821DF7BC900020890F /* LanguageSelectViewController.m in Sources */,
 				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
 				A9D89D7E1DF7A68B0020890F /* JPEngine.m in Sources */,
+				CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */,
+				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
+				CCFDA4451DF7AD950085DD96 /* MyAnnotation.m in Sources */,
 				CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */,
 				CCFC08A71DEFF14900DF895E /* NSStringAdditions.m in Sources */,
 				CCFC08B31DEFF14900DF895E /* UIView+WYView.m in Sources */,
@@ -669,6 +723,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -717,6 +772,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -744,15 +800,33 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3431A6DFB747424FE6B26ECA /* Pods-TemplateProject.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = A3YYVQTF9B;
+				DEVELOPMENT_TEAM = DQ3E9JXX24;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+					"\"${PODS_ROOT}/Headers/Public/iCarousel\"",
+				);
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.baixi.com.TemplateProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -763,15 +837,33 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 58621766AF40096ED4BAE848 /* Pods-TemplateProject.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = A3YYVQTF9B;
+				DEVELOPMENT_TEAM = DQ3E9JXX24;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/TTTAttributedLabel\"",
+					"\"${PODS_ROOT}/Headers/Public/WebViewJavascriptBridge\"",
+					"\"${PODS_ROOT}/Headers/Public/YYKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/YYModel\"",
+					"\"${PODS_ROOT}/Headers/Public/iCarousel\"",
+				);
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.baixi.com.TemplateProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
