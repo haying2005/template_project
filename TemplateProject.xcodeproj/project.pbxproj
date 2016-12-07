@@ -48,6 +48,9 @@
 		CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D11DF0419700DF895E /* PersonalInfoViewController.m */; };
 		CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D41DF0419700DF895E /* MainTabBarViewController.m */; };
 		CCFC08DD1DF0419700DF895E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D71DF0419700DF895E /* TestViewController.m */; };
+		CCFDA4411DF7A1D40085DD96 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4401DF7A1D40085DD96 /* MapViewController.m */; };
+		CCFDA4451DF7AD950085DD96 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */; };
+		CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +142,12 @@
 		CCFC08D41DF0419700DF895E /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		CCFC08D61DF0419700DF895E /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		CCFC08D71DF0419700DF895E /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		CCFDA43F1DF7A1D40085DD96 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		CCFDA4401DF7A1D40085DD96 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		CCFDA4431DF7AD950085DD96 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		CCFDA4461DF7B8CA0085DD96 /* CacheUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheUtil.h; sourceTree = "<group>"; };
+		CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +302,7 @@
 		CC8CD6031DEEC87700A682B6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CCFDA43E1DF7A1BD0085DD96 /* NearBy */,
 				CCFC08C81DF0419700DF895E /* Login&Register */,
 				CCFC08CD1DF0419700DF895E /* Me */,
 				CCFC08D21DF0419700DF895E /* TabBarController */,
@@ -305,6 +315,7 @@
 		CC8CD6041DEEC87700A682B6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CCFDA4421DF7AD7D0085DD96 /* NearBy */,
 				CCFC08C41DF0418400DF895E /* User */,
 			);
 			name = Model;
@@ -327,6 +338,8 @@
 				CCFC08B61DEFF16800DF895E /* Validate.m */,
 				A9727A881DF004EC002640EB /* LanguageTool.h */,
 				A9727A891DF004EC002640EB /* LanguageTool.m */,
+				CCFDA4461DF7B8CA0085DD96 /* CacheUtil.h */,
+				CCFDA4471DF7B8CA0085DD96 /* CacheUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -424,6 +437,24 @@
 				CCFC08D71DF0419700DF895E /* TestViewController.m */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		CCFDA43E1DF7A1BD0085DD96 /* NearBy */ = {
+			isa = PBXGroup;
+			children = (
+				CCFDA43F1DF7A1D40085DD96 /* MapViewController.h */,
+				CCFDA4401DF7A1D40085DD96 /* MapViewController.m */,
+			);
+			path = NearBy;
+			sourceTree = "<group>";
+		};
+		CCFDA4421DF7AD7D0085DD96 /* NearBy */ = {
+			isa = PBXGroup;
+			children = (
+				CCFDA4431DF7AD950085DD96 /* MyAnnotation.h */,
+				CCFDA4441DF7AD950085DD96 /* MyAnnotation.m */,
+			);
+			path = NearBy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,6 +585,7 @@
 				CCFC08AC1DEFF14900DF895E /* UIFont+Default.m in Sources */,
 				A910E6E61DF56A50002073CF /* HttpClient.m in Sources */,
 				CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */,
+				CCFDA4411DF7A1D40085DD96 /* MapViewController.m in Sources */,
 				CCFC08D81DF0419700DF895E /* LoginViewController.m in Sources */,
 				CCFC08DD1DF0419700DF895E /* TestViewController.m in Sources */,
 				CCFC08DA1DF0419700DF895E /* MineViewController.m in Sources */,
@@ -566,6 +598,7 @@
 				CCFC08D91DF0419700DF895E /* RegisterViewController.m in Sources */,
 				CCFC08C71DF0418400DF895E /* User.m in Sources */,
 				A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */,
+				CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */,
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
@@ -573,6 +606,7 @@
 				CCFC08B11DEFF14900DF895E /* UIView+FrameLayout.m in Sources */,
 				CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */,
 				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
+				CCFDA4451DF7AD950085DD96 /* MyAnnotation.m in Sources */,
 				CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */,
 				CCFC08A71DEFF14900DF895E /* NSStringAdditions.m in Sources */,
 				CCFC08B31DEFF14900DF895E /* UIView+WYView.m in Sources */,

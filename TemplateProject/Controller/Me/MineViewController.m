@@ -37,7 +37,7 @@
     itemArr = @[
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置", @"key" : @"setting"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
-                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"清缓存", @"key" : @"cache"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"修改密码", @"key" : @"editpass"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"登出", @"key" : @"logout"}
               ];
@@ -121,6 +121,11 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         PersonalInfoViewController *ctrl = [[PersonalInfoViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    
+    //清缓存
+    else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"cache"]) {
+        ZNLog(@"清除缓存");
     }
     
     //登出
