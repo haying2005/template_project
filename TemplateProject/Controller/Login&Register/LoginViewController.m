@@ -125,6 +125,16 @@
     
 }
 
+- (void)forgetPass {
+    ZNLog();
+    if (self.navigationController) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 
 - (void)login {
     if (![Validate validateMobile:txtUsername.text]) {

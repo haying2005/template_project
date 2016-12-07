@@ -49,13 +49,7 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(toSetting:)];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *str = [CacheUtil fileSizeStrForCacheDir];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cacheStr = str;
-            [_tableView reloadData];
-        });
-    });
+    
     
 }
 
@@ -181,6 +175,17 @@
 
 - (void)toSetting:(id)sender {
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *str = [CacheUtil fileSizeStrForCacheDir];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cacheStr = str;
+            [_tableView reloadData];
+        });
+    });
 }
 
 
