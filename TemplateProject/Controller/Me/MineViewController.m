@@ -9,12 +9,14 @@
 #import "MineViewController.h"
 #import "PersonalInfoViewController.h"
 #import "ModifyPassWordViewController.h"
-
+#import "MapViewController.h"
+#import "CacheUtil.h"
 
 @interface MineViewController () <UITableViewDelegate, UITableViewDataSource>
 {
     UITableView *_tableView;
     NSArray *itemArr;
+    NSString *cacheStr;
 }
 
 @end
@@ -36,14 +38,22 @@
     
     itemArr = @[
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置", @"key" : @"setting"},
-                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"地图", @"key" : @"map"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"清缓存", @"key" : @"cache"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"修改密码", @"key" : @"editpass"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"登出", @"key" : @"logout"}
               ];
-    
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(toSetting:)];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *str = [CacheUtil fileSizeStrForCacheDir];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cacheStr = str;
+            [_tableView reloadData];
+        });
+    });
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -72,6 +82,7 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1"];
             if (!cell) {
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell1"];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             cell.imageView.image = [UIImage imageNamed:@"tab_me_sel"];
             cell.textLabel.text = [User shareInstance].userNick;
@@ -85,12 +96,14 @@
             if (!cell) {
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell2"];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                
             }
             NSDictionary *dic = [itemArr objectAtIndex:indexPath.row];
             cell.imageView.image = [UIImage imageNamed:[dic valueForKey:@"icon"]];
             cell.textLabel.text = [dic valueForKey:@"title"];
             cell.textLabel.font = [UIFont systemFontOfSize:12];
+            if ([[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"cache"]) {
+                cell.detailTextLabel.text = cacheStr;
+            }
             return cell;
             break;
         }
@@ -120,6 +133,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
         PersonalInfoViewController *ctrl = [[PersonalInfoViewController alloc] init];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    
+    //地图
+    else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"map"]) {
+        MapViewController *ctrl = [[MapViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
     
