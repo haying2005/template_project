@@ -12,6 +12,7 @@
 		A910E6E71DF56A50002073CF /* HttpParametersUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A910E6E41DF56A50002073CF /* HttpParametersUtility.m */; };
 		A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = A910E6EF1DF56FCA002073CF /* NSData+YYAdd.m */; };
 		A910E6F31DF56FF6002073CF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A910E6F21DF56FF6002073CF /* libz.tbd */; };
+		A91123821DF7EA100087BD92 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91123811DF7EA100087BD92 /* BaseViewController.m */; };
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
@@ -71,6 +72,8 @@
 		A910E6EF1DF56FCA002073CF /* NSData+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+YYAdd.m"; sourceTree = "<group>"; };
 		A910E6F01DF56FCA002073CF /* YYCategoriesMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCategoriesMacro.h; sourceTree = "<group>"; };
 		A910E6F21DF56FF6002073CF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A91123801DF7EA100087BD92 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		A91123811DF7EA100087BD92 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A9727A731DF0020C002640EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7B1DF0041C002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7D1DF00429002640EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -226,6 +229,15 @@
 			path = YYCategories;
 			sourceTree = "<group>";
 		};
+		A911237F1DF7E9FF0087BD92 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A91123801DF7EA100087BD92 /* BaseViewController.h */,
+				A91123811DF7EA100087BD92 /* BaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		A9727A781DF003FA002640EB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +340,7 @@
 		CC8CD6031DEEC87700A682B6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A911237F1DF7E9FF0087BD92 /* Base */,
 				CCFDA43E1DF7A1BD0085DD96 /* NearBy */,
 				CCFC08C81DF0419700DF895E /* Login&Register */,
 				CCFC08CD1DF0419700DF895E /* Me */,
@@ -631,6 +644,7 @@
 				CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */,
 				A9D89D8D1DF7DA030020890F /* HotFixEngine.m in Sources */,
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
+				A91123821DF7EA100087BD92 /* BaseViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
 				A9D89D911DF7DCA00020890F /* LanguageSelectViewController.m in Sources */,
@@ -814,7 +828,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishowxxx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -851,7 +865,7 @@
 				INFOPLIST_FILE = TemplateProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishowxxx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qinxiang.ishow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

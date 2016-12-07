@@ -6,8 +6,11 @@
 
 */
 
-"Send" = "Send";
+"message" = "Message";
 
-"Cancel" = "Cancel";
+"nearby" = "Nearby";
 
-"Sina Weibo" = "Sina Weibo";
+"test" = "Test";
+
+"mine" = "Mine";
+

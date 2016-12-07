@@ -30,6 +30,8 @@
     self.delegate = self;
     
     [User loadCurrentUser];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLanguageChangeNotification:) name:NOTIFICATION_LANGUAGE_CHANGE object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -41,24 +43,24 @@
     
     TestViewController *ctrl1 = [[TestViewController alloc]init];
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:ctrl1];
-    ctrl1.navigationItem.title = @"消息";
-    [self addChildCtrl:nav1 title:@"消息" icon:[UIImage imageNamed:@"tab_me_sel"]];
+    ctrl1.navigationItem.title = Localized(@"message");
+    [self addChildCtrl:nav1 title:ctrl1.navigationItem.title icon:[UIImage imageNamed:@"tab_me_sel"]];
     
     //UIViewController *ctrl2 = [[UIViewController alloc]init];
     MapViewController *ctrl2 = [[MapViewController alloc] init];
     UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:ctrl2];
-    ctrl2.navigationItem.title = @"附近";
-    [self addChildCtrl:nav2 title:@"附近" icon:[UIImage imageNamed:@"tab_me_sel"]];
+    ctrl2.navigationItem.title = Localized(@"nearby");
+    [self addChildCtrl:nav2 title:ctrl2.navigationItem.title icon:[UIImage imageNamed:@"tab_me_sel"]];
     
     TestViewController *ctrl3 = [[TestViewController alloc]init];
     UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:ctrl3];
-    ctrl3.navigationItem.title = @"测试";
-    [self addChildCtrl:nav3 title:@"测试" icon:[UIImage imageNamed:@"tab_me_sel"]];
+    ctrl3.navigationItem.title = Localized(@"test");
+    [self addChildCtrl:nav3 title:ctrl3.navigationItem.title icon:[UIImage imageNamed:@"tab_me_sel"]];
     
     MineViewController *ctrl4 = [[MineViewController alloc]init];
     UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:ctrl4];
-    ctrl4.navigationItem.title = @"我的";
-    [self addChildCtrl:nav4 title:@"我的" icon:[UIImage imageNamed:@"tab_me_sel"]];
+    ctrl4.navigationItem.title = Localized(@"mine");
+    [self addChildCtrl:nav4 title:ctrl4.navigationItem.title icon:[UIImage imageNamed:@"tab_me_sel"]];
     
 }
 
@@ -97,5 +99,42 @@
     
 }
 
+#pragma mark - Notification Handle
+
+- (void)handleLanguageChangeNotification:(NSNotification *)notification
+{
+    for (int i = 0; i < self.viewControllers.count; i++) {
+        UINavigationController *navigationController = self.viewControllers[i];
+        
+        NSString *localizedTitle = nil;
+        switch (i) {
+            case 0:
+            {
+                localizedTitle = Localized(@"message");
+            }
+                break;
+            case 1:
+            {
+                localizedTitle = Localized(@"nearby");
+            }
+                break;
+            case 2:
+            {
+                localizedTitle = Localized(@"test");
+            }
+                break;
+            case 3:
+            {
+                localizedTitle = Localized(@"mine");
+            }
+                break;
+            default:
+                break;
+        }
+        
+        ((UIViewController *)[navigationController.viewControllers firstObject]).navigationItem.title = localizedTitle;
+        navigationController.tabBarItem.title = localizedTitle;
+    }
+}
 
 @end

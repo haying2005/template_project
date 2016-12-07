@@ -14,5 +14,7 @@
     #import "MBProgressHUD.h"
     #import "BlocksKit+UIKit.h"
     #import <ReactiveObjC/ReactiveObjC.h>
+    #import "BaseViewController.h"
+    #import "UIColorAdditions.h"
 
 #endif

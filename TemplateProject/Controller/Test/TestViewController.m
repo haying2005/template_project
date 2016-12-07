@@ -79,6 +79,15 @@
     
     // test jspatch
     [self.view addSubview:[self genView]];
+    
+//    [self configureDefaultLeftItem];
+//    
+//    UIButton *button1=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    [button1 setTitle:@"test1" forState:UIControlStateNormal];
+//    [button1 setFrame:CGRectMake(60, 430, 50, 50)];
+//    [button1 addTarget:self action:@selector(testAction1:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:button1];
+//    [button1 setBackgroundColor:[UIColor brownColor]];
 }
 
 - (UIView *)genView
@@ -93,6 +102,13 @@
     if (param2) {
         ZNLog(@"%@", param2(@"test jspatch", YES));
     }
+}
+
+- (void)testAction1:(UIButton *)sender
+{
+    ZNLog();
+    
+    [self showLoadingErrorView];
 }
 
 - (void)didReceiveMemoryWarning {
