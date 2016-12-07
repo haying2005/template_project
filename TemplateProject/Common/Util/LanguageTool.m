@@ -14,7 +14,6 @@
 @interface LanguageTool()
 
 @property (nonatomic, strong) NSBundle *bundle;
-@property (nonatomic, copy) NSString *language;
 
 @end
 

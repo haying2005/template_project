@@ -12,7 +12,7 @@
     #import "UIView+FrameLayout.h"
     #import "Masonry.h"
     #import "MBProgressHUD.h"
+    #import "BlocksKit+UIKit.h"
     #import <ReactiveObjC/ReactiveObjC.h>
-
 
 #endif

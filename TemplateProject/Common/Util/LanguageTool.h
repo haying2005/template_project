@@ -25,6 +25,8 @@
 
 @interface LanguageTool : NSObject
 
+@property (nonatomic, copy) NSString *language;
+
 + (instancetype)shareInstance;
 
 - (NSString *)getStringForKey:(NSString *)key;

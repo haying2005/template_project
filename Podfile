@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, ‘7.0’
+# platform :ios, '7.0'
 
 target 'TemplateProject' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -21,10 +21,6 @@ target 'TemplateProject' do
 	pod 'TTTAttributedLabel', '~> 2.0.0'
 	pod 'WebViewJavascriptBridge', '~> 5.0.5'
 	pod 'CocoaAsyncSocket', '~> 7.4.3'
-	#pod 'GPUImage', '~> 0.1.7'
+    #pod 'GPUImage', '~> 0.1.7'
     pod 'ReactiveObjC', :git => 'https://github.com/ReactiveCocoa/ReactiveObjC.git'
-
-
-
-
 end

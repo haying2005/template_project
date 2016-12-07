@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "PersonalInfoViewController.h"
+#import "LanguageSelectViewController.h"
 #import "ModifyPassWordViewController.h"
 #import "MapViewController.h"
 #import "CacheUtil.h"
@@ -39,6 +40,8 @@
     itemArr = @[
                 @{@"icon" : @"tab_me_sel", @"title" : @"设置", @"key" : @"setting"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"地图", @"key" : @"map"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"设置"},
+                @{@"icon" : @"tab_me_sel", @"title" : @"多语言", @"key" : @"multiLanguage"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"清缓存", @"key" : @"cache"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"修改密码", @"key" : @"editpass"},
                 @{@"icon" : @"tab_me_sel", @"title" : @"登出", @"key" : @"logout"}
@@ -131,6 +134,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if (indexPath.section == 0 && indexPath.row == 0) {
         PersonalInfoViewController *ctrl = [[PersonalInfoViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
@@ -146,26 +151,32 @@
     else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"cache"]) {
         ZNLog(@"清除缓存");
     }
-    
     //登出
     else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"logout"]) {
-        NSDictionary *result = [[User shareInstance] logout];
-        if ([result[@"code"] integerValue] == 0) {
-            ZNLog(@"logout 成功！");
-            [self.tabBarController setSelectedIndex:0];
-        }
-        else {
-            ZNLog(@"%@", result[@"errMsg"]);
-        }
+        [UIAlertView bk_showAlertViewWithTitle:@"提示" message:@"你确定退出？" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            if (buttonIndex == 0) {
+                
+            }
+            else if (buttonIndex == 1) {
+                NSDictionary *result = [[User shareInstance] logout];
+                if ([result[@"code"] integerValue] == 0) {
+                    ZNLog(@"logout 成功！");
+                    [self.tabBarController setSelectedIndex:0];
+                }
+            }
+        }];
     }
-    
     //修改密码
     else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"editpass"]) {
         ModifyPassWordViewController *ctrl = [[ModifyPassWordViewController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
-    
-    
+    // 多语言
+    else if (indexPath.section == 1 && [[[itemArr objectAtIndex:indexPath.row] valueForKey:@"key"] isEqualToString:@"multiLanguage"]) {
+        LanguageSelectViewController *languageSelectViewController = [LanguageSelectViewController new];
+        languageSelectViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:languageSelectViewController animated:YES];
+    }    
 }
 
 - (void)toSetting:(id)sender {

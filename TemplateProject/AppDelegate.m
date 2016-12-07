@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainTabBarViewController.h"
 #import "LoginViewController.h"
+#import "HotFixEngine.h"
 
 @interface AppDelegate ()
 
@@ -20,9 +21,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    // 启动热修复
+    [HotFixEngine startHotFixEngine];
+    
+    // 初始化语言设置
     [LanguageTool shareInstance];
     
-    //初始化TabBarController
+    // 初始化TabBarController
     MainTabBarViewController *tabBarCtrl = [[MainTabBarViewController alloc]init];
     [self.window setRootViewController:tabBarCtrl];
     
