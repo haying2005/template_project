@@ -82,7 +82,7 @@
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             cell.imageView.image = [UIImage imageNamed:@"tab_me_sel"];
-            cell.textLabel.text = [User shareInstance].userNick;
+            //cell.textLabel.text = [User shareInstance].userNick;
             cell.detailTextLabel.text = [NSString stringWithFormat:@"用户id: %@", [User shareInstance].userId];
             return cell;
             break;
@@ -152,11 +152,7 @@
                 
             }
             else if (buttonIndex == 1) {
-                NSDictionary *result = [[User shareInstance] logout];
-                if ([result[@"code"] integerValue] == 0) {
-                    ZNLog(@"logout 成功！");
-                    [self.tabBarController setSelectedIndex:0];
-                }
+                //todo
             }
         }];
     }

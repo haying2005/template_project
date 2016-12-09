@@ -158,23 +158,13 @@
     }
     [self showError:@"登录中..."];
     
-    WEAKSELF;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSDictionary *result = [User login:txtUsername.text pass:txtPassword.text];
-        btnLogin.enabled = YES;
-        if (!([[result valueForKey:@"code"] integerValue] == 0)) {
-            [weakSelf showError:result[@"errMsg"]];
-        }
-        else {
-            [weakSelf showError:@"登录成功"];
-            [[User shareInstance] updateInfo:@{@"login" : @(YES)}];
-            [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
-                //
-            }];
-        }
-    });
-    
+    [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility loginParammetersWithPhone:txtUsername.text pass:txtPassword.text] success:^(id data) {
+        [[User shareInstance] setUserFromDictionary:data];
+        ZNLog(@"%@", [User shareInstance]);
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(NSString *errorDescription) {
+        ZNLog(@"%@", errorDescription);
+    }];
 }
 
 

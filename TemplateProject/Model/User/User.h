@@ -11,19 +11,17 @@
 @interface User : NSObject
 
 @property (nonatomic, copy)NSString *userId;
-@property (nonatomic, copy)NSString *password;
+//@property (nonatomic, copy)NSString *password;
 @property (nonatomic, copy)NSString *userName;
-@property (nonatomic, copy)NSString *userNick;
-@property (nonatomic, copy)NSString *headUrl;
-@property (nonatomic, assign)BOOL isLogin;
+@property (nonatomic, copy)NSString *nickName;
+@property (nonatomic, copy)NSString *head;
+@property (nonatomic, assign)BOOL loginStatus;
 @property (nonatomic, strong)NSString *accessToken;
 
 + (instancetype)shareInstance;
-+ (NSDictionary *)registerUser:(User *)user;
-+ (NSDictionary *)login:(NSString *)userName pass:(NSString *)pass;
-- (NSDictionary *)logout;
-+ (void)loadCurrentUser;
-- (BOOL)updateInfo:(NSDictionary *)dic;
+
+//用于初始化接口回调成功后 把从网络返回的信息传入到本地对象
+- (void)setUserFromDictionary:(NSDictionary *)dictionary;
 
 - (NSString *)getUUID;
 

@@ -18,13 +18,13 @@
 #define NOTIFICATION_NEED_LOGIN     @"NOTIFICATION_NEED_LOGIN"
 
 // 接口环境
-#define kTestEnvironment            1
+#define kTestEnvironment            0
 
 // Base URL
 #if kTestEnvironment
     #define URL_ENTRY               @"http://115.159.71.110/v1"
 #else   
-    #define URL_ENTRY               @"http://template.kinsoo.com"
+    #define URL_ENTRY               @"http://template.kinsoo.com/v1"
 #endif
 
 // **************************** 接口 *************************************

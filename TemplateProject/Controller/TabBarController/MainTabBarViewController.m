@@ -30,7 +30,7 @@
     [self initTabBar];
     self.delegate = self;
     
-    [User loadCurrentUser];
+    //[User loadCurrentUser];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLanguageChangeNotification:) name:NOTIFICATION_LANGUAGE_CHANGE object:nil];
 }
@@ -88,7 +88,7 @@
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     if ([[viewController tabBarItem].title isEqualToString:@"我的"]) {
-        if (![[User shareInstance] isLogin]) {
+        if (![[User shareInstance] loginStatus]) {
             [self showLoginView];
             return NO;
         }
