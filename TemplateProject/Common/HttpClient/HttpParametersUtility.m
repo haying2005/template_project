@@ -48,6 +48,128 @@
                                  parameters:@{@"mark" : @"mark-value"}];
 }
 
++ (HttpParametersModel *)registerParammetersWithPhone:(NSString *)phone pass:(NSString *)pass code:(NSString *)code inviter:(NSString *)inviter
+{
+    if (!inviter) {
+        return [self httpParametersModelWithURL:URL_REGISTER
+                                     parameters:@{@"username" : phone,
+                                                  @"password" : pass,
+                                                  @"code" : code,
+                                                  @"mark" : [[User shareInstance] getUUID]}];
+    }
+    
+    else {
+        return [self httpParametersModelWithURL:URL_REGISTER
+                                     parameters:@{@"username" : phone,
+                                                  @"password" : pass,
+                                                  @"code" : code,
+                                                  @"inviter"  : inviter,
+                                                  @"mark" : [[User shareInstance] getUUID]}];
+    }
+    
+}
+
++ (HttpParametersModel *)loginParammetersWithPhone:(NSString *)phone pass:(NSString *)pass
+{
+    return [self httpParametersModelWithURL:URL_LOGIN
+                                 parameters:@{@"username" : phone,
+                                              @"password" : pass}];
+}
+
++ (HttpParametersModel *)logoutParammeters {
+    return [self httpParametersModelWithURL:URL_LOGOUT parameters:nil];
+}
+
++ (HttpParametersModel *)weixinLoginParametersWithOpenid:(NSString *)openId
+                                            access_token:(NSString *)accessToken
+{
+    return [self httpParametersModelWithURL:URL_WEIXIN_LOGIN
+                                 parameters:@{@"pid" : openId,
+                                              @"access_token" : accessToken}];
+}
+
++ (HttpParametersModel *)weiboLoginParametersWithOpenid:(NSString *)openId
+                                           access_token:(NSString *)accessToken
+{
+    return [self httpParametersModelWithURL:URL_WEIBO_LOGIN
+                                 parameters:@{@"pid" : openId,
+                                              @"access_token" : accessToken}];
+}
+
++ (HttpParametersModel *)qqLoginParametersWithOpenid:(NSString *)openId
+                                        access_token:(NSString *)accessToken
+{
+    return [self httpParametersModelWithURL:URL_QQ_LOGIN
+                                 parameters:@{@"pid" : openId,
+                                              @"access_token" : accessToken}];
+}
+
++ (HttpParametersModel *)setDeviceTokenParammetersWithToken:(NSString *)token
+{
+    return [self httpParametersModelWithURL:URL_SET_DEVICE
+                                 parameters:@{@"type" : @(1),
+                                              @"token" : token}];
+}
+
++ (HttpParametersModel *)sendCheckCodeParammetersWithPhone:(NSString *)phone
+                                                      type:(int)type {
+    return [self httpParametersModelWithURL:URL_SEND_CODE
+                                 parameters:@{@"phone" : phone,
+                                              @"type" : @(type)}];
+}
+
++ (HttpParametersModel *)resetPassParammetersWithPhone:(NSString *)phone
+                                                  pass:(NSString *)pass
+                                                  code:(NSString *)code {
+    return [self httpParametersModelWithURL:URL_RESET_PASS
+                                 parameters:@{@"username" : phone,
+                                              @"password" : pass,
+                                              @"code" : code}];
+}
+
++ (HttpParametersModel *)checkVersionParammeters
+{
+    return [self httpParametersModelWithURL:URL_CHECK_VERSION
+                                 parameters:@{@"type" : @(1)}];
+}
+
++ (HttpParametersModel *)modifyEmotionParammetersWithState:(NSInteger)state
+{
+    return [self httpParametersModelWithURL:URL_MODIFY_EMOTION
+                                 parameters:@{@"emotion" : @(state)}];
+}
+
++ (HttpParametersModel *)modifyJobParammetersWithJob:(NSString *)job
+{
+    return [self httpParametersModelWithURL:URL_MODIFY_JOB
+                                 parameters:@{@"job" : job}];
+}
+
++ (HttpParametersModel *)wxOrderParammetersWithPayType:(int)payType cid:(NSString *)cid
+{
+    return [self httpParametersModelWithURL:URL_WX_ORDER
+                                 parameters:@{@"payType" : @(payType),
+                                              @"cid" : cid}];
+}
+
++ (HttpParametersModel *)wxOrderStatusParammetersWithOrderID:(NSString *)orderID
+{
+    return [self httpParametersModelWithURL:URL_WX_ORDER_STATUS
+                                 parameters:@{@"orderId" : orderID}];
+}
+
++ (HttpParametersModel *)payHistoryParammetersWithPage:(int)page
+{
+    return [self httpParametersModelWithURL:URL_PAY_HISTORY
+                                 parameters:@{@"page" : @(page)}];
+}
+
++ (HttpParametersModel *)aliOrderParammetersWithPayType:(int)payType cid:(NSString *)cid
+{
+    return [self httpParametersModelWithURL:URL_ALI_ORDER
+                                 parameters:@{@"payType" : @(payType),
+                                              @"cid" : cid}];
+}
 
 
 @end
