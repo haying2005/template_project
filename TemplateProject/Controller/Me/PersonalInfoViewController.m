@@ -11,12 +11,9 @@
 
 
 @interface PersonalInfoViewController () <UITableViewDelegate, UITableViewDataSource, MultiImagePickControllerDelegate>
-{
-    UITableView *_tableView;
-    NSArray *items;
-    
-    UIImage *testHeadImage;
-}
+
+@property(nonatomic) UITableView *tableView;
+@property(nonatomic) NSArray *items;
 
 @end
 
@@ -36,7 +33,7 @@
         make.edges.equalTo(weakSelf.view);
     }];
     
-    items = @[
+    _items = @[
               @{@"icon" : @"", @"title" : @"头像"},
               @{@"icon" : @"", @"title" : @"昵称"},
               @{@"icon" : @"", @"title" : @"用户名"},
@@ -49,7 +46,7 @@
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return items.count;
+    return _items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,12 +72,12 @@
 
         }
     }
-    cell.textLabel.text = [items[indexPath.row] valueForKey:@"title"];
+    cell.textLabel.text = [_items[indexPath.row] valueForKey:@"title"];
     
     if (indexPath.row == 0) {
         UIImageView *img = [cell viewWithTag:49];
-        if (img && testHeadImage) {
-            img.image = testHeadImage;
+        if (img) {
+            [img sd_setImageWithURL:[NSURL URLWithString:[User shareInstance].head]];
         }
     }
     
@@ -110,7 +107,7 @@
 #pragma mark - MultiImagePickControllerDelegate
 - (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImage:(UIImage *)image {
     ZNLog(@"didFinishPickingImage...");
-    testHeadImage = image;
+    //todo...
     [_tableView reloadData];
     
 }
@@ -121,6 +118,9 @@
     ZNLog(@"multiImagePickControllerrDidCancel...");
 }
 
+- (void)dealloc {
+    ZNLog();
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

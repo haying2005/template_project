@@ -86,15 +86,15 @@
         return [self showError:@"密码只能由数字跟字母组成"];
     }
     
-    if (![[User shareInstance].password isEqualToString:_txtOldpass.text]) {
-        return [self showError:@"旧密码错误"];
-    }
-    
-    [self showError:@""];
-    
-    if ([[User shareInstance] updateInfo:@{@"password" : _txtNewpass.text}]) {
-        [self showError:@"修改密码成功！"];
-    }
+//    if (![[User shareInstance].password isEqualToString:_txtOldpass.text]) {
+//        return [self showError:@"旧密码错误"];
+//    }
+//    
+//    [self showError:@""];
+//    
+//    if ([[User shareInstance] updateInfo:@{@"password" : _txtNewpass.text}]) {
+//        [self showError:@"修改密码成功！"];
+//    }
 }
 - (void)showError:(NSString *)text {
     [_lblTip setText:text];

@@ -34,7 +34,8 @@
     [self initUI];
     
     @weakify(self);
-    
+    @weakify(btnLogin);
+
     RACSignal *validUser = [txtUsername.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
          return @([Validate validateUserName:value]);
      }];
@@ -56,7 +57,7 @@
     }];
     
     [signUpActiveSignal subscribeNext:^(id  _Nullable x) {
-        btnLogin.enabled = [x boolValue];
+        btnLogin_weak_.enabled = [x boolValue];
     }];
     
     
@@ -64,7 +65,8 @@
     
     [[[btnLogin rac_signalForControlEvents:UIControlEventTouchUpInside]
      doNext:^(__kindof UIControl * _Nullable x) {
-         btnLogin.enabled = NO;
+         @strongify(self);
+         btnLogin_weak_.enabled = NO;
          [self showError:@""];
     }]
      subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -81,6 +83,7 @@
     UIView *superV = self.view;
     
     txtUsername = [UITextField new];
+    @weakify(txtUsername);
     txtUsername.borderStyle = UITextBorderStyleRoundedRect;
     [superV addSubview:txtUsername];
     [txtUsername mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,33 +94,38 @@
     }];
     
     txtPassword = [UITextField new];
+    @weakify(txtPassword);
     txtPassword.borderStyle = UITextBorderStyleRoundedRect;
     [superV addSubview:txtPassword];
     [txtPassword mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(txtUsername.mas_bottom).with.offset(30);
-        make.left.equalTo(txtUsername);
-        make.width.equalTo(txtUsername);
-        make.height.equalTo(txtUsername);
+        make.top.equalTo(txtUsername_weak_.mas_bottom).with.offset(30);
+        make.left.equalTo(txtUsername_weak_);
+        make.width.equalTo(txtUsername_weak_);
+        make.height.equalTo(txtUsername_weak_);
     }];
     
     btnLogin = [UIButton new];
+    @weakify(btnLogin);
+    
     [superV addSubview:btnLogin];
     [btnLogin setTitle:@"登录" forState:UIControlStateNormal];
     [btnLogin setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btnLogin setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
     [btnLogin mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(txtPassword.mas_bottom).with.offset(30);
-        make.right.equalTo(txtPassword.mas_right).with.offset(-30);
+        make.top.equalTo(txtPassword_weak_.mas_bottom).with.offset(30);
+        make.right.equalTo(txtPassword_weak_.mas_right).with.offset(-30);
     }];
     
     lblTip = [UILabel new];
+    //@weakify(lblTip);
+    
     lblTip.textColor = [UIColor redColor];
     lblTip.font = [UIFont systemFontOfSize:12];
     [superV addSubview:lblTip];
     [lblTip mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(btnLogin);
-        make.left.equalTo(txtPassword);
-        make.right.equalTo(btnLogin.mas_left).with.offset(30);
+        make.centerY.equalTo(btnLogin_weak_);
+        make.left.equalTo(txtPassword_weak_);
+        make.right.equalTo(btnLogin_weak_.mas_left).with.offset(30);
     }];
     
     UIButton *btnRight = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -242,25 +250,24 @@
     if (![Validate validatePassword:txtPassword.text]) {
         return [self showError:@"密码只能由数字跟字母组成"];
     }
-    [self showError:@"登录中..."];
     
-    WEAKSELF;
+    [self showLoadingView];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSDictionary *result = [User login:txtUsername.text pass:txtPassword.text];
-        btnLogin.enabled = YES;
-        if (!([[result valueForKey:@"code"] integerValue] == 0)) {
-            [weakSelf showError:result[@"errMsg"]];
-        }
-        else {
-            [weakSelf showError:@"登录成功"];
-            [[User shareInstance] updateInfo:@{@"login" : @(YES)}];
-            [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
-                //
-            }];
-        }
-    });
+    @weakify(self);
     
+    [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility loginParammetersWithPhone:txtUsername.text pass:txtPassword.text] success:^(id data) {
+        @strongify(self);
+        
+        [[User shareInstance] setUserFromDictionary:data];
+        ZNLog(@"%@", [User shareInstance]);
+        [self hideLoadingView];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } failure:^(NSString *errorDescription) {
+        @strongify(self);
+        
+        ZNLog(@"%@", errorDescription);
+        [self hideLoadingView];
+    }];
 }
 
 

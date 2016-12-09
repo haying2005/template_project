@@ -17,5 +17,7 @@
     #import <ReactiveObjC/ReactiveObjC.h>
     #import "BaseViewController.h"
     #import "UIColorAdditions.h"
+    #import "HttpClient.h"
+    #import "UIImageView+WebCache.h"
 
 #endif

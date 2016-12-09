@@ -7,7 +7,6 @@
 //
 
 #import "TestViewController.h"
-#import "Masonry.h"
 
 
 @interface TestViewController ()
@@ -76,6 +75,7 @@
     
     NSLog(@"%@", [self class]);
     NSLog(@"%@", [TestViewController class]);
+    
     
     // test jspatch
     [self.view addSubview:[self genView]];
