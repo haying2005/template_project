@@ -25,4 +25,6 @@
 + (void)loadCurrentUser;
 - (BOOL)updateInfo:(NSDictionary *)dic;
 
+- (NSString *)getUUID;
+
 @end
