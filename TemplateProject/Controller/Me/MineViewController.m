@@ -49,7 +49,10 @@
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(toSetting:)];
     
-    
+    __weak UITableView *tableV = _tableView;
+    [RACObserve([User shareInstance], nickName) subscribeNext:^(id  _Nullable x) {
+        [tableV reloadData];
+    }];
     
 }
 
@@ -82,8 +85,8 @@
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             cell.imageView.image = [UIImage imageNamed:@"tab_me_sel"];
-            //cell.textLabel.text = [User shareInstance].userNick;
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"用户id: %@", [User shareInstance].userId];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"手机号：%@", [User shareInstance].userName];
+            cell.textLabel.text = [NSString stringWithFormat:@"昵称：%@", [User shareInstance].nickName];
             return cell;
             break;
         }
