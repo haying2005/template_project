@@ -21,8 +21,6 @@
 		A9D89D8D1DF7DA030020890F /* HotFixEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D8B1DF7DA030020890F /* HotFixEngine.m */; };
 		A9D89D8E1DF7DA030020890F /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = A9D89D8C1DF7DA030020890F /* test.js */; };
 		A9D89D911DF7DCA00020890F /* LanguageSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9D89D901DF7DCA00020890F /* LanguageSelectViewController.m */; };
-		CC05168A1DF54C4F0071C1D3 /* ModifyPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */; };
-		CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */; };
 		CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */; };
 		CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4EFFCE1DF17D3000B7C5BB /* MultiImagePickController.m */; };
 		CC8CD5E61DEEC02600A682B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5E51DEEC02600A682B6 /* main.m */; };
@@ -30,6 +28,10 @@
 		CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CD5EB1DEEC02600A682B6 /* ViewController.m */; };
 		CC8CD5F11DEEC02600A682B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8CD5F01DEEC02600A682B6 /* Assets.xcassets */; };
 		CC8CD5F41DEEC02600A682B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8CD5F21DEEC02600A682B6 /* LaunchScreen.storyboard */; };
+		CCD9207B1DFA7845004503A8 /* ForgetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD920741DFA7845004503A8 /* ForgetPassViewController.m */; };
+		CCD9207C1DFA7845004503A8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD920761DFA7845004503A8 /* LoginViewController.m */; };
+		CCD9207D1DFA7845004503A8 /* ModifyPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD920781DFA7845004503A8 /* ModifyPassWordViewController.m */; };
+		CCD9207E1DFA7845004503A8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD9207A1DFA7845004503A8 /* RegisterViewController.m */; };
 		CCFC08A41DEFF14900DF895E /* NSDateAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08841DEFF14900DF895E /* NSDateAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CCFC08A51DEFF14900DF895E /* NSMutableAttributedString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08861DEFF14900DF895E /* NSMutableAttributedString+Utility.m */; };
 		CCFC08A61DEFF14900DF895E /* NSObjectAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08881DEFF14900DF895E /* NSObjectAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -48,8 +50,6 @@
 		CCFC08B41DEFF14900DF895E /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08A31DEFF14900DF895E /* UIViewAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CCFC08B71DEFF16800DF895E /* Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08B61DEFF16800DF895E /* Validate.m */; };
 		CCFC08C71DF0418400DF895E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08C61DF0418400DF895E /* User.m */; };
-		CCFC08D81DF0419700DF895E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08CA1DF0419700DF895E /* LoginViewController.m */; };
-		CCFC08D91DF0419700DF895E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08CC1DF0419700DF895E /* RegisterViewController.m */; };
 		CCFC08DA1DF0419700DF895E /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08CF1DF0419700DF895E /* MineViewController.m */; };
 		CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D11DF0419700DF895E /* PersonalInfoViewController.m */; };
 		CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC08D41DF0419700DF895E /* MainTabBarViewController.m */; };
@@ -93,10 +93,6 @@
 		A9D89D8C1DF7DA030020890F /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		A9D89D8F1DF7DCA00020890F /* LanguageSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LanguageSelectViewController.h; sourceTree = "<group>"; };
 		A9D89D901DF7DCA00020890F /* LanguageSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LanguageSelectViewController.m; sourceTree = "<group>"; };
-		CC0516881DF54C4F0071C1D3 /* ModifyPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassWordViewController.h; sourceTree = "<group>"; };
-		CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassWordViewController.m; sourceTree = "<group>"; };
-		CC05168B1DF562960071C1D3 /* ForgetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassViewController.h; sourceTree = "<group>"; };
-		CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassViewController.m; sourceTree = "<group>"; };
 		CC3F69151DF276B600F85540 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPhotoViewController.h; sourceTree = "<group>"; };
 		CC3F69161DF276B600F85540 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPhotoViewController.m; sourceTree = "<group>"; };
 		CC4EFFCD1DF17D3000B7C5BB /* MultiImagePickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiImagePickController.h; sourceTree = "<group>"; };
@@ -110,6 +106,14 @@
 		CC8CD5F01DEEC02600A682B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC8CD5F31DEEC02600A682B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC8CD5F51DEEC02600A682B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCD920731DFA7845004503A8 /* ForgetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPassViewController.h; sourceTree = "<group>"; };
+		CCD920741DFA7845004503A8 /* ForgetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPassViewController.m; sourceTree = "<group>"; };
+		CCD920751DFA7845004503A8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CCD920761DFA7845004503A8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CCD920771DFA7845004503A8 /* ModifyPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassWordViewController.h; sourceTree = "<group>"; };
+		CCD920781DFA7845004503A8 /* ModifyPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassWordViewController.m; sourceTree = "<group>"; };
+		CCD920791DFA7845004503A8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		CCD9207A1DFA7845004503A8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		CCFC08831DEFF14900DF895E /* NSDateAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDateAdditions.h; sourceTree = "<group>"; };
 		CCFC08841DEFF14900DF895E /* NSDateAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDateAdditions.m; sourceTree = "<group>"; };
 		CCFC08851DEFF14900DF895E /* NSMutableAttributedString+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Utility.h"; sourceTree = "<group>"; };
@@ -147,10 +151,6 @@
 		CCFC08B91DEFF69100DF895E /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		CCFC08C51DF0418400DF895E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		CCFC08C61DF0418400DF895E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		CCFC08C91DF0419700DF895E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		CCFC08CA1DF0419700DF895E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		CCFC08CB1DF0419700DF895E /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		CCFC08CC1DF0419700DF895E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		CCFC08CE1DF0419700DF895E /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		CCFC08CF1DF0419700DF895E /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		CCFC08D01DF0419700DF895E /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
@@ -343,9 +343,9 @@
 		CC8CD6031DEEC87700A682B6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CCD920721DFA7845004503A8 /* Login_Register */,
 				A911237F1DF7E9FF0087BD92 /* Base */,
 				CCFDA43E1DF7A1BD0085DD96 /* NearBy */,
-				CCFC08C81DF0419700DF895E /* Login&Register */,
 				CCFC08CD1DF0419700DF895E /* Me */,
 				CCFC08D21DF0419700DF895E /* TabBarController */,
 				CCFC08D51DF0419700DF895E /* Test */,
@@ -370,6 +370,21 @@
 			);
 			name = View;
 			path = TemplateProject/View;
+			sourceTree = "<group>";
+		};
+		CCD920721DFA7845004503A8 /* Login_Register */ = {
+			isa = PBXGroup;
+			children = (
+				CCD920731DFA7845004503A8 /* ForgetPassViewController.h */,
+				CCD920741DFA7845004503A8 /* ForgetPassViewController.m */,
+				CCD920751DFA7845004503A8 /* LoginViewController.h */,
+				CCD920761DFA7845004503A8 /* LoginViewController.m */,
+				CCD920771DFA7845004503A8 /* ModifyPassWordViewController.h */,
+				CCD920781DFA7845004503A8 /* ModifyPassWordViewController.m */,
+				CCD920791DFA7845004503A8 /* RegisterViewController.h */,
+				CCD9207A1DFA7845004503A8 /* RegisterViewController.m */,
+			);
+			path = Login_Register;
 			sourceTree = "<group>";
 		};
 		CCFC08811DEFF0AF00DF895E /* Util */ = {
@@ -431,21 +446,6 @@
 				CCFC08C61DF0418400DF895E /* User.m */,
 			);
 			path = User;
-			sourceTree = "<group>";
-		};
-		CCFC08C81DF0419700DF895E /* Login&Register */ = {
-			isa = PBXGroup;
-			children = (
-				CCFC08C91DF0419700DF895E /* LoginViewController.h */,
-				CCFC08CA1DF0419700DF895E /* LoginViewController.m */,
-				CCFC08CB1DF0419700DF895E /* RegisterViewController.h */,
-				CCFC08CC1DF0419700DF895E /* RegisterViewController.m */,
-				CC0516881DF54C4F0071C1D3 /* ModifyPassWordViewController.h */,
-				CC0516891DF54C4F0071C1D3 /* ModifyPassWordViewController.m */,
-				CC05168B1DF562960071C1D3 /* ForgetPassViewController.h */,
-				CC05168C1DF562960071C1D3 /* ForgetPassViewController.m */,
-			);
-			path = "Login&Register";
 			sourceTree = "<group>";
 		};
 		CCFC08CD1DF0419700DF895E /* Me */ = {
@@ -634,32 +634,32 @@
 				A910E6E61DF56A50002073CF /* HttpClient.m in Sources */,
 				CC4EFFCF1DF17D3000B7C5BB /* MultiImagePickController.m in Sources */,
 				CCFDA4411DF7A1D40085DD96 /* MapViewController.m in Sources */,
-				CCFC08D81DF0419700DF895E /* LoginViewController.m in Sources */,
 				CCFC08DD1DF0419700DF895E /* TestViewController.m in Sources */,
+				CCD9207E1DFA7845004503A8 /* RegisterViewController.m in Sources */,
 				CCFC08DA1DF0419700DF895E /* MineViewController.m in Sources */,
 				CCFC08AE1DEFF14900DF895E /* UIImageAdditions.m in Sources */,
 				CCFC08B71DEFF16800DF895E /* Validate.m in Sources */,
 				CCFC08B01DEFF14900DF895E /* UIView+Diamond.m in Sources */,
-				CC05168A1DF54C4F0071C1D3 /* ModifyPassWordViewController.m in Sources */,
 				CCFC08A41DEFF14900DF895E /* NSDateAdditions.m in Sources */,
 				CCFC08A61DEFF14900DF895E /* NSObjectAdditions.m in Sources */,
-				CCFC08D91DF0419700DF895E /* RegisterViewController.m in Sources */,
 				CCFC08C71DF0418400DF895E /* User.m in Sources */,
 				A910E6F11DF56FCA002073CF /* NSData+YYAdd.m in Sources */,
 				CCFDA4481DF7B8CA0085DD96 /* CacheUtil.m in Sources */,
 				CCFDA44B1DF7D4E90085DD96 /* DownloaderViewController.m in Sources */,
 				A9D89D8D1DF7DA030020890F /* HotFixEngine.m in Sources */,
 				CC3F69171DF276B600F85540 /* ShowPhotoViewController.m in Sources */,
+				CCD9207D1DFA7845004503A8 /* ModifyPassWordViewController.m in Sources */,
 				A91123821DF7EA100087BD92 /* BaseViewController.m in Sources */,
 				CCFC08DB1DF0419700DF895E /* PersonalInfoViewController.m in Sources */,
+				CCD9207C1DFA7845004503A8 /* LoginViewController.m in Sources */,
 				CC8CD5EC1DEEC02600A682B6 /* ViewController.m in Sources */,
 				A9D89D911DF7DCA00020890F /* LanguageSelectViewController.m in Sources */,
 				A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */,
 				CCFC08B11DEFF14900DF895E /* UIView+FrameLayout.m in Sources */,
-				CC05168D1DF562960071C1D3 /* ForgetPassViewController.m in Sources */,
 				CCFC08AD1DEFF14900DF895E /* UIImage+WYImage.m in Sources */,
 				CCFDA4451DF7AD950085DD96 /* MyAnnotation.m in Sources */,
 				CCFC08DC1DF0419700DF895E /* MainTabBarViewController.m in Sources */,
+				CCD9207B1DFA7845004503A8 /* ForgetPassViewController.m in Sources */,
 				CCFC08A71DEFF14900DF895E /* NSStringAdditions.m in Sources */,
 				CCFC08B31DEFF14900DF895E /* UIView+WYView.m in Sources */,
 				CCFC08AB1DEFF14900DF895E /* UIColorAdditions.m in Sources */,

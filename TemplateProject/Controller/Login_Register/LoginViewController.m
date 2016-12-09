@@ -53,6 +53,12 @@
     RACSignal *signUpActiveSignal = [RACSignal combineLatest:@[validUser, validPass] reduce:^id _Nullable(NSNumber *user, NSNumber *pass){
         return @([user boolValue] && [pass boolValue]);
     }];
+    
+    [signUpActiveSignal subscribeNext:^(id  _Nullable x) {
+        btnLogin.enabled = [x boolValue];
+    }];
+    
+    
     RAC(btnLogin, enabled) = signUpActiveSignal;
     
     [[[btnLogin rac_signalForControlEvents:UIControlEventTouchUpInside]
@@ -171,6 +177,7 @@
     
 }
 
+
 - (void)showError:(NSString *)text {
     [lblTip setText:text];
 }
@@ -184,6 +191,5 @@
     ZNLog();
 }
     
-
 
 @end

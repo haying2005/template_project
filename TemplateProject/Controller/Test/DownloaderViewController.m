@@ -79,9 +79,15 @@
         });
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        NSURL *directoryURL = [[NSFileManager defaultManager] URLForDirectory:NSLibraryDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        //NSURL *directoryURL = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
         
-        return [directoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+        NSArray *cachePathArr = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *dirPath = [[cachePathArr firstObject] stringByAppendingPathComponent:@"qx_downloads"];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:dirPath]) {
+            [[NSFileManager defaultManager] createDirectoryAtPath:dirPath withIntermediateDirectories:YES attributes:nil error:nil];
+        }
+        NSURL *url = [NSURL fileURLWithPath:dirPath isDirectory:YES];
+        return [url URLByAppendingPathComponent:[NSString stringWithFormat:@"%@", [response suggestedFilename]]];
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         if (error) {
