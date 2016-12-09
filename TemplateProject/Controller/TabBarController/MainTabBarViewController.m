@@ -42,8 +42,9 @@
 - (void)initTabBar {
     
     
-    //UIViewController *ctrl1 = [[UIViewController alloc]init];
-    DownloaderViewController *ctrl1 = [[DownloaderViewController alloc] init];
+//    UIViewController *ctrl1 = [[UIViewController alloc]init];
+//    DownloaderViewController *ctrl1 = [[DownloaderViewController alloc] init];
+    LoginViewController *ctrl1 = [[LoginViewController alloc] init];
     UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:ctrl1];
     ctrl1.navigationItem.title = Localized(@"message");
     [self addChildCtrl:nav1 title:ctrl1.navigationItem.title icon:[UIImage imageNamed:@"tab_me_sel"]];

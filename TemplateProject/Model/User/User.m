@@ -212,9 +212,6 @@
     
 }
 
-- (NSString *)getUUID {
-    return [UIDevice currentDevice].identifierForVendor.UUIDString;
-}
 
 
 @end

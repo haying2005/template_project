@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "HotFixEngine.h"
 #import "IQKeyboardManager.h"
+#import "ThirdOpenPlatformManager.h"
 
 @interface AppDelegate ()
 
@@ -36,18 +37,27 @@
     [IQKeyboardManager sharedManager].enable = NO;
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     
+    // 第三方开放平台，例如微信、qq、微博
+    [[ThirdOpenPlatformManager shareManager] registerThirdOpenPlatform];
+    
     // 初始化TabBarController
     MainTabBarViewController *tabBarCtrl = [[MainTabBarViewController alloc]init];
     [self.window setRootViewController:tabBarCtrl];
     
     [self.window makeKeyAndVisible];
-    
-    [self testLanguage];
-    
+
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [[ThirdOpenPlatformManager shareManager] handleOpenURL:url];
+}
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [[ThirdOpenPlatformManager shareManager] handleOpenURL:url];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -73,37 +83,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-#pragma mark - Test Language
-
-- (void)testLanguage {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(languageChangeNotificationHandle:) name:NOTIFICATION_LANGUAGE_CHANGE object:nil];
-    
-    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:sel_getUid("language")]);
-    
-    NSString *sendString = Localized(@"Send");
-    NSString *cancelString = Localized(@"Cancel");
-    NSString *sinaWeiboString = Localized(@"Sina Weibo");
-    
-    ZNLog(@"%@ %@ %@", sendString, cancelString, sinaWeiboString);
-    
-    [[LanguageTool shareInstance] setNewLanguage:CN_S];
-    
-    ZNLog(@"%@", [[LanguageTool shareInstance] performSelector:sel_getUid("language")]);
-    
-    sendString = Localized(@"Send");
-    cancelString = Localized(@"Cancel");
-    sinaWeiboString = Localized(@"Sina Weibo");
-    ZNLog(@"%@ %@ %@", sendString, cancelString, sinaWeiboString);
-#pragma clang diagnostic pop
-}
-
-- (void)languageChangeNotificationHandle:(NSNotification *)notification
-{
-    ZNLog(@"%@", notification);
 }
 
 

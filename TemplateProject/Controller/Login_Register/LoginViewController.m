@@ -13,6 +13,7 @@
 #import "Validate.h"
 #import "FMDatabase.h"
 #import "RegisterViewController.h"
+#import "ThirdOpenPlatformManager.h"
 
 @interface LoginViewController ()
 {
@@ -129,6 +130,91 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"忘记密码" style:UIBarButtonItemStylePlain target:self action:@selector(forgetPass)];
     
+    
+    [self setupLoginView];
+    [self setupShareView];
+}
+
+- (void)setupLoginView
+{
+#define BUTTON_MARGIN   20
+#define BUTTON_WIDTH    80
+#define BUTTON_HEIGHT   30
+    
+    UIButton *qqButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [qqButton setTitle:@"QQ登录" forState:UIControlStateNormal];
+    [qqButton setTag:0];
+    [qqButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 200, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [qqButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:qqButton];
+    
+    UIButton *weChatButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [weChatButton setTitle:@"微信登录" forState:UIControlStateNormal];
+    [weChatButton setTag:1];
+    [weChatButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [weChatButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:weChatButton];
+    
+    UIButton *sinaWeiBoButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [sinaWeiBoButton setTitle:@"微博登录" forState:UIControlStateNormal];
+    [sinaWeiBoButton setTag:2];
+    [sinaWeiBoButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN, qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [sinaWeiBoButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:sinaWeiBoButton];
+    
+    
+    qqButton.backgroundColor = [UIColor brownColor];
+    weChatButton.backgroundColor = [UIColor brownColor];
+    sinaWeiBoButton.backgroundColor = [UIColor brownColor];
+}
+
+- (void)setupShareView
+{
+    UIButton *qqButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [qqButton setTitle:@"QQ分享" forState:UIControlStateNormal];
+    [qqButton setTag:0];
+    [qqButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 150, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [qqButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:qqButton];
+    
+    UIButton *weChatButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [weChatButton setTitle:@"微信分享" forState:UIControlStateNormal];
+    [weChatButton setTag:1];
+    [weChatButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [weChatButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:weChatButton];
+    
+    UIButton *sinaWeiBoButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [sinaWeiBoButton setTitle:@"微博分享" forState:UIControlStateNormal];
+    [sinaWeiBoButton setTag:2];
+    [sinaWeiBoButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN, qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [sinaWeiBoButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:sinaWeiBoButton];
+    
+    
+    qqButton.backgroundColor = [UIColor brownColor];
+    weChatButton.backgroundColor = [UIColor brownColor];
+    sinaWeiBoButton.backgroundColor = [UIColor brownColor];
+}
+
+- (void)loginButtonAction:(UIButton *)sender
+{
+    int index = sender.tag;
+    [[ThirdOpenPlatformManager shareManager] thirdOpenPlatformLoginWithType:index
+                                                             viewController:self
+                                                           completeCallback:^(BOOL success, id info) {
+                                                               ZNLog();
+                                                           }];
+}
+
+- (void)shareButtonAction:(UIButton *)sender
+{
+//    int index = sender.tag;
+//    [[ThirdOpenPlatformManager shareManager] thirdOpenPlatformShareWithType:index
+//                                                             viewController:self
+//                                                           completeCallback:^(BOOL success, id info) {
+//                                                               ZNLog();
+//                                                           }];
 }
 
 - (void)forgetPass {

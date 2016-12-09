@@ -18,7 +18,7 @@
 #define NOTIFICATION_NEED_LOGIN     @"NOTIFICATION_NEED_LOGIN"
 
 // 接口环境
-#define kTestEnvironment            1
+#define kTestEnvironment            0
 
 // Base URL
 #if kTestEnvironment
