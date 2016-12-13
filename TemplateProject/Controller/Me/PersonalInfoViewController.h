@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonalInfoViewController : UIViewController
+@interface PersonalInfoViewController : BaseViewController
 
 @end

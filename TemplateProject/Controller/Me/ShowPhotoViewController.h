@@ -12,7 +12,7 @@
 
 @protocol ShowPhotoViewControllerDelegate <NSObject>
 
-- (void)ShowPhotoViewController:(ShowPhotoViewController *)controller didFinishPickingImage:(UIImage *)image;
+- (void)ShowPhotoViewController:(ShowPhotoViewController *)controller didFinishPickingImage:(NSData *)imageData;
 @end
 
 @interface ShowPhotoViewController : UIViewController

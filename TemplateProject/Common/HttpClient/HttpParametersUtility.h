@@ -66,5 +66,9 @@ typedef enum {
 
 + (HttpParametersModel *)aliOrderParammetersWithPayType:(int)payType cid:(NSString *)cid;
 
++ (HttpParametersModel *)uploadParammeters;
+
+//修改用户基本信息
++ (HttpParametersModel *)editUserInfoParammetersWithNick:(NSString *)nick desc:(NSString *)desc headUrl:(NSString *)url;
 
 @end

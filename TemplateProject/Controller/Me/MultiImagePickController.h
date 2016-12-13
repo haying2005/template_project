@@ -13,8 +13,8 @@
 @protocol MultiImagePickControllerDelegate <NSObject>
 
 
-- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImage:(UIImage *)image;
-- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImages:(NSArray<UIImage *> *)images;
+- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImage:(NSData *)imageData;
+- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImages:(NSArray<NSData *> *)imageDatas;
 - (void)multiImagePickControllerrDidCancel:(MultiImagePickController *)picker;
 
 @end

@@ -169,7 +169,7 @@
 }
 
 #pragma mark - ShowPhotoViewControllerDelegate
-- (void)ShowPhotoViewController:(ShowPhotoViewController *)controller didFinishPickingImage:(UIImage *)image {
+- (void)ShowPhotoViewController:(ShowPhotoViewController *)controller didFinishPickingImage:(NSData *)image {
     if ([self.delegate respondsToSelector:@selector(multiImagePickController:didFinishPickingImage:)]) {
         [self.delegate multiImagePickController:self didFinishPickingImage:image];
     }
