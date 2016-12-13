@@ -109,7 +109,10 @@
 
 - (void)imagePick {
     if ([self.delegate respondsToSelector:@selector(ShowPhotoViewController:didFinishPickingImage:)]) {
-        [self.delegate ShowPhotoViewController:self didFinishPickingImage:[UIImage convertViewToImage:backView]];
+        UIImage *img = [UIImage convertViewToImage:backView];
+        //头像用jpg
+        NSData *imgData = UIImageJPEGRepresentation(img, 0.5);
+        [self.delegate ShowPhotoViewController:self didFinishPickingImage:imgData];
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

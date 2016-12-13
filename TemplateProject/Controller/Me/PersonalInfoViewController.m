@@ -105,13 +105,34 @@
 
 
 #pragma mark - MultiImagePickControllerDelegate
-- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImage:(UIImage *)image {
-    ZNLog(@"didFinishPickingImage...");
-    //todo...
+- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImage:(NSData *)imageData {
+    [self showLoadingView];
+    
+    [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility uploadParammeters] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        //[formData appendPartWithFormData:imageData name:@"head"];
+        
+        NSString *fileName = [NSString stringWithFormat:@"head_%@_%f_%d.jpg", [[User shareInstance] getUUID], [[NSDate date] timeIntervalSince1970], arc4random()%10000];
+        [formData appendPartWithFileData:imageData name:@"head" fileName:fileName mimeType:@"image/jpeg"];
+    } progress:nil success:^(id data) {
+        [self hideLoadingView];
+        
+        WEAKSELF;
+        [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility editUserInfoParammetersWithNick:nil desc:nil headUrl:data[@"access_url"]] success:^(id data_) {
+            NSDictionary *dataDic = data[@"data"];
+            [[User shareInstance] setHead:dataDic[@"access_url"]];
+            [weakSelf.tableView reloadData];
+        } failure:^(NSString *errorDescription) {
+            ZNLog(@"%@", errorDescription);
+        }];
+    } failure:^(NSString *errorDescription) {
+        [self hideLoadingView];
+        ZNLog(@"%@", errorDescription);
+    }];
     [_tableView reloadData];
     
+    
 }
-- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImages:(NSArray<UIImage *> *)images {
+- (void)multiImagePickController:(MultiImagePickController *)picker didFinishPickingImages:(NSArray<NSData *> *)imageDatas {
     ZNLog(@"didFinishPickingImages...");
 }
 - (void)multiImagePickControllerrDidCancel:(MultiImagePickController *)picker {

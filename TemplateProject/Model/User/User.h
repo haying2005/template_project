@@ -25,4 +25,6 @@
 
 - (NSString *)getUUID;
 
+- (void)getInfoFromServer;
+
 @end

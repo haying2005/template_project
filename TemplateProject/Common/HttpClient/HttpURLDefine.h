@@ -80,6 +80,12 @@
 //支付宝下单
 #define URL_ALI_ORDER               [URL_ENTRY stringByAppendingString:@"/pay/aliorder"]
 
+//文件上传
+#define URL_UPLOAD               [URL_ENTRY stringByAppendingString:@"/login/upload"]
+
+//修改完善信息
+#define URL_EDITUSERINFO            [URL_ENTRY stringByAppendingString:@"/user/modify"]
+
 
 
 #endif /* HttpURLDefine_h */

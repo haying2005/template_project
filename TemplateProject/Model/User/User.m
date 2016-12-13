@@ -74,6 +74,15 @@
     
 }
 
+- (void)getInfoFromServer {
+    [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility initParammeters] success:^(id data) {
+        NSDictionary *dic = data;
+        [self setUserFromDictionary:dic];
+    } failure:^(NSString *errorDescription) {
+        ZNLog(@"%@", errorDescription);
+    }];
+}
+
 - (NSString *)description {
     return [self yy_modelDescription];
 }

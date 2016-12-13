@@ -46,6 +46,9 @@
     [self.window setRootViewController:tabBarCtrl];
     
     [self.window makeKeyAndVisible];
+    
+    //初始化用户信息
+    [[User shareInstance] getInfoFromServer];
 
     return YES;
 }

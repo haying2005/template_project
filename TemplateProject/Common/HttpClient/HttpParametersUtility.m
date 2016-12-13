@@ -45,7 +45,7 @@
 + (HttpParametersModel *)initParammeters
 {
     return [self httpParametersModelWithURL:URL_INIT
-                                 parameters:@{@"mark" : @"mark-value"}];
+                                 parameters:@{@"mark" : [[User shareInstance] getUUID]}];
 }
 
 + (HttpParametersModel *)registerParammetersWithPhone:(NSString *)phone pass:(NSString *)pass code:(NSString *)code inviter:(NSString *)inviter
@@ -171,5 +171,26 @@
                                               @"cid" : cid}];
 }
 
++ (HttpParametersModel *)uploadParammeters {
+    return [self httpParametersModelWithURL:URL_UPLOAD parameters:nil];
+}
+
+//修改用户基本信息
++ (HttpParametersModel *)editUserInfoParammetersWithNick:(NSString *)nick desc:(NSString *)desc headUrl:(NSString *)url
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    if (nick && nick.length > 0) {
+        [dic setObject:nick forKey:@"nickName"];
+    }
+    if (desc && desc.length > 0) {
+        [dic setObject:desc forKey:@"description"];
+    }
+    if (url && url.length > 0) {
+        [dic setObject:url forKey:@"headUrl"];
+    }
+    
+    return [self httpParametersModelWithURL:URL_EDITUSERINFO
+                                 parameters:dic];
+}
 
 @end
