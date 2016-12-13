@@ -128,5 +128,24 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>Fabric</key>
+    <dict>
+        <key>APIKey</key>
+        <string>3313bed20f04229bddff274eac84b685a0bdeb0b</string>
+        <key>Kits</key>
+        <array>
+            <dict>
+                <key>KitInfo</key>
+                <dict>
+                    <key>consumerKey</key>
+                    <string>FExa4eORHjRrJBYwy7LSRDLsk</string>
+                    <key>consumerSecret</key>
+                    <string>XHXY5yiKCuqWcsPepAe41xB02gu3vnwa2jGOFPxKTt6KWPqrND</string>
+                </dict>
+                <key>KitName</key>
+                <string>Twitter</string>
+            </dict>
+        </array>
+    </dict>
 </dict>
 </plist>

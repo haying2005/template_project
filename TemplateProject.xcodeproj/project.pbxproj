@@ -36,6 +36,13 @@
 		A956C53F1DFE8BF40008A592 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C53B1DFE8BF40008A592 /* FBSDKCoreKit.framework */; };
 		A956C5401DFE8BF40008A592 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C53C1DFE8BF40008A592 /* FBSDKLoginKit.framework */; };
 		A956C5411DFE8BF40008A592 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C53D1DFE8BF40008A592 /* FBSDKShareKit.framework */; };
+		A956C5491DFFD7AC0008A592 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5471DFFD7AC0008A592 /* Fabric.framework */; };
+		A956C54A1DFFD7AC0008A592 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5481DFFD7AC0008A592 /* TwitterKit.framework */; };
+		A956C54C1DFFE1870008A592 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C54B1DFFE1870008A592 /* TwitterCore.framework */; };
+		A956C54E1DFFE1D90008A592 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C54D1DFFE1D90008A592 /* AVFoundation.framework */; };
+		A956C5501DFFE1E20008A592 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C54F1DFFE1E20008A592 /* CoreMedia.framework */; };
+		A956C5521DFFE2200008A592 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5511DFFE2200008A592 /* SafariServices.framework */; };
+		A956C5551DFFE6CB0008A592 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A956C5541DFFE6CB0008A592 /* TwitterKitResources.bundle */; };
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
@@ -138,6 +145,15 @@
 		A956C53B1DFE8BF40008A592 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A956C53C1DFE8BF40008A592 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A956C53D1DFE8BF40008A592 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		A956C5421DFFCC9B0008A592 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		A956C5441DFFCD940008A592 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		A956C5471DFFD7AC0008A592 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		A956C5481DFFD7AC0008A592 /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		A956C54B1DFFE1870008A592 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		A956C54D1DFFE1D90008A592 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A956C54F1DFFE1E20008A592 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A956C5511DFFE2200008A592 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		A956C5541DFFE6CB0008A592 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		A9727A731DF0020C002640EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7B1DF0041C002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7D1DF00429002640EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -237,14 +253,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A956C5521DFFE2200008A592 /* SafariServices.framework in Frameworks */,
+				A956C5501DFFE1E20008A592 /* CoreMedia.framework in Frameworks */,
+				A956C54E1DFFE1D90008A592 /* AVFoundation.framework in Frameworks */,
+				A956C5491DFFD7AC0008A592 /* Fabric.framework in Frameworks */,
 				A956C5381DFE72620008A592 /* CoreGraphics.framework in Frameworks */,
 				A956C5361DFE70AC0008A592 /* CoreText.framework in Frameworks */,
+				A956C54C1DFFE1870008A592 /* TwitterCore.framework in Frameworks */,
 				A956C5341DFE70A10008A592 /* Foundation.framework in Frameworks */,
 				A956C5321DFE709C0008A592 /* UIKit.framework in Frameworks */,
 				A956C5301DFE70910008A592 /* Security.framework in Frameworks */,
 				A956C52E1DFE70890008A592 /* ImageIO.framework in Frameworks */,
 				A956C52C1DFE70820008A592 /* QuartzCore.framework in Frameworks */,
 				A956C53F1DFE8BF40008A592 /* FBSDKCoreKit.framework in Frameworks */,
+				A956C54A1DFFD7AC0008A592 /* TwitterKit.framework in Frameworks */,
 				A956C5191DFA86B10008A592 /* libstdc++.6.tbd in Frameworks */,
 				A956C5171DFA86A10008A592 /* libsqlite3.0.tbd in Frameworks */,
 				A956C5151DFA86930008A592 /* SystemConfiguration.framework in Frameworks */,
@@ -266,6 +288,11 @@
 		31C87FC3E02A2B8CC4B41F87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A956C5511DFFE2200008A592 /* SafariServices.framework */,
+				A956C54F1DFFE1E20008A592 /* CoreMedia.framework */,
+				A956C54D1DFFE1D90008A592 /* AVFoundation.framework */,
+				A956C5441DFFCD940008A592 /* Accounts.framework */,
+				A956C5421DFFCC9B0008A592 /* Social.framework */,
 				A956C5371DFE72620008A592 /* CoreGraphics.framework */,
 				A956C5351DFE70AC0008A592 /* CoreText.framework */,
 				A956C5331DFE70A10008A592 /* Foundation.framework */,
@@ -307,6 +334,7 @@
 		A910E6EC1DF56FCA002073CF /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A956C5461DFFD7AC0008A592 /* Twitter */,
 				A956C5391DFE8BF40008A592 /* FaceBook */,
 				A956C4FD1DFA85270008A592 /* QQ */,
 				A956C5001DFA85270008A592 /* SinaWeiBo */,
@@ -398,6 +426,17 @@
 				A956C53D1DFE8BF40008A592 /* FBSDKShareKit.framework */,
 			);
 			path = FaceBook;
+			sourceTree = "<group>";
+		};
+		A956C5461DFFD7AC0008A592 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				A956C5541DFFE6CB0008A592 /* TwitterKitResources.bundle */,
+				A956C54B1DFFE1870008A592 /* TwitterCore.framework */,
+				A956C5471DFFD7AC0008A592 /* Fabric.framework */,
+				A956C5481DFFD7AC0008A592 /* TwitterKit.framework */,
+			);
+			path = Twitter;
 			sourceTree = "<group>";
 		};
 		A9727A781DF003FA002640EB /* Resource */ = {
@@ -677,6 +716,7 @@
 				CC8CD5DF1DEEC02600A682B6 /* Resources */,
 				2E456AC09FC4FEF66BEBD3A4 /* [CP] Embed Pods Frameworks */,
 				6BEDAD2B3D8FA4D9C613F483 /* [CP] Copy Pods Resources */,
+				A956C5531DFFE2C30008A592 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -731,6 +771,7 @@
 				A9D89D8E1DF7DA030020890F /* test.js in Resources */,
 				A9727A831DF00447002640EB /* Language.strings in Resources */,
 				A9D89D881DF7D9AD0020890F /* JSPatch.js in Resources */,
+				A956C5551DFFE6CB0008A592 /* TwitterKitResources.bundle in Resources */,
 				CC8CD5F41DEEC02600A682B6 /* LaunchScreen.storyboard in Resources */,
 				A956C5111DFA85270008A592 /* WeiboSDK.bundle in Resources */,
 				A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */,
@@ -786,6 +827,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		A956C5531DFFE2C30008A592 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./TemplateProject/Vender/Twitter/Fabric.framework/run 3313bed20f04229bddff274eac84b685a0bdeb0b XHXY5yiKCuqWcsPepAe41xB02gu3vnwa2jGOFPxKTt6KWPqrND";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -982,6 +1036,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateProject/Vender/QQ",
 					"$(PROJECT_DIR)/TemplateProject/Vender/FaceBook",
+					"$(PROJECT_DIR)/TemplateProject/Vender/Twitter",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
@@ -1075,6 +1130,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateProject/Vender/QQ",
 					"$(PROJECT_DIR)/TemplateProject/Vender/FaceBook",
+					"$(PROJECT_DIR)/TemplateProject/Vender/Twitter",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";

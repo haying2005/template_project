@@ -15,8 +15,10 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
 
-@interface ThirdOpenPlatformManager () <TencentSessionDelegate, WeiboSDKDelegate, WXApiDelegate, QQApiInterfaceDelegate, FBSDKLoginButtonDelegate, FBSDKSharingDelegate>
+@interface ThirdOpenPlatformManager () <TencentSessionDelegate, WeiboSDKDelegate, WXApiDelegate, QQApiInterfaceDelegate, FBSDKSharingDelegate>
 {
     TencentOAuth *_tencentOAuth;
     NSString *_sinaWeiBoAccessToken;
@@ -62,6 +64,7 @@
     [self registerSinaWeibo];
     [self registerQQ];
     [self registerFaceBook];
+    [self registerTwitter];
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url
@@ -485,11 +488,6 @@
 
 - (void)faceBookLogin
 {
-//    FBSDKLoginButton *loginButton = [FBSDKLoginButton new];
-//    loginButton.center = self.viewController.view.center;
-//    loginButton.delegate = self;
-//    [self.viewController.view addSubview:loginButton];
-    
     WEAKSELF
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login logInWithPublishPermissions:@[@"publish_actions"]
@@ -533,20 +531,6 @@
                                     delegate:self];
 }
 
-- (void)loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-              error:(NSError *)error
-{
-    if (self.loginCompleteCallback) {
-        self.loginCompleteCallback((result.token != nil), nil);
-    }
-}
-
-- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
-{
-    ZNLog();
-}
-
 - (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
 {
     if (self.shareCompleteCallback) {
@@ -572,22 +556,51 @@ didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
 
 - (void)registerTwitter
 {
-
+    [Fabric with:@[[Twitter class]]];
+    [[Twitter sharedInstance] startWithConsumerKey:kTwitterAppKey consumerSecret:kTwitterAppSecret];
 }
 
 - (void)twitterLogin
 {
-
+    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
+        if (session) {
+            if (self.loginCompleteCallback) {
+                self.loginCompleteCallback(YES, nil);
+            }
+        } else {
+            if (self.loginCompleteCallback) {
+                self.loginCompleteCallback(NO, nil);
+            }
+        }
+    }];
 }
 
 - (void)twitterLogout
 {
-    
+    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+    NSString *userID = store.session.userID;
+    [store logOutUserID:userID];
 }
 
 - (void)twitterShare:(ShareModel *)shareModel
 {
+    TWTRComposer *composer = [[TWTRComposer alloc] init];
+    [composer setText:shareModel.shareDescription];
+    [composer setImage:shareModel.shareImage];
+    [composer setURL:[NSURL URLWithString:shareModel.shareUrl]];
     
+    [composer showFromViewController:self.viewController completion:^(TWTRComposerResult result) {
+        if (result == TWTRComposerResultCancelled) {
+            if (self.shareCompleteCallback) {
+                self.shareCompleteCallback(NO, @"用户取消");
+            }
+        }
+        else {
+            if (self.shareCompleteCallback) {
+                self.shareCompleteCallback(YES, nil);
+            }
+        }
+    }];
 }
 
 @end
