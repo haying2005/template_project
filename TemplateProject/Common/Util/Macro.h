@@ -46,5 +46,13 @@
 
 // 腾讯QQ
 #define kTencentQQAppKey            @"1105798203"
-#define kTencentQQSecret            @"F32bWwW57nEu7myp"
+#define kTencentQQAppSecret         @"F32bWwW57nEu7myp"
 #define kTencentQQRedirectURL       @"http://www.baidu.com"
+
+// FaceBook
+#define kFaceBookAppKey             @"915900235211681"
+
+// Twitter
+#define kTwitterAppKey              @"FExa4eORHjRrJBYwy7LSRDLsk"
+#define kTwitterAppSecret           @"XHXY5yiKCuqWcsPepAe41xB02gu3vnwa2jGOFPxKTt6KWPqrND"
+

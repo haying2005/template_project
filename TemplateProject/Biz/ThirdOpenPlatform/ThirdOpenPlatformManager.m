@@ -11,8 +11,12 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/QQApiInterfaceObject.h>
 #import "WXApiObject.h"
+#import <MBProgressHUD.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
-@interface ThirdOpenPlatformManager () <TencentSessionDelegate, WeiboSDKDelegate, WXApiDelegate, QQApiInterfaceDelegate>
+@interface ThirdOpenPlatformManager () <TencentSessionDelegate, WeiboSDKDelegate, WXApiDelegate, QQApiInterfaceDelegate, FBSDKLoginButtonDelegate, FBSDKSharingDelegate>
 {
     TencentOAuth *_tencentOAuth;
     NSString *_sinaWeiBoAccessToken;
@@ -57,9 +61,13 @@
     [self registerWeChat];
     [self registerSinaWeibo];
     [self registerQQ];
+    [self registerFaceBook];
 }
 
 - (BOOL)handleOpenURL:(NSURL *)url
+          application:(UIApplication *)application
+    sourceApplication:(NSString *)sourceApplication
+           annotation:(id)annotation
 {
     NSString *string = [url absoluteString];
     if ([string hasPrefix:@"tencent"]) { // QQ
@@ -73,11 +81,22 @@
     } else if ([string hasPrefix:@"wx"]) { // 微信
         [WXApi handleOpenURL:url delegate:self];
     }
+    else if ([string hasPrefix:@"fb"]) { // FaceBook
+        [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                       openURL:url
+                                             sourceApplication:sourceApplication
+                                                    annotation:annotation];
+    }
     
     return YES;
 }
 
-- (void)thirdOpenPlatformLoginWithType:(ThirdOpenPlatformType)loginType
+- (void)handleApplicationDidBecomeActive
+{
+    [FBSDKAppEvents activateApp];
+}
+
+- (void)thirdOpenPlatformLoginWithType:(ThirdOpenPlatformLoginType)loginType
                         viewController:(id)viewController
                       completeCallback:(void (^)(BOOL success, id info))completeCallback
 {
@@ -86,16 +105,24 @@
     self.loginCompleteCallback = completeCallback;
     
     switch (loginType) {
-        case ThirdOpenPlatform_QQ: {
+        case ThirdOpenPlatformLoginType_QQ: {
             [self qqLogin];
             break;
         }
-        case ThirdOpenPlatform_WeChat: {
+        case ThirdOpenPlatformLoginType_WeChat: {
             [self weiXinLogin];
             break;
         }
-        case ThirdOpenPlatform_SinaWeibo: {
+        case ThirdOpenPlatformLoginType_SinaWeibo: {
             [self sinaWeiBoLogin];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_FaceBook: {
+            [self faceBookLogin];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_Twitter: {
+            [self twitterLogin];
             break;
         }
     }
@@ -104,16 +131,24 @@
 - (void)thirdOpenPlatformLogout
 {
     switch (self.loginType) {
-        case ThirdOpenPlatform_QQ: {
+        case ThirdOpenPlatformLoginType_QQ: {
             [self qqLogout];
             break;
         }
-        case ThirdOpenPlatform_WeChat: {
+        case ThirdOpenPlatformLoginType_WeChat: {
             [self weiXinLogout];
             break;
         }
-        case ThirdOpenPlatform_SinaWeibo: {
+        case ThirdOpenPlatformLoginType_SinaWeibo: {
             [self sinaWeiBoLogout];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_FaceBook: {
+            [self faceBookLogout];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_Twitter: {
+            [self twitterLogout];
             break;
         }
     }
@@ -149,14 +184,22 @@
             [self sinaWeiBoShare:shareModel];
             break;
         }
+        case ThirdOpenPlatformShareType_FaceBook: {
+            [self faceBookShare:shareModel];
+            break;
+        }
+        case ThirdOpenPlatformShareType_Twitter: {
+            [self twitterShare:shareModel];
+            break;
+        }
     }
 }
 
 - (void)showMessage:(NSString *)string {
-//    BLProgressHUD *hud = [BLProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:NO];
-//    hud.mode = MBProgressHUDModeText;
-//    hud.labelText = string;
-//    [hud hide:YES afterDelay:K_HUD_HIDE_DUTATION];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:NO];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = string;
+    [hud hide:YES afterDelay:2.];
 }
 
 #pragma mark - QQ
@@ -229,7 +272,7 @@
 - (void)qqShare:(BOOL)isShareToZone content:(ShareModel *)shareModel
 {
     if (![QQApiInterface isQQInstalled]) {
-        [self showMessage:@"您没有安装QQ客户端。"];
+        [self showMessage:@"您没有安装QQ客户端!"];
         return;
     }
     
@@ -298,9 +341,19 @@
     } else if ([resp isKindOfClass:[SendMessageToWXResp class]]) { // 微信分享
         alert(@"提示", (resp.errCode == WXSuccess) ? @"分享成功" : @"分享失败");
     } else if ([resp isKindOfClass:[SendAuthResp class]]) { // 微信登录
-        if (self.loginCompleteCallback) {
-            self.loginCompleteCallback((resp.errCode == 0), nil);
-        }
+        NSString *urlString = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code", kWeiXinAppKey, kWeiXinAppSecret, ((SendAuthResp *)resp).code];
+
+        [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            if (data.length) {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+                NSString *accessToken = dict[@"access_token"];
+                if (accessToken) {
+                    if (self.loginCompleteCallback) {
+                        self.loginCompleteCallback((accessToken != nil), nil);
+                    }
+                }
+            }
+        }];
     } else if ([resp isKindOfClass:[QQBaseResp class]]) { // QQ分享
         if ([(QQBaseResp *)resp type] == 2) {
             BOOL isSuccess = NO;
@@ -330,7 +383,7 @@
 - (void)weiXinShare:(int)wxScene content:(ShareModel *)shareModel
 {
     if (![WXApi isWXAppInstalled]) {
-        [self showMessage:@"您没有安装微信客户端。"];
+        [self showMessage:@"您没有安装微信客户端!"];
         return;
     }
     
@@ -341,8 +394,9 @@
     message.title = shareModel.shareTitle;
     message.description = shareModel.shareDescription;
     message.thumbData = UIImagePNGRepresentation(shareModel.shareImage);
+    message.mediaObject = ext;
     
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
     req.bText = NO;
     req.message = message;
     req.scene = wxScene;
@@ -354,7 +408,7 @@
 
 - (void)registerSinaWeibo
 {
-    [WeiboSDK enableDebugMode:NO];
+    [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kSinaWeiBoAppKey];
 }
 
@@ -402,7 +456,7 @@
 - (void)sinaWeiBoShare:(ShareModel *)shareModel
 {
     if (![WeiboSDK isWeiboAppInstalled]) {
-        [self showMessage:@"您没有安装微博客户端。"];
+        [self showMessage:@"您没有安装微博客户端!"];
         return;
     }
     
@@ -419,6 +473,121 @@
     
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message];
     [WeiboSDK sendRequest:request];
+}
+
+#pragma mark - FaceBook
+
+- (void)registerFaceBook
+{
+    [[FBSDKApplicationDelegate sharedInstance] application:nil
+                             didFinishLaunchingWithOptions:nil];
+}
+
+- (void)faceBookLogin
+{
+//    FBSDKLoginButton *loginButton = [FBSDKLoginButton new];
+//    loginButton.center = self.viewController.view.center;
+//    loginButton.delegate = self;
+//    [self.viewController.view addSubview:loginButton];
+    
+    WEAKSELF
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login logInWithPublishPermissions:@[@"publish_actions"]
+                    fromViewController:self.viewController
+                               handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+                                   if (error) {
+                                       if (weakSelf.loginCompleteCallback) {
+                                           weakSelf.loginCompleteCallback(NO, nil);
+                                       }
+                                       return;
+                                   }
+                                   
+                                   if ([FBSDKAccessToken currentAccessToken] &&
+                                       [[FBSDKAccessToken currentAccessToken].permissions containsObject:@"publish_actions"]) {
+                                       if (weakSelf.loginCompleteCallback) {
+                                           weakSelf.loginCompleteCallback(YES, nil);
+                                       }
+                                       return;
+                                   }
+                               }];
+}
+
+- (void)faceBookLogout
+{
+    if ([FBSDKAccessToken currentAccessToken]) {
+        FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+        [login logOut];
+    }
+}
+
+- (void)faceBookShare:(ShareModel *)shareModel
+{
+    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
+    content.contentURL = [NSURL URLWithString:shareModel.shareUrl];
+    content.contentTitle = shareModel.shareTitle;
+    content.imageURL = [NSURL URLWithString:shareModel.shareImageUrl];
+    content.contentDescription = shareModel.shareDescription;
+    
+    [FBSDKShareDialog showFromViewController:self.viewController
+                                 withContent:content
+                                    delegate:self];
+}
+
+- (void)loginButton:(FBSDKLoginButton *)loginButton
+didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+              error:(NSError *)error
+{
+    if (self.loginCompleteCallback) {
+        self.loginCompleteCallback((result.token != nil), nil);
+    }
+}
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
+{
+    ZNLog();
+}
+
+- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
+{
+    if (self.shareCompleteCallback) {
+        self.shareCompleteCallback((results != nil), nil);
+    }
+}
+
+- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
+{
+    if (self.shareCompleteCallback) {
+        self.shareCompleteCallback(NO, nil);
+    }
+}
+
+- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
+{
+    if (self.shareCompleteCallback) {
+        self.shareCompleteCallback(NO, @"用户取消");
+    }
+}
+
+#pragma mark - Twitter
+
+- (void)registerTwitter
+{
+
+}
+
+- (void)twitterLogin
+{
+
+}
+
+- (void)twitterLogout
+{
+    
+}
+
+- (void)twitterShare:(ShareModel *)shareModel
+{
+    
 }
 
 @end

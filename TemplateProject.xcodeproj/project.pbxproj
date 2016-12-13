@@ -25,6 +25,17 @@
 		A956C5171DFA86A10008A592 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5161DFA86A10008A592 /* libsqlite3.0.tbd */; };
 		A956C5191DFA86B10008A592 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5181DFA86B10008A592 /* libstdc++.6.tbd */; };
 		A956C51D1DFAB7730008A592 /* ShareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A956C51C1DFAB7730008A592 /* ShareModel.m */; };
+		A956C52C1DFE70820008A592 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C52B1DFE70820008A592 /* QuartzCore.framework */; };
+		A956C52E1DFE70890008A592 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C52D1DFE70890008A592 /* ImageIO.framework */; };
+		A956C5301DFE70910008A592 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C52F1DFE70910008A592 /* Security.framework */; };
+		A956C5321DFE709C0008A592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5311DFE709C0008A592 /* UIKit.framework */; };
+		A956C5341DFE70A10008A592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5331DFE70A10008A592 /* Foundation.framework */; };
+		A956C5361DFE70AC0008A592 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5351DFE70AC0008A592 /* CoreText.framework */; };
+		A956C5381DFE72620008A592 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5371DFE72620008A592 /* CoreGraphics.framework */; };
+		A956C53E1DFE8BF40008A592 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C53A1DFE8BF40008A592 /* Bolts.framework */; };
+		A956C53F1DFE8BF40008A592 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C53B1DFE8BF40008A592 /* FBSDKCoreKit.framework */; };
+		A956C5401DFE8BF40008A592 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C53C1DFE8BF40008A592 /* FBSDKLoginKit.framework */; };
+		A956C5411DFE8BF40008A592 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C53D1DFE8BF40008A592 /* FBSDKShareKit.framework */; };
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
@@ -116,6 +127,17 @@
 		A956C51A1DFA8A9E0008A592 /* Macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		A956C51B1DFAB7730008A592 /* ShareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareModel.h; sourceTree = "<group>"; };
 		A956C51C1DFAB7730008A592 /* ShareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareModel.m; sourceTree = "<group>"; };
+		A956C52B1DFE70820008A592 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A956C52D1DFE70890008A592 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A956C52F1DFE70910008A592 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A956C5311DFE709C0008A592 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A956C5331DFE70A10008A592 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A956C5351DFE70AC0008A592 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		A956C5371DFE72620008A592 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A956C53A1DFE8BF40008A592 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		A956C53B1DFE8BF40008A592 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		A956C53C1DFE8BF40008A592 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		A956C53D1DFE8BF40008A592 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		A9727A731DF0020C002640EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7B1DF0041C002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7D1DF00429002640EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -215,11 +237,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A956C5381DFE72620008A592 /* CoreGraphics.framework in Frameworks */,
+				A956C5361DFE70AC0008A592 /* CoreText.framework in Frameworks */,
+				A956C5341DFE70A10008A592 /* Foundation.framework in Frameworks */,
+				A956C5321DFE709C0008A592 /* UIKit.framework in Frameworks */,
+				A956C5301DFE70910008A592 /* Security.framework in Frameworks */,
+				A956C52E1DFE70890008A592 /* ImageIO.framework in Frameworks */,
+				A956C52C1DFE70820008A592 /* QuartzCore.framework in Frameworks */,
+				A956C53F1DFE8BF40008A592 /* FBSDKCoreKit.framework in Frameworks */,
 				A956C5191DFA86B10008A592 /* libstdc++.6.tbd in Frameworks */,
 				A956C5171DFA86A10008A592 /* libsqlite3.0.tbd in Frameworks */,
 				A956C5151DFA86930008A592 /* SystemConfiguration.framework in Frameworks */,
 				A956C5131DFA866B0008A592 /* CoreTelephony.framework in Frameworks */,
+				A956C5411DFE8BF40008A592 /* FBSDKShareKit.framework in Frameworks */,
 				A956C5101DFA85270008A592 /* libWeiboSDK.a in Frameworks */,
+				A956C5401DFE8BF40008A592 /* FBSDKLoginKit.framework in Frameworks */,
+				A956C53E1DFE8BF40008A592 /* Bolts.framework in Frameworks */,
 				A910E6F31DF56FF6002073CF /* libz.tbd in Frameworks */,
 				A956C50E1DFA85270008A592 /* TencentOpenAPI.framework in Frameworks */,
 				A769AC0AAE74BD0BE0943FF1 /* libPods-TemplateProject.a in Frameworks */,
@@ -233,6 +266,13 @@
 		31C87FC3E02A2B8CC4B41F87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A956C5371DFE72620008A592 /* CoreGraphics.framework */,
+				A956C5351DFE70AC0008A592 /* CoreText.framework */,
+				A956C5331DFE70A10008A592 /* Foundation.framework */,
+				A956C5311DFE709C0008A592 /* UIKit.framework */,
+				A956C52F1DFE70910008A592 /* Security.framework */,
+				A956C52D1DFE70890008A592 /* ImageIO.framework */,
+				A956C52B1DFE70820008A592 /* QuartzCore.framework */,
 				A956C5181DFA86B10008A592 /* libstdc++.6.tbd */,
 				A956C5161DFA86A10008A592 /* libsqlite3.0.tbd */,
 				A956C5141DFA86930008A592 /* SystemConfiguration.framework */,
@@ -267,6 +307,7 @@
 		A910E6EC1DF56FCA002073CF /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A956C5391DFE8BF40008A592 /* FaceBook */,
 				A956C4FD1DFA85270008A592 /* QQ */,
 				A956C5001DFA85270008A592 /* SinaWeiBo */,
 				A956C4F31DFA82C60008A592 /* WeChat */,
@@ -346,6 +387,17 @@
 				A956C50D1DFA85270008A592 /* WeiboUser.h */,
 			);
 			path = SinaWeiBo;
+			sourceTree = "<group>";
+		};
+		A956C5391DFE8BF40008A592 /* FaceBook */ = {
+			isa = PBXGroup;
+			children = (
+				A956C53A1DFE8BF40008A592 /* Bolts.framework */,
+				A956C53B1DFE8BF40008A592 /* FBSDKCoreKit.framework */,
+				A956C53C1DFE8BF40008A592 /* FBSDKLoginKit.framework */,
+				A956C53D1DFE8BF40008A592 /* FBSDKShareKit.framework */,
+			);
+			path = FaceBook;
 			sourceTree = "<group>";
 		};
 		A9727A781DF003FA002640EB /* Resource */ = {
@@ -562,8 +614,8 @@
 			children = (
 				A9D89D8F1DF7DCA00020890F /* LanguageSelectViewController.h */,
 				A9D89D901DF7DCA00020890F /* LanguageSelectViewController.m */,
-				CCFC08CE1DF0419700DF895E /* MineViewController.h */,
 				CCFC08CF1DF0419700DF895E /* MineViewController.m */,
+				CCFC08CE1DF0419700DF895E /* MineViewController.h */,
 				CCFC08D01DF0419700DF895E /* PersonalInfoViewController.h */,
 				CCFC08D11DF0419700DF895E /* PersonalInfoViewController.m */,
 				CC4EFFCD1DF17D3000B7C5BB /* MultiImagePickController.h */,
@@ -925,9 +977,11 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DQ3E9JXX24;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateProject/Vender/QQ",
+					"$(PROJECT_DIR)/TemplateProject/Vender/FaceBook",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
@@ -959,7 +1013,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
+					"-all_load",
 					"-l\"AFNetworking\"",
 					"-l\"BlocksKit\"",
 					"-l\"CocoaAsyncSocket\"",
@@ -1016,9 +1070,11 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DQ3E9JXX24;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateProject/Vender/QQ",
+					"$(PROJECT_DIR)/TemplateProject/Vender/FaceBook",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/TemplateProject/Prefix.pch";
@@ -1050,7 +1106,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-ObjC",
+					"-all_load",
 					"-l\"AFNetworking\"",
 					"-l\"BlocksKit\"",
 					"-l\"CocoaAsyncSocket\"",

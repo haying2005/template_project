@@ -152,7 +152,7 @@
     UIButton *qqButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [qqButton setTitle:@"QQ登录" forState:UIControlStateNormal];
     [qqButton setTag:0];
-    [qqButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 200, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [qqButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 250, BUTTON_WIDTH, BUTTON_HEIGHT)];
     [qqButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:qqButton];
     
@@ -170,39 +170,101 @@
     [sinaWeiBoButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sinaWeiBoButton];
     
+    UIButton *faceBookButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [faceBookButton setTitle:@"FaceBook登录" forState:UIControlStateNormal];
+    [faceBookButton setTag:3];
+    [faceBookButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 200, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [faceBookButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:faceBookButton];
+    
+    UIButton *twitterButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [twitterButton setTitle:@"Twitter登录" forState:UIControlStateNormal];
+    [twitterButton setTag:4];
+    [twitterButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., faceBookButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [twitterButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:twitterButton];
     
     qqButton.backgroundColor = [UIColor brownColor];
     weChatButton.backgroundColor = [UIColor brownColor];
     sinaWeiBoButton.backgroundColor = [UIColor brownColor];
+    faceBookButton.backgroundColor = [UIColor brownColor];
+    twitterButton.backgroundColor = [UIColor brownColor];
 }
 
 - (void)setupShareView
 {
-    UIButton *qqButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [qqButton setTitle:@"QQ分享" forState:UIControlStateNormal];
-    [qqButton setTag:0];
-    [qqButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 150, BUTTON_WIDTH, BUTTON_HEIGHT)];
-    [qqButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:qqButton];
+#undef BUTTON_MARGIN
+#define BUTTON_MARGIN   10
     
-    UIButton *weChatButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [weChatButton setTitle:@"微信分享" forState:UIControlStateNormal];
-    [weChatButton setTag:1];
-    [weChatButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
-    [weChatButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:weChatButton];
+#undef BUTTON_WIDTH
+#define BUTTON_WIDTH    63
+    
+#define BUTTON_HEIGHT   30
+    
+    UIButton *qqFriendButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [qqFriendButton setTitle:@"QQ好友" forState:UIControlStateNormal];
+    [qqFriendButton setTag:0];
+    [qqFriendButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - (BUTTON_WIDTH + BUTTON_MARGIN) * 2, self.view.height - 150, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    qqFriendButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [qqFriendButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:qqFriendButton];
+    
+    UIButton *qqZoneButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [qqZoneButton setTitle:@"QQ空间" forState:UIControlStateNormal];
+    [qqZoneButton setTag:1];
+    [qqZoneButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - (BUTTON_WIDTH + BUTTON_MARGIN) * 1, qqFriendButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    qqZoneButton.titleLabel.font = qqFriendButton.titleLabel.font;
+    [qqZoneButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:qqZoneButton];
+    
+    UIButton *weChatFriendButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [weChatFriendButton setTitle:@"微信好友" forState:UIControlStateNormal];
+    [weChatFriendButton setTag:2];
+    [weChatFriendButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., qqFriendButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    weChatFriendButton.titleLabel.font = qqFriendButton.titleLabel.font;
+    [weChatFriendButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:weChatFriendButton];
+    
+    UIButton *weChatCircleButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [weChatCircleButton setTitle:@"微信朋友圈" forState:UIControlStateNormal];
+    [weChatCircleButton setTag:3];
+    [weChatCircleButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN, qqFriendButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    weChatCircleButton.titleLabel.font = qqFriendButton.titleLabel.font;
+    [weChatCircleButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:weChatCircleButton];
     
     UIButton *sinaWeiBoButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [sinaWeiBoButton setTitle:@"微博分享" forState:UIControlStateNormal];
-    [sinaWeiBoButton setTag:2];
-    [sinaWeiBoButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN, qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [sinaWeiBoButton setTitle:@"微博" forState:UIControlStateNormal];
+    [sinaWeiBoButton setTag:4];
+    [sinaWeiBoButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN + (BUTTON_WIDTH + BUTTON_MARGIN) * 1, qqFriendButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    sinaWeiBoButton.titleLabel.font = qqFriendButton.titleLabel.font;
     [sinaWeiBoButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sinaWeiBoButton];
     
+    UIButton *faceBookButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [faceBookButton setTitle:@"FaceBook" forState:UIControlStateNormal];
+    [faceBookButton setTag:5];
+    [faceBookButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - (BUTTON_WIDTH + BUTTON_MARGIN) * 2, self.view.height - 100, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    faceBookButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [faceBookButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:faceBookButton];
     
-    qqButton.backgroundColor = [UIColor brownColor];
-    weChatButton.backgroundColor = [UIColor brownColor];
+    UIButton *twitterButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [twitterButton setTitle:@"Twitter" forState:UIControlStateNormal];
+    [twitterButton setTag:6];
+    [twitterButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - (BUTTON_WIDTH + BUTTON_MARGIN) * 1, faceBookButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    twitterButton.titleLabel.font = faceBookButton.titleLabel.font;
+    [twitterButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:twitterButton];
+
+    qqFriendButton.backgroundColor = [UIColor brownColor];
+    qqZoneButton.backgroundColor = [UIColor brownColor];
+    weChatFriendButton.backgroundColor = [UIColor brownColor];
+    weChatCircleButton.backgroundColor = [UIColor brownColor];
     sinaWeiBoButton.backgroundColor = [UIColor brownColor];
+    faceBookButton.backgroundColor = [UIColor brownColor];
+    twitterButton.backgroundColor = [UIColor brownColor];
+    
 }
 
 - (void)loginButtonAction:(UIButton *)sender
@@ -217,12 +279,21 @@
 
 - (void)shareButtonAction:(UIButton *)sender
 {
-//    int index = sender.tag;
-//    [[ThirdOpenPlatformManager shareManager] thirdOpenPlatformShareWithType:index
-//                                                             viewController:self
-//                                                           completeCallback:^(BOOL success, id info) {
-//                                                               ZNLog();
-//                                                           }];
+    int index = sender.tag;
+
+    ShareModel *shareModel = [ShareModel new];
+    shareModel.shareTitle = @"分享标题";
+    shareModel.shareDescription = @"我在XXXXX，极致美食，一网打尽，一起做个资深吃货吧 !";
+    shareModel.shareImage = [UIImage imageNamed:@"tab_me_sel"];
+    shareModel.shareImageUrl = @"https://www.baidu.com/img/bd_logo1.png";
+    shareModel.shareUrl = @"https://www.baidu.com";
+    
+    [[ThirdOpenPlatformManager shareManager] thirdOpenPlatformShareWithType:index
+                                                                    content:shareModel
+                                                             viewController:self
+                                                           completeCallback:^(BOOL success, id info) {
+                                                               ZNLog();
+                                                           }];
 }
 
 - (void)forgetPass {

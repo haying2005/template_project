@@ -22,6 +22,24 @@
 #import "AFURLSessionManager.h"
 #import <objc/runtime.h>
 
+// ZNLog for debug
+#define ZN_DEBUG DEBUG
+
+#define STRING_GET_LASTPATHCOMPONENT(str) (\
+        {   char *str_ret=NULL;\
+            int i=0;\
+            while (((char *)str)[i] != '\0') i++;\
+            while (((char *)str)[i] != '/') i--;\
+            str_ret=(char *)str+i+1;\
+            str_ret;\
+        })
+
+#if ZN_DEBUG
+#define ZNLog(format,...) NSLog(@"(%s-%d)%s:" format,(char *)STRING_GET_LASTPATHCOMPONENT((char *)__FILE__),__LINE__,(char *)__FUNCTION__,##__VA_ARGS__)
+#else
+#define ZNLog(format,...)
+#endif
+
 #ifndef NSFoundationVersionNumber_iOS_8_0
 #define NSFoundationVersionNumber_With_Fixed_5871104061079552_bug 1140.11
 #else
@@ -272,6 +290,14 @@ didCompleteWithError:(NSError *)error
         userInfo[AFNetworkingTaskDidCompleteAssetPathKey] = self.downloadFileURL;
     } else if (data) {
         userInfo[AFNetworkingTaskDidCompleteResponseDataKey] = data;
+    }
+    
+    // debug
+    NSURLRequest *httpRequest = task.currentRequest;
+    NSHTTPURLResponse *httpResponse = ((NSHTTPURLResponse *)(task.response));
+    NSString *contentType = [httpResponse.allHeaderFields objectForKey:@"Content-Type"];
+    if (contentType && [[contentType lowercaseString] rangeOfString:@"image"].length == 0) {
+        ZNLog(@"\nrequest---- \nurl:%@ \nmethod:%@ \nheaders:%@ \nbody:%@ \nresponse---- \nstatus code:%d \nheaders:%@ \nbody:%@", httpResponse.URL, httpRequest.HTTPMethod, httpRequest.allHTTPHeaderFields, [[NSString alloc] initWithData:httpRequest.HTTPBody encoding:4], httpResponse.statusCode,  httpResponse.allHeaderFields, [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     }
 
     if (error) {

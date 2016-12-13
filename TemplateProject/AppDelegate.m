@@ -12,6 +12,7 @@
 #import "HotFixEngine.h"
 #import "IQKeyboardManager.h"
 #import "ThirdOpenPlatformManager.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate ()
 
@@ -51,12 +52,12 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [[ThirdOpenPlatformManager shareManager] handleOpenURL:url];
+    return [[ThirdOpenPlatformManager shareManager] handleOpenURL:url application:application sourceApplication:sourceApplication annotation:annotation];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    return [[ThirdOpenPlatformManager shareManager] handleOpenURL:url];
+    return [[ThirdOpenPlatformManager shareManager] handleOpenURL:url application:nil sourceApplication:nil annotation:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -78,6 +79,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[ThirdOpenPlatformManager shareManager] handleApplicationDidBecomeActive];
 }
 
 
