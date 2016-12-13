@@ -110,20 +110,20 @@
     
     [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility uploadParammeters] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         //[formData appendPartWithFormData:imageData name:@"head"];
-        
         NSString *fileName = [NSString stringWithFormat:@"head_%@_%f_%d.jpg", [[User shareInstance] getUUID], [[NSDate date] timeIntervalSince1970], arc4random()%10000];
         [formData appendPartWithFileData:imageData name:@"head" fileName:fileName mimeType:@"image/jpeg"];
+        
     } progress:nil success:^(id data) {
         [self hideLoadingView];
-        
-        WEAKSELF;
-        [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility editUserInfoParammetersWithNick:nil desc:nil headUrl:data[@"access_url"]] success:^(id data_) {
-            NSDictionary *dataDic = data[@"data"];
-            [[User shareInstance] setHead:dataDic[@"access_url"]];
-            [weakSelf.tableView reloadData];
-        } failure:^(NSString *errorDescription) {
-            ZNLog(@"%@", errorDescription);
-        }];
+        ZNLog(@"%@", data);
+//        WEAKSELF;
+//        [[HttpClient shareInstance] requestWithParameters:[HttpParametersUtility editUserInfoParammetersWithNick:nil desc:nil headUrl:data[@"access_url"]] success:^(id data_) {
+//            NSDictionary *dataDic = data[@"data"];
+//            [[User shareInstance] setHead:dataDic[@"access_url"]];
+//            [weakSelf.tableView reloadData];
+//        } failure:^(NSString *errorDescription) {
+//            ZNLog(@"%@", errorDescription);
+//        }];
     } failure:^(NSString *errorDescription) {
         [self hideLoadingView];
         ZNLog(@"%@", errorDescription);

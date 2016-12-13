@@ -7,7 +7,6 @@
 //
 
 #import "User.h"
-#import "FMDB.h"
 
 #define currentUserId @"currentUserId"
 
@@ -20,11 +19,6 @@
     return self;
 }
 
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{
-             @"userId" : @"id"
-             };
-}
 
 + (instancetype)shareInstance {
     static User *user;
