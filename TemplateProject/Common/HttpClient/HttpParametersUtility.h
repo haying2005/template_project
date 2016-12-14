@@ -42,10 +42,10 @@ typedef enum {
                                         access_token:(NSString *)accessToken;
 
 + (HttpParametersModel *)faceBookLoginParametersWithOpenid:(NSString *)openId
-                                        access_token:(NSString *)accessToken;
+                                              access_token:(NSString *)accessToken;
 
 + (HttpParametersModel *)twitterLoginParametersWithOpenid:(NSString *)openId
-                                        access_token:(NSString *)accessToken;
+                                             access_token:(NSString *)accessToken;
 
 + (HttpParametersModel *)setDeviceTokenParammetersWithToken:(NSString *)token;
 

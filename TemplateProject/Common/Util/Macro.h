@@ -32,6 +32,10 @@
 #define USERINFO_UPDATE_NOTIFICATION                @"USERINFO_UPDATE_NOTIFICATION"
 
 
+// 极光
+#define kJPushAppKey                @"1111"
+#define kJPushChannel               @"App Store"
+#define kJPushIsProduction          0
 
 //-------------------------THIRD OPEN PLATFORM-------------------------
 
@@ -55,4 +59,6 @@
 // Twitter
 #define kTwitterAppKey              @"FExa4eORHjRrJBYwy7LSRDLsk"
 #define kTwitterAppSecret           @"XHXY5yiKCuqWcsPepAe41xB02gu3vnwa2jGOFPxKTt6KWPqrND"
+
+
 
