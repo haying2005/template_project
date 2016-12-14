@@ -16,6 +16,9 @@
 - (void)popToRootViewControllerAnimated:(BOOL)animated;
 - (void)popToViewController:(UIViewController *)viewController animated:(BOOL)animated;
 
+// 提示
+- (void)showPrompt:(NSString *)string;
+
 // 加载等待视图，在当前页面上
 - (void)showLoadingView;
 - (void)showLoadingViewWithPrompt:(NSString *)prompt;

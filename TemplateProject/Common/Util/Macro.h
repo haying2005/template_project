@@ -29,7 +29,7 @@
 //#define APPSTORE_URL                                @"https://itunes.apple.com/cn/app/tao-bao-sui-shi-sui-xiang/id387682726?mt=8"
 #define APPSTORE_URL                                @"https://www.pgyer.com/VprD"
 
-
+#define USERINFO_UPDATE_NOTIFICATION                @"USERINFO_UPDATE_NOTIFICATION"
 
 
 

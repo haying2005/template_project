@@ -104,6 +104,22 @@
                                               @"access_token" : accessToken}];
 }
 
++ (HttpParametersModel *)faceBookLoginParametersWithOpenid:(NSString *)openId
+                                              access_token:(NSString *)accessToken
+{
+    return [self httpParametersModelWithURL:URL_FACEBOOK_LOGIN
+                                 parameters:@{@"pid" : openId,
+                                              @"access_token" : accessToken}];
+}
+
++ (HttpParametersModel *)twitterLoginParametersWithOpenid:(NSString *)openId
+                                             access_token:(NSString *)accessToken
+{
+    return [self httpParametersModelWithURL:URL_TWITTER_LOGIN
+                                 parameters:@{@"pid" : openId,
+                                              @"access_token" : accessToken}];
+}
+
 + (HttpParametersModel *)setDeviceTokenParammetersWithToken:(NSString *)token
 {
     return [self httpParametersModelWithURL:URL_SET_DEVICE

@@ -50,6 +50,12 @@
 //微博登录
 #define URL_WEIBO_LOGIN             [URL_ENTRY stringByAppendingString:@"/platform/weibo"]
 
+//FaceBook登录
+#define URL_FACEBOOK_LOGIN          [URL_ENTRY stringByAppendingString:@"/platform/fb"]
+
+//Twitter登录
+#define URL_TWITTER_LOGIN           [URL_ENTRY stringByAppendingString:@"/platform/twitter"]
+
 //同步用户设备信息，devicetoken
 #define URL_SET_DEVICE              [URL_ENTRY stringByAppendingString:@"/user/setdevice"]
 

@@ -145,42 +145,47 @@
 
 - (void)setupLoginView
 {
-#define BUTTON_MARGIN   20
-#define BUTTON_WIDTH    80
+#define BUTTON_MARGIN   10
+#define BUTTON_WIDTH    63
 #define BUTTON_HEIGHT   30
     
     UIButton *qqButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [qqButton setTitle:@"QQ登录" forState:UIControlStateNormal];
     [qqButton setTag:0];
-    [qqButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 250, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [qqButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - (BUTTON_WIDTH + BUTTON_MARGIN) * 2, self.view.height - 230, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    qqButton.titleLabel.font = [UIFont systemFontOfSize:12];
     [qqButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:qqButton];
     
     UIButton *weChatButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [weChatButton setTitle:@"微信登录" forState:UIControlStateNormal];
     [weChatButton setTag:1];
-    [weChatButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [weChatButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - (BUTTON_WIDTH + BUTTON_MARGIN) * 1, qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    weChatButton.titleLabel.font = qqButton.titleLabel.font;
     [weChatButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:weChatButton];
     
     UIButton *sinaWeiBoButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [sinaWeiBoButton setTitle:@"微博登录" forState:UIControlStateNormal];
     [sinaWeiBoButton setTag:2];
-    [sinaWeiBoButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN, qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [sinaWeiBoButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    sinaWeiBoButton.titleLabel.font = qqButton.titleLabel.font;
     [sinaWeiBoButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sinaWeiBoButton];
     
     UIButton *faceBookButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [faceBookButton setTitle:@"FaceBook登录" forState:UIControlStateNormal];
     [faceBookButton setTag:3];
-    [faceBookButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2. - BUTTON_WIDTH - BUTTON_MARGIN, self.view.height - 200, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [faceBookButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN, qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    faceBookButton.titleLabel.font = qqButton.titleLabel.font;
     [faceBookButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:faceBookButton];
     
     UIButton *twitterButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     [twitterButton setTitle:@"Twitter登录" forState:UIControlStateNormal];
     [twitterButton setTag:4];
-    [twitterButton setFrame:CGRectMake(self.view.width / 2. - BUTTON_WIDTH / 2., faceBookButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    [twitterButton setFrame:CGRectMake(self.view.width / 2. + BUTTON_WIDTH / 2. + BUTTON_MARGIN + (BUTTON_WIDTH + BUTTON_MARGIN) * 1, qqButton.top, BUTTON_WIDTH, BUTTON_HEIGHT)];
+    twitterButton.titleLabel.font = qqButton.titleLabel.font;
     [twitterButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:twitterButton];
     
@@ -270,10 +275,17 @@
 - (void)loginButtonAction:(UIButton *)sender
 {
     int index = (int)sender.tag;
+    
+    WEAKSELF
     [[ThirdOpenPlatformManager shareManager] thirdOpenPlatformLoginWithType:index
                                                              viewController:self
                                                            completeCallback:^(BOOL success, id info) {
-                                                               ZNLog(@"%d %d %@", [ThirdOpenPlatformManager shareManager].loginType, success, info);
+                                                               if (success) {
+                                                                   [weakSelf handleThirdOpenPlatformLogin:(NSDictionary *)info];
+                                                               }
+                                                               else {
+                                                                   [weakSelf showPrompt:info ? info : @"登录失败"];
+                                                               }
                                                            }];
 }
 
@@ -288,12 +300,54 @@
     shareModel.shareImageUrl = @"https://www.baidu.com/img/bd_logo1.png";
     shareModel.shareUrl = @"https://www.baidu.com";
     
+    WEAKSELF
     [[ThirdOpenPlatformManager shareManager] thirdOpenPlatformShareWithType:index
                                                                     content:shareModel
                                                              viewController:self
                                                            completeCallback:^(BOOL success, id info) {
-                                                               ZNLog(@"%d %d %@", [ThirdOpenPlatformManager shareManager].shareType, success, info);
+                                                               if (success) {
+                                                                   [weakSelf showPrompt:@"分享成功"];
+                                                               }
+                                                               else {
+                                                                   [weakSelf showPrompt:info ? info : @"分享失败"];
+                                                               }
                                                            }];
+}
+
+- (void)handleThirdOpenPlatformLogin:(NSDictionary *)info {
+    NSString *userID = info[@"userID"];
+    NSString *accessToken = info[@"accessToken"];
+    HttpParametersModel *httpParametersModel = nil;
+    switch ([ThirdOpenPlatformManager shareManager].loginType) {
+        case ThirdOpenPlatformLoginType_QQ: {
+            httpParametersModel = [HttpParametersUtility qqLoginParametersWithOpenid:userID access_token:accessToken];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_WeChat: {
+            httpParametersModel = [HttpParametersUtility weixinLoginParametersWithOpenid:userID access_token:accessToken];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_SinaWeibo: {
+            httpParametersModel = [HttpParametersUtility weiboLoginParametersWithOpenid:userID access_token:accessToken];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_FaceBook: {
+            httpParametersModel = [HttpParametersUtility faceBookLoginParametersWithOpenid:userID access_token:accessToken];
+            break;
+        }
+        case ThirdOpenPlatformLoginType_Twitter: {
+            httpParametersModel = [HttpParametersUtility twitterLoginParametersWithOpenid:userID access_token:accessToken];
+            break;
+        }
+    }
+    
+    WEAKSELF
+    [[HttpClient shareInstance] requestWithParameters:httpParametersModel success:^(id data) {
+        [[User shareInstance] setUserFromDictionary:data];
+        [[NSNotificationCenter defaultCenter]postNotificationName:USERINFO_UPDATE_NOTIFICATION object:nil];
+    } failure:^(NSString *errorDescription) {
+        [weakSelf showPrompt:errorDescription];
+    }];
 }
 
 - (void)forgetPass {
