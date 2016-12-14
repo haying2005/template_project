@@ -269,17 +269,17 @@
 
 - (void)loginButtonAction:(UIButton *)sender
 {
-    int index = sender.tag;
+    int index = (int)sender.tag;
     [[ThirdOpenPlatformManager shareManager] thirdOpenPlatformLoginWithType:index
                                                              viewController:self
                                                            completeCallback:^(BOOL success, id info) {
-                                                               ZNLog();
+                                                               ZNLog(@"%d %d %@", [ThirdOpenPlatformManager shareManager].loginType, success, info);
                                                            }];
 }
 
 - (void)shareButtonAction:(UIButton *)sender
 {
-    int index = sender.tag;
+    int index = (int)sender.tag;
 
     ShareModel *shareModel = [ShareModel new];
     shareModel.shareTitle = @"分享标题";
@@ -292,7 +292,7 @@
                                                                     content:shareModel
                                                              viewController:self
                                                            completeCallback:^(BOOL success, id info) {
-                                                               ZNLog();
+                                                               ZNLog(@"%d %d %@", [ThirdOpenPlatformManager shareManager].shareType, success, info);
                                                            }];
 }
 
