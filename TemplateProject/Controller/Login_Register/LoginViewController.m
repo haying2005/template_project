@@ -345,6 +345,7 @@
     [[HttpClient shareInstance] requestWithParameters:httpParametersModel success:^(id data) {
         [[User shareInstance] setUserFromDictionary:data];
         [[NSNotificationCenter defaultCenter]postNotificationName:USERINFO_UPDATE_NOTIFICATION object:nil];
+        [weakSelf showPrompt:@"登录成功"];
     } failure:^(NSString *errorDescription) {
         [weakSelf showPrompt:errorDescription];
     }];
