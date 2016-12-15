@@ -77,6 +77,14 @@
     [self.navigationController popToViewController:viewController animated:animated];
 }
 
+- (void)showPrompt:(NSString *)string
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:NO];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = string;
+    [hud hide:YES afterDelay:2.];
+}
+
 - (void)showLoadingView
 {
     MBProgressHUD *progressHud=(MBProgressHUD *)[self.view subviewWithClassName:NSStringFromClass([MBProgressHUD class])];

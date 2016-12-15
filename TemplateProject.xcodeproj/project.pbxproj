@@ -39,6 +39,11 @@
 		A956C54E1DFFE1D90008A592 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C54D1DFFE1D90008A592 /* AVFoundation.framework */; };
 		A956C5501DFFE1E20008A592 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C54F1DFFE1E20008A592 /* CoreMedia.framework */; };
 		A956C5521DFFE2200008A592 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5511DFFE2200008A592 /* SafariServices.framework */; };
+		A956C5551DFFE6CB0008A592 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A956C5541DFFE6CB0008A592 /* TwitterKitResources.bundle */; };
+		A956C55A1E0152570008A592 /* jcore-ios-1.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5571E0152570008A592 /* jcore-ios-1.0.0.a */; };
+		A956C55B1E0152570008A592 /* jpush-ios-3.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C5581E0152570008A592 /* jpush-ios-3.0.0.a */; };
+		A956C55D1E01528A0008A592 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C55C1E01528A0008A592 /* UserNotifications.framework */; };
+		A956C55F1E01529C0008A592 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A956C55E1E01529C0008A592 /* libresolv.tbd */; };
 		A9727A7C1DF00429002640EB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A7E1DF00429002640EB /* InfoPlist.strings */; };
 		A9727A831DF00447002640EB /* Language.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9727A851DF00447002640EB /* Language.strings */; };
 		A9727A8A1DF004EC002640EB /* LanguageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A9727A891DF004EC002640EB /* LanguageTool.m */; };
@@ -150,6 +155,12 @@
 		A956C54D1DFFE1D90008A592 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A956C54F1DFFE1E20008A592 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A956C5511DFFE2200008A592 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		A956C5541DFFE6CB0008A592 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
+		A956C5571E0152570008A592 /* jcore-ios-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.0.0.a"; sourceTree = "<group>"; };
+		A956C5581E0152570008A592 /* jpush-ios-3.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.0.a"; sourceTree = "<group>"; };
+		A956C5591E0152570008A592 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		A956C55C1E01528A0008A592 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		A956C55E1E01529C0008A592 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		A9727A731DF0020C002640EB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7B1DF0041C002640EB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A9727A7D1DF00429002640EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -254,10 +265,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A956C55F1E01529C0008A592 /* libresolv.tbd in Frameworks */,
+				A956C55D1E01528A0008A592 /* UserNotifications.framework in Frameworks */,
 				A956C5521DFFE2200008A592 /* SafariServices.framework in Frameworks */,
+				A956C55A1E0152570008A592 /* jcore-ios-1.0.0.a in Frameworks */,
 				A956C5501DFFE1E20008A592 /* CoreMedia.framework in Frameworks */,
 				A956C54E1DFFE1D90008A592 /* AVFoundation.framework in Frameworks */,
 				A956C5381DFE72620008A592 /* CoreGraphics.framework in Frameworks */,
+				A956C55B1E0152570008A592 /* jpush-ios-3.0.0.a in Frameworks */,
 				A956C5361DFE70AC0008A592 /* CoreText.framework in Frameworks */,
 				CCF643661E00E2E500872445 /* TwitterCore.framework in Frameworks */,
 				A956C5341DFE70A10008A592 /* Foundation.framework in Frameworks */,
@@ -289,7 +304,8 @@
 		31C87FC3E02A2B8CC4B41F87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CCF6436B1E00E48400872445 /* CoreData.framework */,
+				A956C55E1E01529C0008A592 /* libresolv.tbd */,
+				A956C55C1E01528A0008A592 /* UserNotifications.framework */,
 				A956C5511DFFE2200008A592 /* SafariServices.framework */,
 				A956C54F1DFFE1E20008A592 /* CoreMedia.framework */,
 				A956C54D1DFFE1D90008A592 /* AVFoundation.framework */,
@@ -336,6 +352,7 @@
 		A910E6EC1DF56FCA002073CF /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A956C5561E0152570008A592 /* JPush */,
 				A956C5461DFFD7AC0008A592 /* Twitter */,
 				A956C5391DFE8BF40008A592 /* FaceBook */,
 				A956C4FD1DFA85270008A592 /* QQ */,
@@ -439,6 +456,16 @@
 				CCF643641E00E2E500872445 /* TwitterKitResources.bundle */,
 			);
 			path = Twitter;
+			sourceTree = "<group>";
+		};
+		A956C5561E0152570008A592 /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				A956C5571E0152570008A592 /* jcore-ios-1.0.0.a */,
+				A956C5581E0152570008A592 /* jpush-ios-3.0.0.a */,
+				A956C5591E0152570008A592 /* JPUSHService.h */,
+			);
+			path = JPush;
 			sourceTree = "<group>";
 		};
 		A9727A781DF003FA002640EB /* Resource */ = {
@@ -1067,6 +1094,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateProject/Vender/WeChat",
 					"$(PROJECT_DIR)/TemplateProject/Vender/SinaWeiBo",
+					"$(PROJECT_DIR)/TemplateProject/Vender/JPush",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1161,6 +1189,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TemplateProject/Vender/WeChat",
 					"$(PROJECT_DIR)/TemplateProject/Vender/SinaWeiBo",
+					"$(PROJECT_DIR)/TemplateProject/Vender/JPush",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

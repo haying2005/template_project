@@ -41,6 +41,12 @@ typedef enum {
 + (HttpParametersModel *)qqLoginParametersWithOpenid:(NSString *)openId
                                         access_token:(NSString *)accessToken;
 
++ (HttpParametersModel *)faceBookLoginParametersWithOpenid:(NSString *)openId
+                                              access_token:(NSString *)accessToken;
+
++ (HttpParametersModel *)twitterLoginParametersWithOpenid:(NSString *)openId
+                                             access_token:(NSString *)accessToken;
+
 + (HttpParametersModel *)setDeviceTokenParammetersWithToken:(NSString *)token;
 
 //type 类型：1注册 2重置密码

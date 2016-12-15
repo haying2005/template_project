@@ -226,7 +226,9 @@
 {
     if (_tencentOAuth.accessToken && 0 != [_tencentOAuth.accessToken length]) {
         if (self.loginCompleteCallback) {
-            self.loginCompleteCallback(YES, nil);
+            self.loginCompleteCallback(YES, @{@"userID" : _tencentOAuth.openId,
+                                              @"accessToken" : _tencentOAuth.accessToken
+                                              });
         }
     } else {
         if (self.loginCompleteCallback) {
@@ -352,7 +354,13 @@
                 NSString *accessToken = dict[@"access_token"];
                 if (accessToken) {
                     if (self.loginCompleteCallback) {
-                        self.loginCompleteCallback((accessToken != nil), nil);
+                        self.loginCompleteCallback((accessToken != nil), @{@"userID" : dict[@"openid"],
+                                                                           @"accessToken" : accessToken
+                                                                           });
+                    }
+                } else {
+                    if (self.loginCompleteCallback) {
+                        self.loginCompleteCallback(NO, nil);
                     }
                 }
             }
@@ -441,8 +449,16 @@
     }
     else if ([response isKindOfClass:WBAuthorizeResponse.class])
     {
-        if (self.loginCompleteCallback) {
-            self.loginCompleteCallback((response.statusCode == WeiboSDKResponseStatusCodeSuccess), nil);
+        if ((response.statusCode == WeiboSDKResponseStatusCodeSuccess)) {
+            if (self.loginCompleteCallback) {
+                self.loginCompleteCallback(YES, @{@"userID" : [((WBAuthorizeResponse *)response) userID],
+                                                  @"accessToken" : [((WBAuthorizeResponse *)response) accessToken]
+                                                  });
+            }
+        } else {
+            if (self.loginCompleteCallback) {
+                self.loginCompleteCallback(NO, nil);
+            }
         }
         
         if (response.statusCode == WeiboSDKResponseStatusCodeSuccess) {
@@ -503,7 +519,9 @@
                                    if ([FBSDKAccessToken currentAccessToken] &&
                                        [[FBSDKAccessToken currentAccessToken].permissions containsObject:@"publish_actions"]) {
                                        if (weakSelf.loginCompleteCallback) {
-                                           weakSelf.loginCompleteCallback(YES, nil);
+                                           weakSelf.loginCompleteCallback(YES, @{@"userID" : [FBSDKAccessToken currentAccessToken].userID,
+                                                                                 @"accessToken" : [FBSDKAccessToken currentAccessToken].tokenString
+                                                                                 });
                                        }
                                        return;
                                    }
@@ -565,7 +583,9 @@
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
         if (session) {
             if (self.loginCompleteCallback) {
-                self.loginCompleteCallback(YES, nil);
+                self.loginCompleteCallback(YES, @{@"userID" : session.userID,
+                                                  @"accessToken" : session.authToken
+                                                  });
             }
         } else {
             if (self.loginCompleteCallback) {
